@@ -1,89 +1,73 @@
 import React, { useState } from "react";
 import {
-  Container,
   FormWrap,
-  Icon,
   FormContent,
-  FormPharmacy,
+  FormDoctor,
   FormInput,
-  FormH1,
   FormLabel,
   IconStyle,
   Table,
   FormButtonCreate,
   FormLabel1,
   FormLabel2,
-  FormLabel3,
   FormSelect,
   FormOption,
-  ServicesIcon,
-} from "./SignupElements";
-import Icon1 from '../../images/logo.jpg'
-import { SiBandsintown } from "react-icons/si";
-import { BiMap } from "react-icons/bi";
-import { BsGenderAmbiguous ,BsFillTelephoneFill } from "react-icons/bs";
+  FormLabel3,
+  FormLabel4,
+  FormH1
+} from "./AccountElements";
+
+import { BsGenderAmbiguous ,BsCardImage,BsFillTelephoneFill} from "react-icons/bs";
+import {SiBandsintown} from "react-icons/si";
+import {BiMap} from "react-icons/bi";
+import {MdOutlineDescription} from "react-icons/md";
 import {
   FormControl,
   FormControlLabel,
   Radio,
   RadioGroup,
+  TextField,
 } from "@mui/material";
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { Towns } from "../Info/Data";
 
-const SignUpPharmacy = (props) => {
-    const [gender, setGender] = useState("Male");
+const Account = (props) => {
+  const [gender, setGender] = useState("Male");
   const handleChangeGender = (event) => {
     setGender(event.target.value);
   };
-    return (
-    <Container>
+  const specialities = [
+    {
+      value: "generaliste",
+      label: "Généraliste",
+    },
+    {
+      value: "EUR",
+      label: "Nutritioniste",
+    },
+    {
+      value: "BTC",
+      label: "Densite",
+    },
+    {
+      value: "JPY",
+      label: "Cardiologue",
+    },
+    {
+      value: "JPY",
+      label: "Dermatologue",
+    },
+    {
+      value: "JPY",
+      label: "Pédiatre",
+    },
+  ];
+  return (
+    
       <FormWrap>
-      <Icon to="/" src={Icon1}><ServicesIcon src={Icon1}/></Icon>       
-       <FormContent>
-          <FormPharmacy action="#">
-          <FormControl sx={{ mx: 5, color: "#6495ED" }}>
-              <RadioGroup
-                row
-                onChange={props.changeSignUpType}
-                value={props.SignUpType}
-              >
-                <FormControlLabel
-                  value="Doctor"
-                  label="Doctor"
-                  control={
-                    <Radio
-                      id="doctor"
-                      sx={{
-                        "& .MuiSvgIcon-root": {
-                          fontSize: 35,
-                          color: "#eceff1",
-                        },
-                      }}
-                    />
-                  }
-                />
-                <FormControlLabel
-                  value="Pharmacist"
-                  control={
-                    <Radio
-                      id="pharmacist"
-                      sx={{
-                        "& .MuiSvgIcon-root": {
-                          fontSize: 35,
-                          color: "#eceff1",
-                        },
-                      }}
-                    />
-                  }
-                  label="Pharmacist"
-                />
-              </RadioGroup>
-            </FormControl>
-            <FormH1>
-              Welcome to our website Pharmacist .Please enter your personal information
-              carefully!
-            </FormH1>
+        <FormContent>
+          <FormDoctor action="#">
+            <FormH1>Manage Account</FormH1>
             <Table>
               <tr>
                 <td>
@@ -123,21 +107,21 @@ const SignUpPharmacy = (props) => {
                 <td>
                   <FormInput
                     htmlFor="fullname"
-                    placeholder="Enter your full name"
+                    placeholder=""
                     required
                   ></FormInput>
                 </td>
                 <td>
                   <FormInput
                     htmlFor="email"
-                    placeholder="Enter your email"
+                    placeholder=""
                     required
                   ></FormInput>
                 </td>
                 <td>
                   <FormInput
                     htmlFor="password"
-                    placeholder="Enter your password"
+                    placeholder=""
                     required
                   ></FormInput>
                 </td>
@@ -154,7 +138,10 @@ const SignUpPharmacy = (props) => {
                 </td>
               </tr>
               <tr>
-                 <td>
+                <td>
+                  <FormLabel2 htmlFor="for">Speciality</FormLabel2>
+                </td>
+                <td>
                   <FormLabel3 htmlFor="for">
                     <IconStyle>
                       <BsFillTelephoneFill />
@@ -171,23 +158,27 @@ const SignUpPharmacy = (props) => {
                 </td>
                 <td>
                   <FormLabel3 htmlFor="for">
-                    Pharmacy Name
-                  </FormLabel3>
-                </td>
-                <td>
-                  <FormLabel2 htmlFor="for">
                     <IconStyle>
-                      <BiMap/>
+                      <BsCardImage/>
                     </IconStyle>
-                    Address
-                  </FormLabel2>
+                    Profile Picture
+                  </FormLabel3>
                 </td>
               </tr>
               <tr>
                 <td>
+                  <FormSelect htmlFor="speciality" required>
+                    {specialities.map((speciality) => (
+                      <FormOption value={speciality.value}>
+                        {speciality.label}
+                      </FormOption>
+                    ))}
+                  </FormSelect>
+                </td>
+                <td>
                   <FormInput
                     htmlFor="phonenumber"
-                    placeholder="Enter your phone number"
+                    placeholder=""
                     required
                   ></FormInput>
                 </td>
@@ -199,21 +190,20 @@ const SignUpPharmacy = (props) => {
                   </FormSelect>
                 </td>
                 <td>
-                  <FormInput
-                    htmlFor="pharmacyname"
-                    placeholder="Enter your pharmacy name"
-                    required
-                  ></FormInput>
-                </td>
-                <td>
-                  <FormInput
-                    htmlFor="address"
-                    placeholder="Enter your address"
-                    required
-                  ></FormInput>
+                  {/* upload image */}
                 </td>
               </tr>
               <tr>
+              <td>
+                  <FormLabel2 htmlFor="for">Firm Name</FormLabel2>
+                </td>
+                <td>
+                  <FormLabel2 htmlFor="for">
+                  <IconStyle>
+                      <BiMap/>
+                    </IconStyle>
+                    Address</FormLabel2>
+                </td>
                 <td>
                   <FormLabel htmlFor="for">X Cordiante</FormLabel>
                 </td>
@@ -222,28 +212,63 @@ const SignUpPharmacy = (props) => {
                 </td>
               </tr>
               <tr>
+                <td>
+              <FormInput
+                    htmlFor="firmname"
+                    placeholder=""
+                    required
+              ></FormInput>
+              </td>
+              <td>
+              <FormInput
+                    htmlFor="address"
+                    placeholder=""
+                    required
+              ></FormInput>
+              </td>
               <td>
               <FormInput
                     htmlFor="x_cordinate"
-                    placeholder="Enter your firm x cordinate"
+                    placeholder=""
                     required
               ></FormInput>
               </td>
               <td>
               <FormInput
                     htmlFor="y_cordinate"
-                    placeholder="Enter your firm y cordinate"
+                    placeholder=""
                     required
               ></FormInput>
               </td>
               </tr>
+              <tr>
+              <FormLabel4 htmlFor="for">
+                    <IconStyle>
+                      <MdOutlineDescription/>
+                    </IconStyle>
+                    Description
+                  </FormLabel4>
+               </tr> 
+               <tr>
+                 <td colSpan="3">
+                  <TextField
+                    sx={{ bgcolor: "#FFFFFF", mx: 1, borderRadius: 1,width:900}}
+                    placeholder=""
+                    multiline
+                    rows={2}
+                    maxRows={4}
+                  />
+                </td> 
+                <td>
+                    <FormButtonCreate type="submit">Save</FormButtonCreate>
+                </td>
+              </tr>
             </Table>
-            <FormButtonCreate type="submit">Create Account</FormButtonCreate>
-          </FormPharmacy>
+          </FormDoctor>
         </FormContent>
       </FormWrap>
-    </Container>
+    
   );
 };
 
-export default SignUpPharmacy;
+export default Account;

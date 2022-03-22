@@ -22,7 +22,7 @@ const SignUp = () => {
       {signUpType === "doctor" && (
         <SignUpDoctor changeSignUpType={handleChangeSignUpType} SignUpType={signUpType}/>
       )}
-      {signUpType === "pharmacy" && (
+      {signUpType === "pharmacist" && (
           <SignUpPharmacy changeSignUpType={handleChangeSignUpType} SignUpType={signUpType}/>
       )}
     </>

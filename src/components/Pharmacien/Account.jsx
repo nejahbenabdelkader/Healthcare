@@ -1,90 +1,39 @@
 import React, { useState } from "react";
 import {
-  Container,
   FormWrap,
-  Icon,
   FormContent,
   FormPharmacy,
   FormInput,
-  FormH1,
   FormLabel,
   IconStyle,
   Table,
-  FormButtonCreate,
   FormLabel1,
   FormLabel2,
-  FormLabel3,
   FormSelect,
   FormOption,
-  ServicesIcon,
-} from "./SignupElements";
-import Icon1 from '../../images/logo.jpg'
-import { SiBandsintown } from "react-icons/si";
-import { BiMap } from "react-icons/bi";
-import { BsGenderAmbiguous ,BsFillTelephoneFill } from "react-icons/bs";
-import {
-  FormControl,
-  FormControlLabel,
-  Radio,
-  RadioGroup,
-} from "@mui/material";
+  FormLabel3,
+  FormButtonSave,
+  FormH1
+} from "./AccountElements";
+
+import { BsGenderAmbiguous,BsFillTelephoneFill} from "react-icons/bs";
+import {SiBandsintown} from "react-icons/si";
+import {BiMap} from "react-icons/bi";
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { Towns } from "../Info/Data";
 
-const SignUpPharmacy = (props) => {
-    const [gender, setGender] = useState("Male");
+const Account = (props) => {
+  const [gender, setGender] = useState("Male");
   const handleChangeGender = (event) => {
     setGender(event.target.value);
   };
-    return (
-    <Container>
+  return (
+    
       <FormWrap>
-      <Icon to="/" src={Icon1}><ServicesIcon src={Icon1}/></Icon>       
-       <FormContent>
+        <FormContent>
           <FormPharmacy action="#">
-          <FormControl sx={{ mx: 5, color: "#6495ED" }}>
-              <RadioGroup
-                row
-                onChange={props.changeSignUpType}
-                value={props.SignUpType}
-              >
-                <FormControlLabel
-                  value="Doctor"
-                  label="Doctor"
-                  control={
-                    <Radio
-                      id="doctor"
-                      sx={{
-                        "& .MuiSvgIcon-root": {
-                          fontSize: 35,
-                          color: "#eceff1",
-                        },
-                      }}
-                    />
-                  }
-                />
-                <FormControlLabel
-                  value="Pharmacist"
-                  control={
-                    <Radio
-                      id="pharmacist"
-                      sx={{
-                        "& .MuiSvgIcon-root": {
-                          fontSize: 35,
-                          color: "#eceff1",
-                        },
-                      }}
-                    />
-                  }
-                  label="Pharmacist"
-                />
-              </RadioGroup>
-            </FormControl>
-            <FormH1>
-              Welcome to our website Pharmacist .Please enter your personal information
-              carefully!
-            </FormH1>
-            <Table>
+          <FormH1>Manage Account</FormH1>
+          <Table>
               <tr>
                 <td>
                   <FormLabel htmlFor="for">
@@ -123,21 +72,21 @@ const SignUpPharmacy = (props) => {
                 <td>
                   <FormInput
                     htmlFor="fullname"
-                    placeholder="Enter your full name"
+                    placeholder=""
                     required
                   ></FormInput>
                 </td>
                 <td>
                   <FormInput
                     htmlFor="email"
-                    placeholder="Enter your email"
+                    placeholder=""
                     required
                   ></FormInput>
                 </td>
                 <td>
                   <FormInput
                     htmlFor="password"
-                    placeholder="Enter your password"
+                    placeholder=""
                     required
                   ></FormInput>
                 </td>
@@ -187,7 +136,7 @@ const SignUpPharmacy = (props) => {
                 <td>
                   <FormInput
                     htmlFor="phonenumber"
-                    placeholder="Enter your phone number"
+                    placeholder=""
                     required
                   ></FormInput>
                 </td>
@@ -201,14 +150,14 @@ const SignUpPharmacy = (props) => {
                 <td>
                   <FormInput
                     htmlFor="pharmacyname"
-                    placeholder="Enter your pharmacy name"
+                    placeholder=""
                     required
                   ></FormInput>
                 </td>
                 <td>
                   <FormInput
                     htmlFor="address"
-                    placeholder="Enter your address"
+                    placeholder=""
                     required
                   ></FormInput>
                 </td>
@@ -225,25 +174,27 @@ const SignUpPharmacy = (props) => {
               <td>
               <FormInput
                     htmlFor="x_cordinate"
-                    placeholder="Enter your firm x cordinate"
+                    placeholder=""
                     required
               ></FormInput>
               </td>
               <td>
               <FormInput
                     htmlFor="y_cordinate"
-                    placeholder="Enter your firm y cordinate"
+                    placeholder=""
                     required
               ></FormInput>
               </td>
+              <td>
+                <FormButtonSave type="submit">Save</FormButtonSave>
+              </td>
               </tr>
             </Table>
-            <FormButtonCreate type="submit">Create Account</FormButtonCreate>
           </FormPharmacy>
         </FormContent>
       </FormWrap>
-    </Container>
+    
   );
 };
 
-export default SignUpPharmacy;
+export default Account;

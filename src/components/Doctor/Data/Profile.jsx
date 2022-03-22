@@ -1,4 +1,3 @@
-import { Typography } from "@mui/material";
 import React from "react";
 import { ServicesH2 } from "../../Services/ServiceElements";
 import {
@@ -10,12 +9,15 @@ import {
   Title,
   ImgWrap,
   TextWrap,
-  IconStyle,
   ButtonsWrapper,
+  IconStyle,
 } from "./DataElemnts";
+import Rating from "@mui/material/Rating";
 import { BiMap } from "react-icons/bi";
+import { FiMail } from "react-icons/fi";
+import { BsFillTelephoneFill } from "react-icons/bs";
 
-const DataDoctor = () => {
+const ProfileDoctor = () => {
   return (
     <Main>
       <FlexWrapperOne>
@@ -30,6 +32,7 @@ const DataDoctor = () => {
             prothétique Ancien Assistant à la Faculté de Médecine de Tunis
             Diplômé de la Faculté de Médecine de Paris
           </ServicesH2>
+          <Rating name="read-only" value={4.5} precision={0.5} readOnly />
         </TextWrap>
       </FlexWrapperOne>
       <FlexWrapperOne>
@@ -38,8 +41,20 @@ const DataDoctor = () => {
         </IconStyle>
         <Location>CENTRE MEDICAL ECHIFAA, AVENUE HOUCINE BOUZAIENE</Location>
         <ButtonsWrapper>
-          <Call backgroundColor="#01bf71;">
-            <MakeACall>Take An Appoitment</MakeACall>
+          <Call
+            backgroundColor="#01bf71"
+            onClick={() => console.log("working")}
+          >
+            <IconStyle>
+              <BsFillTelephoneFill height={25} width={25} />
+            </IconStyle>
+            <MakeACall>+21695846231</MakeACall>
+          </Call>
+          <Call backgroundColor="#01bf71">
+            <IconStyle>
+              <FiMail height={25} width={25} />
+            </IconStyle>
+            <MakeACall>Send A message</MakeACall>
           </Call>
         </ButtonsWrapper>
       </FlexWrapperOne>
@@ -47,4 +62,4 @@ const DataDoctor = () => {
   );
 };
 
-export default DataDoctor;
+export default ProfileDoctor;
