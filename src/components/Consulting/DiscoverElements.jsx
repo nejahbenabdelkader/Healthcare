@@ -1,17 +1,20 @@
 import styled from 'styled-components';
 
 export const InfoContainer = styled.div`
-  color: #fff;
+  height:auto;
+  margin-top:10px;
+  border-top: 1px solid #C6C6C6;
   background: ${({lightBg}) => (lightBg ? '#f9f9f9' : '#010606')};
-
+   padding-bottom:10px;
   @media screen and  (max-width: 768px) {
     padding: 100px 0;
   }
+  padding-bottom:100px;رسي
 `
 export const InfoWrapper = styled.div`
   display: grid;
   z-index: 1;
-  height: 600px;
+  height: auto;
   width: 100%auto;
   max-width: 1100px;
   margin:0px auto;
@@ -86,7 +89,8 @@ export const Img = styled.img`
 `;
 export const SearchBarDoctorWrapper =styled.div`
 max-width: 1000px;
-background-color:white;
+background-color:#f9f9f9;
+margin: 1rem auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     align-items: center;
@@ -95,13 +99,13 @@ background-color:white;
       padding: 0 20px;
   }
   width:100%;
-  margin:auto;
   border-radius: 10px;
 
 `
 export const SearchBarDrugWrapper =styled.div`
 max-width: 1000px;
 background-color:white;
+margin: 1rem auto;
     display: grid;
     grid-template-columns: 3fr 1fr ;
     align-items: center;
@@ -110,7 +114,6 @@ background-color:white;
       padding: 0 20px;
   }
   width:100%;
-  margin: auto;
   border-radius: 10px;
 
 `
@@ -128,7 +131,7 @@ color: blue;
 export const ButtonsWrapper = styled.div`
     max-width: 1000px;
     display: grid;
-    margin-top:50px;
+    margin:50px auto;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     grid-gap: 16px;

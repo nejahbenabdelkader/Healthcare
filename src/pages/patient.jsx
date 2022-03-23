@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Consulting from "../components/Consulting";
+import Appointments from "../components/Entities/Patient/Appoitment/Appointments";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Info from "../components/Info";
@@ -8,12 +9,11 @@ import Navbar from "../components/Navbar";
 import Services from "../components/Services";
 import Sidebar from "../components/SideBar";
 const navLinks = {
-  rightButtonName:"SignIn" ,
-  rightButtonPath:"/signin",
-  navBarLink: ["About", "Consulting", "Services", "SignUp"],
+    rightButtonName:"LogOut" ,
+    rightButtonPath:"/",
+  navBarLink: ["Appoitment", "Consulting", "Messages", "Account"],
 };
-
-const Home = () => {
+const Patient = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -25,13 +25,12 @@ const Home = () => {
       <Sidebar isOpen={isOpen} toggle={toggle} {...navLinks} />
       <Navbar toggle={toggle} {...navLinks} />
       <Hero />
-      <Info {...homeObjOne} />
+      <Appointments />
       <Consulting {...homeObjTwo} />
       <Services />
-      <Info {...homeObjThree} />
       <Footer />
     </>
   );
 };
 
-export default Home;
+export default Patient;

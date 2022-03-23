@@ -4,7 +4,7 @@ import { Towns } from "../Info/Data";
 import { ServicesH2 } from "../Services/ServiceElements";
 import { SearchBarDoctorWrapper } from "./DiscoverElements";
 
-const SearchBarDoctor = () => {
+const SearchBarDoctor = ({handleClick}) => {
   const specialities = [
     {
       value: "USD",
@@ -49,7 +49,7 @@ const SearchBarDoctor = () => {
           </MenuItem>
         ))}
       </TextField>
-      <Button variant="contained" fullWidth>
+      <Button variant="contained" fullWidth onClick={handleClick}>
         <ServicesH2>Search Now</ServicesH2>
       </Button>
     </SearchBarDoctorWrapper>

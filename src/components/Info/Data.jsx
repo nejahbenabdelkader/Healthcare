@@ -245,8 +245,8 @@ export const DoctorsData = [
       "Spécialiste en Chirurgie Orthopédique Chirurgie du Rachis chirurgie prothétique Ancien Assistant à la Faculté de Médecine de Tunis Diplômé de la Faculté de Médecine de Paris ",
     adresse: "Ariana Ville 2080 Ariana Tunisie",
     rating: 4.5,
-    coordoonées:"36.84546 10.215345",
-    Phone:"+21698875465"
+    coordoonées: "36.84546 10.215345",
+    Phone: "+21698875465",
   },
   {
     name: "Foulen ben Foulen",
@@ -254,8 +254,8 @@ export const DoctorsData = [
       "Spécialiste en Chirurgie Orthopédique Chirurgie du Rachis chirurgie prothétique Ancien Assistant à la Faculté de Médecine de Tunis Diplômé de la Faculté de Médecine de Paris ",
     adresse: "Ariana Ville 2080 Ariana Tunisie",
     rating: 4.5,
-    coordoonées:"36.84546 10.215345",
-    Phone:"+21698875465"
+    coordoonées: "36.84546 10.215345",
+    Phone: "+21698875465",
   },
   {
     name: "Foulen ben Foulen",
@@ -263,7 +263,211 @@ export const DoctorsData = [
       "Spécialiste en Chirurgie Orthopédique Chirurgie du Rachis chirurgie prothétique Ancien Assistant à la Faculté de Médecine de Tunis Diplômé de la Faculté de Médecine de Paris ",
     adresse: "Ariana Ville 2080 Ariana Tunisie",
     rating: 4.5,
-    coordoonées:"36.84546 10.215345",
-    Phone:"+21698875465"
+    coordoonées: "36.84546 10.215345",
+    Phone: "+21698875465",
+  },
+];
+
+export const searchDoctor = [
+  {
+    doctorName: "Dr. El Kebir Ahmed",
+    streetAdress: "Zone touristique immeuble errahma 2ème etage blocA n’27",
+    photo:
+      "https://www.diethelmtravel.com/wp-content/uploads/2016/04/bill-gates-wealthiest-person.jpg",
+    description:
+      "Spécialiste en Chirurgie Orthopédique Chirurgie du Rachis chirurgie prothétique Ancien Assistant à la Faculté de Médecine de Tunis Diplômé de la Faculté de Médecine de Paris",
+  },
+  {
+    doctorName: "Dr. El Kebir Ahmed",
+    streetAdress: "Zone touristique immeuble errahma 2ème etage blocA n’27",
+    photo:
+      "https://www.diethelmtravel.com/wp-content/uploads/2016/04/bill-gates-wealthiest-person.jpg",
+
+    description:
+      "Spécialiste en Chirurgie Orthopédique Chirurgie du Rachis chirurgie prothétique Ancien Assistant à la Faculté de Médecine de Tunis Diplômé de la Faculté de Médecine de Paris",
+  },
+  {
+    doctorName: "Dr. El Kebir Ahmed",
+    streetAdress: "Zone touristique immeuble errahma 2ème etage blocA n’27",
+    photo:
+      "https://www.diethelmtravel.com/wp-content/uploads/2016/04/bill-gates-wealthiest-person.jpg",
+
+    description:
+      "Spécialiste en Chirurgie Orthopédique Chirurgie du Rachis chirurgie prothétique Ancien Assistant à la Faculté de Médecine de Tunis Diplômé de la Faculté de Médecine de Paris",
+  },
+  {
+    doctorName: "Dr. El Kebir Ahmed",
+    streetAdress: "Zone touristique immeuble errahma 2ème etage blocA n’27",
+    photo:
+      "https://www.diethelmtravel.com/wp-content/uploads/2016/04/bill-gates-wealthiest-person.jpg",
+
+    description:
+      "Spécialiste en Chirurgie Orthopédique Chirurgie du Rachis chirurgie prothétique Ancien Assistant à la Faculté de Médecine de Tunis Diplômé de la Faculté de Médecine de Paris",
+  },
+];
+
+export const searchDrug = [
+  {
+    nameDrug: "AZITROMIN TRIO 500 mg Comp. Pell. Séc. B/3",
+    fiche: {
+      reference: "2258abdefmal",
+      dosage: "500mg",
+      forme: "Comprimé pelliculé sécable",
+      price: "6.400",
+    },
+    photo:
+      "https://www.diethelmtravel.com/wp-content/uploads/2016/04/bill-gates-wealthiest-person.jpg",
+    utilisation:
+      "Elles procèdent de l`activité antibactérienne et des caractéristiques pharmacocinétiques de l`azithromycine. Elles tiennent compte à la fois des études cliniques auxquelles a donné lieu ce médicament et de sa place dans l`éventail des produits antibactériens actuellement disponibles. ;Elles sont limitées aux infections dues aux germes définis comme sensibles: ",
+
+    locationPharamcy: [
+      {
+        namePharmacy: "Pharmacie de nuit MAHER GUIGA",
+        streetAdresse: " Le Bardo Tunis",
+        PhoneNumber: "+216.71.222.284",
+        gpsLocation: "",
+      },
+      {
+        namePharmacy: "Pharmacie de nuit MAHER GUIGA",
+        streetAdresse: " Le Bardo Tunis",
+        PhoneNumber: "+216.71.222.284",
+        gpsLocation: "",
+      },
+      {
+        namePharmacy: "Pharmacie de nuit MAHER GUIGA",
+        streetAdresse: " Le Bardo Tunis",
+        PhoneNumber: "+216.71.222.284",
+        gpsLocation: "",
+      },
+    ],
+  },
+  {
+    nameDrug: "AZITROMIN TRIO 500 mg Comp. Pell. Séc. B/3",
+    fiche: {
+      reference: "2258abdefmal",
+      dosage: "500mg",
+      forme: "Comprimé pelliculé sécable",
+      price: "6.400",
+    },
+    photo:
+      "https://www.diethelmtravel.com/wp-content/uploads/2016/04/bill-gates-wealthiest-person.jpg",
+    utilisation:
+      "Elles procèdent de l`activité antibactérienne et des caractéristiques pharmacocinétiques de l`azithromycine. Elles tiennent compte à la fois des études cliniques auxquelles a donné lieu ce médicament et de sa place dans l`éventail des produits antibactériens actuellement disponibles. ;Elles sont limitées aux infections dues aux germes définis comme sensibles: ",
+
+    locationPharamcy: [
+      {
+        namePharmacy: "Pharmacie de nuit MAHER GUIGA",
+        streetAdresse: " Le Bardo Tunis",
+        PhoneNumber: "+216.71.222.284",
+        gpsLocation: "",
+      },
+      {
+        namePharmacy: "Pharmacie de nuit MAHER GUIGA",
+        streetAdresse: " Le Bardo Tunis",
+        PhoneNumber: "+216.71.222.284",
+        gpsLocation: "",
+      },
+      {
+        namePharmacy: "Pharmacie de nuit MAHER GUIGA",
+        streetAdresse: " Le Bardo Tunis",
+        PhoneNumber: "+216.71.222.284",
+        gpsLocation: "",
+      },
+    ],
+  },
+  {
+    nameDrug: "AZITROMIN TRIO 500 mg Comp. Pell. Séc. B/3",
+    fiche: {
+      reference: "2258abdefmal",
+      dosage: "500mg",
+      forme: "Comprimé pelliculé sécable",
+      price: "6.400",
+    },
+    photo:
+      "https://www.diethelmtravel.com/wp-content/uploads/2016/04/bill-gates-wealthiest-person.jpg",
+    utilisation:
+      "Elles procèdent de l`activité antibactérienne et des caractéristiques pharmacocinétiques de l`azithromycine. Elles tiennent compte à la fois des études cliniques auxquelles a donné lieu ce médicament et de sa place dans l`éventail des produits antibactériens actuellement disponibles. ;Elles sont limitées aux infections dues aux germes définis comme sensibles: ",
+
+    locationPharamcy: [
+      {
+        namePharmacy: "Pharmacie de nuit MAHER GUIGA",
+        streetAdresse: " Le Bardo Tunis",
+        PhoneNumber: "+216.71.222.284",
+        gpsLocation: "",
+      },
+      {
+        namePharmacy: "Pharmacie de nuit MAHER GUIGA",
+        streetAdresse: " Le Bardo Tunis",
+        PhoneNumber: "+216.71.222.284",
+        gpsLocation: "",
+      },
+      {
+        namePharmacy: "Pharmacie de nuit MAHER GUIGA",
+        streetAdresse: " Le Bardo Tunis",
+        PhoneNumber: "+216.71.222.284",
+        gpsLocation: "",
+      },
+    ],
+  },
+  {
+    nameDrug: "AZITROMIN TRIO 500 mg Comp. Pell. Séc. B/3",
+    fiche: {
+      reference: "2258abdefmal",
+      dosage: "500mg",
+      forme: "Comprimé pelliculé sécable",
+      price: "6.400",
+    },
+    photo:
+      "https://www.diethelmtravel.com/wp-content/uploads/2016/04/bill-gates-wealthiest-person.jpg",
+    utilisation:
+      "Elles procèdent de l`activité antibactérienne et des caractéristiques pharmacocinétiques de l`azithromycine. Elles tiennent compte à la fois des études cliniques auxquelles a donné lieu ce médicament et de sa place dans l`éventail des produits antibactériens actuellement disponibles. ;Elles sont limitées aux infections dues aux germes définis comme sensibles: ",
+
+    locationPharamcy: [
+      {
+        namePharmacy: "Pharmacie de nuit MAHER GUIGA",
+        streetAdresse: " Le Bardo Tunis",
+        PhoneNumber: "+216.71.222.284",
+        gpsLocation: "",
+      },
+      {
+        namePharmacy: "Pharmacie de nuit MAHER GUIGA",
+        streetAdresse: " Le Bardo Tunis",
+        PhoneNumber: "+216.71.222.284",
+        gpsLocation: "",
+      },
+      {
+        namePharmacy: "Pharmacie de nuit MAHER GUIGA",
+        streetAdresse: " Le Bardo Tunis",
+        PhoneNumber: "+216.71.222.284",
+        gpsLocation: "",
+      },
+    ],
+  },
+];
+
+export const AppoitmentsData = [
+  {
+    date: "24-03-2022",
+    doctorName: "Hedi Jouini",
+    speciality: "Dentiste",
+    status: "Done",
+  },
+  {
+    date: "24-03-2022",
+    doctorName: "Hedi Jouini",
+    speciality: "Dentiste",
+    status: "Done",
+  },
+  {
+    date: "24-03-2022",
+    doctorName: "Hedi Jouini",
+    speciality: "Dentiste",
+    status: "Done",
+  },
+  {
+    date: "24-03-2022",
+    doctorName: "Hedi Jouini",
+    speciality: "Dentiste",
+    status: "Done",
   },
 ];

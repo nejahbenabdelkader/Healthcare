@@ -5,7 +5,7 @@ import { Nav, NavbarContainer,ServicesIcon, MobileIcon, NavMenu, NavLinks, NavIt
 import { animateScroll as scroll } from 'react-scroll';
 import Icon1 from '../../images/logo.jpg'
 
-const Navbar = ({ toggle }) => {
+const Navbar = ({rightButtonName,rightButtonPath,toggle,navBarLink}) => {
   const [scrollNav, setScrollNav] = useState(false)
   const changeNav = () => {
     if(window.scrollY >= 80) {
@@ -14,7 +14,6 @@ const Navbar = ({ toggle }) => {
       setScrollNav(false)
     }
   }
-
   useEffect(() => {
     window.addEventListener('scroll', changeNav)
   }, [])
@@ -33,29 +32,14 @@ const Navbar = ({ toggle }) => {
             <FaBars />
           </MobileIcon>
           <NavMenu>
-            <NavItem>
-              <NavLinks to='about'
+            {navBarLink.map(link=> <NavItem>
+              <NavLinks to={link}
               smooth={true} duration={500} spy={true} exact='true' offset={-80}
-              >About</NavLinks>
-            </NavItem>
-            <NavItem>
-              <NavLinks to='consulting'
-              smooth={true} duration={500} spy={true} exact='true' offset={-80}
-              >Consulting</NavLinks>
-            </NavItem>
-            <NavItem>
-              <NavLinks to='services'
-              smooth={true} duration={500} spy={true} exact='true' offset={-80}
-              >Services</NavLinks>
-            </NavItem>
-            <NavItem>
-              <NavLinks to='signup'
-              smooth={true} duration={500} spy={true} exact='true' offset={-80}
-              >Sign Up</NavLinks>
-            </NavItem>
+              >{link}</NavLinks>
+            </NavItem>)}
           </NavMenu>
           <NavBtn>
-            <NavBtnLink to='/signin'>Sign In</NavBtnLink>
+            <NavBtnLink to={rightButtonPath}>{rightButtonName}</NavBtnLink>
           </NavBtn>
         </NavbarContainer>
       </Nav>

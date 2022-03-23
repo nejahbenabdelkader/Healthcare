@@ -12,7 +12,7 @@ import { Towns } from "../Info/Data";
 import { ServicesH2 } from "../Services/ServiceElements";
 import { SearchBarDoctorWrapper } from "./DiscoverElements";
 
-const SearchBarPharmacy = () => {
+const SearchBarPharmacy = ({handleClick}) => {
   const [timePharmacy, setTimePharmacy] = useState("day");
   const handleChangeTimePharmacy = (event) => {
     setTimePharmacy(event.target.value);
@@ -48,7 +48,7 @@ const SearchBarPharmacy = () => {
             </MenuItem>
           ))}
       </TextField>
-      <Button variant="contained" fullWidth>
+      <Button variant="contained" fullWidth onClick={handleClick}>
         <ServicesH2>Search Now</ServicesH2>
       </Button>
     </SearchBarDoctorWrapper>
