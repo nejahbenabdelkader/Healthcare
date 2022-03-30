@@ -10,6 +10,7 @@ import Services from "../components/Services";
 import Sidebar from "../components/SideBar";
 import DoctorHome from "./doctor";
 import PatientHome from "./patient";
+import PharmacyHome from "./pharmacy";
 const navLinks = {
   rightButtonName: "SignIn",
   rightButtonPath: "/signin",
@@ -29,7 +30,7 @@ const Home = () => {
     case "doctor":
       return <DoctorHome />;
     case "pharmacy":
-      return <Pha
+      return <PharmacyHome />
     default:
       return (
         <>
