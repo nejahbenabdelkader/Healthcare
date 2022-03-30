@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const InfoContainer = styled.div`
   height:auto;
-  margin-top:10px;
   border-top: 1px solid #C6C6C6;
   background: ${({lightBg}) => (lightBg ? '#f9f9f9' : '#010606')};
    padding-bottom:10px;

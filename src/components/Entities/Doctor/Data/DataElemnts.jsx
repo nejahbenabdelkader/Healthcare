@@ -31,20 +31,7 @@ export const FlexWrapperOne = styled.div`
   align-items: flex-start;
 `;
 
-export const Title = styled.p`
-  height: 20px;
-  margin: 15px -10px;
-  background-color: inherit;
-  width: 544px;
-  padding-left: 10px;
-  font-size: 30px;
-  font-weight: 600;
-  line-height: normal;
-  color: rgba(23, 140, 248, 1);
-  display: flex;
-  align-items: center;
-  position: relative;
-`;
+
 
 export const IconStyle = styled.div`
   color: ${({ color }) => (color ? "#000" : "#fff")};
@@ -57,7 +44,7 @@ export const Call = styled.button`
   &:hover{
     cursor:pointer;
   }
-  width:250px;
+  width:${(props) => props.width};
   background-color: ${(props) => props.backgroundColor};
   overflow: hidden;
   margin: auto 10px;
@@ -90,7 +77,20 @@ export const Location = styled.p`
 `;
 
 
-
+export const Title = styled.p`
+  height: 20px;
+  margin: 15px -10px;
+  background-color: inherit;
+  width: 544px;
+  padding-left: 10px;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: normal;
+  color: rgba(23, 140, 248, 1);
+  display: flex;
+  align-items: center;
+  position: relative;
+`;
 export const Description=styled.h2`
 font-size: 1rem;
 color:black;

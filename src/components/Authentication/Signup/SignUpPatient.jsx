@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Icon1 from '../../../images/logo.jpg';
+import React, { useReducer, useState } from "react";
+import Icon1 from "../../../images/logo.jpg";
 import {
   Container,
   FormWrap,
@@ -20,22 +20,61 @@ import {
   FormLabel3,
   ServicesIcon,
 } from "./SignupElements";
-
-import { BsGenderAmbiguous,BsFillTelephoneFill } from "react-icons/bs";
-
+import { BsGenderAmbiguous, BsFillTelephoneFill } from "react-icons/bs";
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
+import { Box } from "@mui/material";
+import { NavbarContainer } from "../Signin/SigninElements";
+import AlertComponent from "../../Elements/Alert";
 
 const SignUpPatient = (props) => {
-  const [gender, setGender] = useState("Male");
-  const handleChangeGender = (event) => {
-    setGender(event.target.value);
+  
+  const initialState = {
+    name: "",
+    email: "",
+    phoneNumber: "",
+    password: "",
+    gender: "",
   };
+  
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "name":
+        return { ...state, name: action.value };
+      case "email":
+        return { ...state, email: action.value };
+      case "phoneNumber":
+        return { ...state, phoneNumber: action.value };
+      case "password":
+        return { ...state, password: action.value };
+      case "gender":
+        return { ...state, gender: action.value };
+    }
+  };
+  
+  const [patient, dispatchPatient] = useReducer(reducer, initialState);
+  const [verifiedCredentials, setVerifiedCredentials] = useState(true);
+
+  const sendData = () => {
+    console.log(patient);
+  };
+  
   return (
     <Container>
       <FormWrap>
-      <Icon to="/" src={Icon1}><ServicesIcon src={Icon1}/></Icon>       
-       <FormContent>
-          <FormPatient action="#">
+      <AlertComponent
+        verified={verifiedCredentials}
+        setVerified={setVerifiedCredentials}
+        message="SomeThing Went Wrong"
+      />
+      <Box sx={{ width: "100%", backgroundColor: "black" }}>
+        <NavbarContainer>
+        <Icon to="/" src={Icon1}>
+           <ServicesIcon to="/" src={Icon1} />
+        </Icon>
+        </NavbarContainer>
+      </Box>
+        <FormContent>
+          <FormPatient>
             <FormH1>
               Welcome to our website.Please enter your personal information
               carefully!
@@ -51,7 +90,7 @@ const SignUpPatient = (props) => {
                   </FormLabel>
                 </td>
                 <td>
-                <FormLabel1 htmlFor="for">
+                  <FormLabel1 htmlFor="for">
                     <IconStyle>
                       <FaEnvelope />
                     </IconStyle>
@@ -65,6 +104,10 @@ const SignUpPatient = (props) => {
                     htmlFor="fullname"
                     placeholder="Enter your first name"
                     required
+                    onChange={(e) => {
+                      dispatchPatient({ type: "name", value: e.target.value });
+                    }}
+                    value={patient.name}
                   ></FormInput>
                 </td>
                 <td>
@@ -72,13 +115,17 @@ const SignUpPatient = (props) => {
                     htmlFor="email"
                     placeholder="Enter your email"
                     required
+                    type="email"
+                    onChange={(e) => {
+                      dispatchPatient({ type: "email", value: e.target.value });
+                    }}
+                    value={patient.email}
                   ></FormInput>
                 </td>
-                
               </tr>
               <tr>
-              <td>
-                <FormLabel3 htmlFor="for">
+                <td>
+                  <FormLabel3 htmlFor="for">
                     <IconStyle>
                       <BsFillTelephoneFill />
                     </IconStyle>
@@ -100,6 +147,13 @@ const SignUpPatient = (props) => {
                     htmlFor="phonenumber"
                     placeholder="Enter your phone number"
                     required
+                    onChange={(e) => {
+                      dispatchPatient({
+                        type: "phoneNumber",
+                        value: e.target.value,
+                      });
+                    }}
+                    value={patient.phoneNumber}
                   ></FormInput>
                 </td>
                 <td>
@@ -107,6 +161,14 @@ const SignUpPatient = (props) => {
                     htmlFor="password"
                     placeholder="Enter your password"
                     required
+                    type="password"
+                    onChange={(e) => {
+                      dispatchPatient({
+                        type: "password",
+                        value: e.target.value,
+                      });
+                    }}
+                    value={patient.password}
                   ></FormInput>
                 </td>
               </tr>
@@ -124,9 +186,14 @@ const SignUpPatient = (props) => {
                 <td>
                   <FormSelect
                     htmlFor="gender"
-                    onChange={handleChangeGender}
-                    value={gender}
+                    value={patient.gender}
                     required
+                    onChange={(e) => {
+                      dispatchPatient({
+                        type: "gender",
+                        value: e.target.value,
+                      });
+                    }}
                   >
                     <FormOption value="male">Male</FormOption>
                     <FormOption value="female">Female</FormOption>
@@ -134,7 +201,9 @@ const SignUpPatient = (props) => {
                 </td>
               </tr>
             </Table>
-            <FormButtonCreate type="submit">Create Account</FormButtonCreate>
+            <FormButtonCreate type="submit" onClick={sendData}>
+              Create Account
+            </FormButtonCreate>
             <FormButtonSign onClick={props.changeSignUpType} id="doctor">
               Sign Up As Healthcare Professional
             </FormButtonSign>

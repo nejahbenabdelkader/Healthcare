@@ -3,7 +3,6 @@ import ProfileDoctor from "./Data/Profile";
 import DatePicker from "./DatePicker";
 import { FlexWrapper } from "./DoctorElements";
 import Maps from "./maps";
-
 const Doctor = ({ doctorInfo }) => {
   return (
     <>
@@ -12,7 +11,7 @@ const Doctor = ({ doctorInfo }) => {
       </FlexWrapper>
       <FlexWrapper>
         <DatePicker />
-        <Maps />
+        <Maps position={doctorInfo.location}/>
       </FlexWrapper>
     </>
   );

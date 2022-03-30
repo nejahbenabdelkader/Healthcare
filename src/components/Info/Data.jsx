@@ -471,3 +471,15 @@ export const AppoitmentsData = [
     status: "Done",
   },
 ];
+
+export const doctorData={
+  "imageURL":"https://www.diethelmtravel.com/wp-content/uploads/2016/04/bill-gates-wealthiest-person.jpg",
+  "doctorName":"Pharmacy hedi jouini",
+  "description":"Spécialiste en Chirurgie Orthopédique Chirurgie du Rachis chirurgie    prothétique Ancien Assistant à la Faculté de Médecine de Tunis Diplômé de la Faculté de Médecine de Paris",
+  "streetAdress":"CENTRE MEDICAL ECHIFAA, AVENUE HOUCINE BOUZAIENE",
+  "phoneNumber":"+216.95.846.231",
+  location:{
+    lat: 36.871232,
+    lng: 10.202698
+  }
+}

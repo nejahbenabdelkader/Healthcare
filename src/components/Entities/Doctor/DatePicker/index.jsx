@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { IconStyle, MakeACall } from "../Data/DataElemnts";
+
 import {
   Day,
   DayNumber,
@@ -18,6 +19,8 @@ import {
 } from "./DatePickerElements";
 import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 import { workingHours } from "../../../Info/Data";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 const days = [
   { text: "Mon", number: "7" },
   { text: "Mon", number: "8" },
@@ -27,17 +30,22 @@ const days = [
   { text: "Mon", number: "12" },
 ];
 const DatePicker = () => {
+  const LoggedUser = useSelector((state) => state.user.type);
+  const navigate=useHistory();
   const [date, setDate] = useState({ day: "", hour: "" });
   const handleHourClick = (event) => {
-    console.log(event.target.innerText);
     setDate((prevState) => {
       return { hour: event.target.innerText, day: prevState.day };
     });
   };
   const handleDayClick = (event) => {
-    console.log(event.target.id);
     setDate(prevState=>{return {day:event.target.id,hour:prevState.hour}})
+    console.log(date)
   };
+
+  const saveAppoitment=()=> {
+      if(LoggedUser=='') navigate.push('/signin')
+  }
   return (
     <Main>
       <Header>
@@ -81,7 +89,7 @@ const DatePicker = () => {
         )}
       </HoursWrapper>
 
-      <SaveButton type="submit">Save</SaveButton>
+      <SaveButton type="submit" onClick={saveAppoitment} >Save</SaveButton>
     </Main>
   );
 };

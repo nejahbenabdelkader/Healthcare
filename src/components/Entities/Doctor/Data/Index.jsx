@@ -15,6 +15,7 @@ import {
 import { BiMap } from "react-icons/bi";
 const DataDoctor = ({doctorName,streetAdress,photo,description,handleAppoitmentClick}) => {
   return (
+    
     <Main>
       <FlexWrapperOne>
         <ImgWrap
@@ -27,7 +28,7 @@ const DataDoctor = ({doctorName,streetAdress,photo,description,handleAppoitmentC
             {description}
           </Description>
         </TextWrap>
-        <Call backgroundColor="#01bf71;"  onClick={handleAppoitmentClick}>
+        <Call backgroundColor="#01bf71;" width="400px" onClick={handleAppoitmentClick}>
             <MakeACall>Take An Appoitment</MakeACall>
           </Call>
       </FlexWrapperOne>

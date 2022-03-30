@@ -12,19 +12,21 @@ import { Towns } from "../Info/Data";
 import { ServicesH2 } from "../Services/ServiceElements";
 import { SearchBarDoctorWrapper } from "./DiscoverElements";
 
-const SearchBarPharmacy = ({handleClick}) => {
-  const [timePharmacy, setTimePharmacy] = useState("day");
-  const handleChangeTimePharmacy = (event) => {
-    setTimePharmacy(event.target.value);
-    console.log(event.target);
+const SearchBarPharmacy = ({ handleClick }) => {
+  const [data, setData] = useState({ name: "", time: "", town: "" });
+  const handleChangeData = (e) => {
+    setData((prevState) => {
+      return { ...prevState, [e.target.name]: e.target.value };
+    });
   };
   return (
     <SearchBarDoctorWrapper>
-      <TextField label="Name of the Pharmacy" />
+      <TextField label="Name of the Pharmacy" name="name" value={data.name} onChange={handleChangeData} />
       <FormControl sx={{ mx: 3 }}>
         <RadioGroup
-          value={timePharmacy}
-          onChange={handleChangeTimePharmacy}
+          value={data.time}
+          name="time"
+          onChange={handleChangeData}
           row
         >
           <FormControlLabel
@@ -41,14 +43,14 @@ const SearchBarPharmacy = ({handleClick}) => {
           />
         </RadioGroup>
       </FormControl>
-      <TextField select label="Town" >
-      {Towns.map((option) => (
-            <MenuItem key={option} value={option}>
-              {option}
-            </MenuItem>
-          ))}
+      <TextField select label="Town" name="town" value={data.town} onChange={handleChangeData}>
+        {Towns.map((option) => (
+          <MenuItem key={option} value={option}>
+            {option}
+          </MenuItem>
+        ))}
       </TextField>
-      <Button variant="contained" fullWidth onClick={handleClick}>
+      <Button variant="contained" fullWidth onClick={() => handleClick(data)}>
         <ServicesH2>Search Now</ServicesH2>
       </Button>
     </SearchBarDoctorWrapper>

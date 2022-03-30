@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Chat from "../components/Chat";
 import Consulting from "../components/Consulting";
 import Appointments from "../components/Entities/Patient/Appoitment/Appointments";
 import Footer from "../components/Footer";
@@ -13,7 +14,7 @@ const navLinks = {
     rightButtonPath:"/",
   navBarLink: ["Appoitment", "Consulting", "Messages", "Account"],
 };
-const Patient = () => {
+const PatientHome = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -25,7 +26,8 @@ const Patient = () => {
       <Sidebar isOpen={isOpen} toggle={toggle} {...navLinks} />
       <Navbar toggle={toggle} {...navLinks} />
       <Hero />
-      <Appointments />
+     
+      <Appointments /> <Chat />
       <Consulting {...homeObjTwo} />
       <Services />
       <Footer />
@@ -33,4 +35,4 @@ const Patient = () => {
   );
 };
 
-export default Patient;
+export default PatientHome;

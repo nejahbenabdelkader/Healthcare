@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import {
   Container,
   FormWrap,
@@ -20,11 +20,16 @@ import {
   ServicesIcon,
 } from "./SignupElements";
 
-import { BsGenderAmbiguous ,BsCardImage,BsFillTelephoneFill} from "react-icons/bs";
-import {SiBandsintown} from "react-icons/si";
-import {BiMap} from "react-icons/bi";
-import {MdOutlineDescription} from "react-icons/md";
 import {
+  BsGenderAmbiguous,
+  BsCardImage,
+  BsFillTelephoneFill,
+} from "react-icons/bs";
+import { SiBandsintown } from "react-icons/si";
+import { BiMap } from "react-icons/bi";
+import { MdOutlineDescription } from "react-icons/md";
+import {
+  Box,
   FormControl,
   FormControlLabel,
   Radio,
@@ -32,46 +37,55 @@ import {
   TextField,
 } from "@mui/material";
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
-import Icon1 from '../../../images/logo.jpg'
+import Icon1 from "../../../images/logo.jpg";
+import AlertComponent from "../../Elements/Alert";
+import { NavbarContainer } from "../Signin/SigninElements";
+import { useSelector } from "react-redux";
 import { Towns } from "../../Info/Data";
 
 const SignUpDoctor = (props) => {
-  const [gender, setGender] = useState("Male");
-  const handleChangeGender = (event) => {
-    setGender(event.target.value);
+  const initialState = {
+    fullName: "",
+    email: "",
+    phoneNumber: "",
+    password: "",
+    gender: "Male",
+    speciality: "",
+    town: "",
+    profilePicure: "",
+    firmName: "",
+    coordoonees: "",
+    description: "",
+    address: "",
   };
-  const specialities = [
-    {
-      value: "generaliste",
-      label: "Généraliste",
-    },
-    {
-      value: "EUR",
-      label: "Nutritioniste",
-    },
-    {
-      value: "BTC",
-      label: "Densite",
-    },
-    {
-      value: "JPY",
-      label: "Cardiologue",
-    },
-    {
-      value: "JPY",
-      label: "Dermatologue",
-    },
-    {
-      value: "JPY",
-      label: "Pédiatre",
-    },
-  ];
+  const [verifiedCredentials, setVerifiedCredentials] = useState(true);
+  const specialities = useSelector((state) => state.specialities);
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "HANDLE INPUT":
+        return { ...state, [action.label]: action.value };
+    }
+  };
+  const [doctor, dispatchActionDoctor] = useReducer(reducer, initialState);
+  const sendData = () => {
+    console.log(doctor);
+  };
   return (
     <Container>
+      <AlertComponent
+        verified={verifiedCredentials}
+        setVerified={setVerifiedCredentials}
+        message="SomeThing Went Wrong"
+      />
+
+      <Box sx={{ width: "100%", backgroundColor: "black" }}>
+        <NavbarContainer>
+          <ServicesIcon to="/" src={Icon1} />
+        </NavbarContainer>
+      </Box>
       <FormWrap>
-        <Icon to="/" src={Icon1}><ServicesIcon src={Icon1}/></Icon>
         <FormContent>
-          <FormDoctor action="#">
+          <FormDoctor>
             <FormControl sx={{ mx: 5, color: "#6495ED" }}>
               <RadioGroup
                 row
@@ -79,7 +93,7 @@ const SignUpDoctor = (props) => {
                 value={props.SignUpType}
               >
                 <FormControlLabel
-                  value="Doctor"
+                  value="doctor"
                   label="Doctor"
                   control={
                     <Radio
@@ -94,7 +108,8 @@ const SignUpDoctor = (props) => {
                   }
                 />
                 <FormControlLabel
-                  value="Pharmacist"
+                  value="pharmacist"
+                  label="Pharmacist"
                   control={
                     <Radio
                       id="pharmacist"
@@ -106,7 +121,6 @@ const SignUpDoctor = (props) => {
                       }}
                     />
                   }
-                  label="Pharmacist"
                 />
               </RadioGroup>
             </FormControl>
@@ -152,30 +166,61 @@ const SignUpDoctor = (props) => {
               <tr>
                 <td>
                   <FormInput
-                    htmlFor="fullname"
+                    id="fullName"
                     placeholder="Enter your full name"
                     required
+                    value={doctor.fullName}
+                    onChange={(e) => {
+                      dispatchActionDoctor({
+                        type: "HANDLE INPUT",
+                        label: e.target.id,
+                        value: e.target.value,
+                      });
+                    }}
                   ></FormInput>
                 </td>
                 <td>
                   <FormInput
-                    htmlFor="email"
+                    id="email"
                     placeholder="Enter your email"
+                    value={doctor.email}
+                    onChange={(e) => {
+                      dispatchActionDoctor({
+                        type: "HANDLE INPUT",
+                        label: e.target.id,
+                        value: e.target.value,
+                      });
+                    }}
                     required
                   ></FormInput>
                 </td>
                 <td>
                   <FormInput
-                    htmlFor="password"
+                    id="password"
+                    type="password"
                     placeholder="Enter your password"
+                    value={doctor.password}
+                    onChange={(e) => {
+                      dispatchActionDoctor({
+                        type: "HANDLE INPUT",
+                        label: e.target.id,
+                        value: e.target.value,
+                      });
+                    }}
                     required
                   ></FormInput>
                 </td>
                 <td>
                   <FormSelect
-                    htmlFor="gender"
-                    onChange={handleChangeGender}
-                    value={gender}
+                    id="gender"
+                    value={doctor.gender}
+                    onChange={(e) => {
+                      dispatchActionDoctor({
+                        type: "HANDLE INPUT",
+                        label: e.target.id,
+                        value: e.target.value,
+                      });
+                    }}
                     required
                   >
                     <FormOption value="male">Male</FormOption>
@@ -197,15 +242,16 @@ const SignUpDoctor = (props) => {
                 </td>
                 <td>
                   <FormLabel2 htmlFor="for">
-                  <IconStyle>
-                      <SiBandsintown/>
+                    <IconStyle>
+                      <SiBandsintown />
                     </IconStyle>
-                    Town</FormLabel2>
+                    Town
+                  </FormLabel2>
                 </td>
                 <td>
                   <FormLabel3 htmlFor="for">
                     <IconStyle>
-                      <BsCardImage/>
+                      <BsCardImage />
                     </IconStyle>
                     Profile Picture
                   </FormLabel3>
@@ -213,7 +259,18 @@ const SignUpDoctor = (props) => {
               </tr>
               <tr>
                 <td>
-                  <FormSelect htmlFor="speciality" required>
+                  <FormSelect
+                    id="speciality"
+                    value={doctor.speciality}
+                    onChange={(e) => {
+                      dispatchActionDoctor({
+                        type: "HANDLE INPUT",
+                        label: e.target.id,
+                        value: e.target.value,
+                      });
+                    }}
+                    required
+                  >
                     {specialities.map((speciality) => (
                       <FormOption value={speciality.value}>
                         {speciality.label}
@@ -223,32 +280,50 @@ const SignUpDoctor = (props) => {
                 </td>
                 <td>
                   <FormInput
-                    htmlFor="phonenumber"
+                    id="phoneNumber"
                     placeholder="Enter your phone number"
+                    value={doctor.phoneNumber}
+                    onChange={(e) => {
+                      dispatchActionDoctor({
+                        type: "HANDLE INPUT",
+                        label: e.target.id,
+                        value: e.target.value,
+                      });
+                    }}
                     required
                   ></FormInput>
                 </td>
                 <td>
-                  <FormSelect htmlFor="town" required>
+                  <FormSelect
+                    id="town"
+                    value={doctor.town}
+                    onChange={(e) => {
+                      dispatchActionDoctor({
+                        type: "HANDLE INPUT",
+                        label: e.target.id,
+                        value: e.target.value,
+                      });
+                    }}
+                    required
+                  >
                     {Towns.map((option) => (
                       <FormOption value={option}>{option}</FormOption>
                     ))}
                   </FormSelect>
                 </td>
-                <td>
-                  {/* upload image */}
-                </td>
+                <td>{/* upload image */}</td>
               </tr>
               <tr>
-              <td>
+                <td>
                   <FormLabel2 htmlFor="for">Firm Name</FormLabel2>
                 </td>
                 <td>
                   <FormLabel2 htmlFor="for">
-                  <IconStyle>
-                      <BiMap/>
+                    <IconStyle>
+                      <BiMap />
                     </IconStyle>
-                    Address</FormLabel2>
+                    Address
+                  </FormLabel2>
                 </td>
                 <td>
                   <FormLabel htmlFor="for">X Cordiante</FormLabel>
@@ -259,55 +334,88 @@ const SignUpDoctor = (props) => {
               </tr>
               <tr>
                 <td>
-              <FormInput
-                    htmlFor="firmname"
+                  <FormInput
+                    id="firmName"
                     placeholder="Enter your firm name"
+                    value={doctor.firmName}
+                    onChange={(e) => {
+                      dispatchActionDoctor({
+                        type: "HANDLE INPUT",
+                        label: e.target.id,
+                        value: e.target.value,
+                      });
+                    }}
                     required
-              ></FormInput>
-              </td>
-              <td>
-              <FormInput
-                    htmlFor="address"
+                  ></FormInput>
+                </td>
+                <td>
+                  <FormInput
+                    id="address"
                     placeholder="Enter your firm address"
+                    value={doctor.address}
+                    onChange={(e) => {
+                      dispatchActionDoctor({
+                        type: "HANDLE INPUT",
+                        label: e.target.id,
+                        value: e.target.value,
+                      });
+                    }}
                     required
-              ></FormInput>
-              </td>
-              <td>
-              <FormInput
+                  ></FormInput>
+                </td>
+                <td>
+                  <FormInput
                     htmlFor="x_cordinate"
                     placeholder="Enter your firm x cordinate"
                     required
-              ></FormInput>
-              </td>
-              <td>
-              <FormInput
+                  ></FormInput>
+                </td>
+                <td>
+                  <FormInput
                     htmlFor="y_cordinate"
                     placeholder="Enter your firm y cordinate"
                     required
-              ></FormInput>
-              </td>
+                  ></FormInput>
+                </td>
               </tr>
               <tr>
-              <FormLabel4 htmlFor="for">
-                    <IconStyle>
-                      <MdOutlineDescription/>
-                    </IconStyle>
-                    Description
-                  </FormLabel4>
-               </tr> 
-               <tr>
-                 <td colSpan="4">
+                <FormLabel4 htmlFor="for">
+                  <IconStyle>
+                    <MdOutlineDescription />
+                  </IconStyle>
+                  Description
+                </FormLabel4>
+              </tr>
+              <tr>
+                <td colSpan="4">
                   <TextField
-                    sx={{ bgcolor: "#FFFFFF", mx: 1, borderRadius: 1, marginBottom:3,width:950}}
+                    sx={{
+                      bgcolor: "#FFFFFF",
+                      mx: 1,
+                      borderRadius: 1,
+                      marginBottom: 3,
+                      width: 950,
+                    }}
                     placeholder="Write A Little Description About You"
+                    id="description"
+                    value={doctor.description}
+                    onChange={(e) => {
+                      dispatchActionDoctor({
+                        type: "HANDLE INPUT",
+                        label: e.target.id,
+                        value: e.target.value,
+                      });
+                    }}
                     multiline
                     rows={2}
                     maxRows={4}
                   />
-                </td> 
+                </td>
               </tr>
             </Table>
-            <FormButtonCreate type="submit">Create Account</FormButtonCreate>
+            <FormButtonCreate type="submit" onClick={sendData} to="/">
+              Create Account
+            </FormButtonCreate>
           </FormDoctor>
         </FormContent>
       </FormWrap>

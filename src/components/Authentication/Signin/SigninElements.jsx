@@ -28,7 +28,6 @@ export const FormWrap = styled.div`
 `;
 export const Icon = styled.a`
   margin-left: 32px;
-  margin-top: 32px;
   text-decoration: none;
   color: #fff;
   font-weight: bold;
@@ -113,9 +112,29 @@ export const SignInBtnLink = styled(Link)`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
-  padding: 16px 0;
+  padding: 16px 105px;
   border-radius: 8px;
   font-size: 20px;
   cursor: pointer;
   align-items: center;
 `;
+export const ServicesIcon = styled.img`
+justify-self: flex-start;
+cursor: pointer;
+font-size: 1.5rem;
+display: flex;
+align-items: center;
+font-weight: bold;
+width:200px;
+text-decoration: none;
+`;
+
+export const NavbarContainer = styled.div`
+  display: flex;
+  background-color:black;
+  justify-content: space-between;
+  height: 80px;
+  z-index: 1;
+  width: 100%;
+  padding: 0 24px;
+`

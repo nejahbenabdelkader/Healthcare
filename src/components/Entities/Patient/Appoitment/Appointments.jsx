@@ -1,6 +1,6 @@
 import React from "react";
 import { AppoitmentsData } from "../../../Info/Data";
-import {Content, Td,Table, TrCanceled, Th, TrHead, TrDone, TrScheduled, Tr} from "./AppointmantsElements";
+import {Content, Td,Table,  Th, TrHead,  Tr} from "./AppointmantsElements";
 
 function Appointments() {
     return (

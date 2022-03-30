@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import {Link as LinkI} from 'react-router-dom'
-import { Link as LinkR } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   min-height: 692px;
@@ -27,9 +26,8 @@ export const FormWrap = styled.div`
     height: 80%;
   }
 `
-export const Icon = styled(LinkI)`
+export const Icon = styled(Link)`
   margin-left: 32px;
-  margin-top: 10px;
   text-decoration: none;
   color: #fff;
   font-weight: bold;
@@ -153,15 +151,16 @@ export const FormOption = styled.option`
    font-size: 14px;
    color: #006400;
 `
-export const FormButtonCreate = styled.button`
+export const FormButtonCreate = styled(Link)`
   background: #01bf71;
-  padding: 16px ;
+  padding: 16px 100px;
   border: none;
   border-radius: 8px;
   color: #fff;
   font-size: 20px;
   cursor: pointer;
   width: 350px;
+  text-decoration: none;
   margin-left: auto;
   margin-right: auto;
   &:hover {
@@ -170,7 +169,7 @@ export const FormButtonCreate = styled.button`
    color: #010606;
   }
 `
-export const FormButtonSign = styled(LinkR)`
+export const FormButtonSign = styled.button`
 background: #F1B312;
 padding: 16px 0;
 border: none;

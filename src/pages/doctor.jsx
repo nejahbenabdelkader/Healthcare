@@ -9,12 +9,14 @@ import Navbar from "../components/Navbar";
 import Services from "../components/Services";
 import Sidebar from "../components/SideBar";
 import TimeTable from "../components/Entities/Doctor/TimeTable";
+import { FlexWrapperOne } from "../components/Entities/Doctor/Data/DataElemnts";
+import Loading from "./Loading";
 const navLinks = {
     rightButtonName:"LogOut" ,
     rightButtonPath:"/",
   navBarLink: ["Appoitment", "Consulting", "Messages", "Account"],
 };
-const Doctor = () => {
+const DoctorHome = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -26,13 +28,15 @@ const Doctor = () => {
       <Sidebar isOpen={isOpen} toggle={toggle} {...navLinks} />
       <Navbar toggle={toggle} {...navLinks} />
       <Hero />
-      <TimeTable />
+      <FlexWrapperOne>
+        <TimeTable /> <Loading />
+      </FlexWrapperOne>
+      
       <Consulting {...homeObjTwo} />
       <Services />
-      <Info {...homeObjThree} />
       <Footer />
     </>
   );
 };
 
-export default Doctor;
+export default DoctorHome;

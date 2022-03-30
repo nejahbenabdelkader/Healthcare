@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components"
 import PharmacyResult from "../../Pharmacy/Profile";
 import DrugInfo from "./DrugInfo";
-import Publicity from "./Publicity";
+import Publicity from "../../../Elements/Publicity";
 const  GridWrapper=styled.div`
 display:grid;
 grid-template-columns: 1fr 2fr;

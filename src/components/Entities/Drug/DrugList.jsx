@@ -11,7 +11,7 @@ import {
   Search,
 } from "./DrugListElements";
 
-const  DrugList=()=> {
+const DrugList = ({ DrugList }) => {
   return (
     <Content>
       <H1>List Of Medications</H1>
@@ -20,39 +20,17 @@ const  DrugList=()=> {
         <BtnSearch>Search</BtnSearch>
       </Search>
       <Table>
-        <Tr>
-          <Th>Reference</Th>
-          <Th>Name Of Medication</Th>
-          <Th>Price</Th>
-          <Th>Quantity</Th>
-        </Tr>
-        <Tr>
-          <Td>215478</Td>
-          <Td>Panadol</Td>
-          <Td>4.500Dt</Td>
-          <Td>6</Td>
-        </Tr>
-        <Tr>
-          <Td>215478</Td>
-          <Td>Panadol</Td>
-          <Td>4.500Dt</Td>
-          <Td>6</Td>
-        </Tr>
-        <Tr>
-          <Td>215478</Td>
-          <Td>Panadol</Td>
-          <Td>4.500Dt</Td>
-          <Td>6</Td>
-        </Tr>
-        <Tr>
-          <Td>215478</Td>
-          <Td>Panadol</Td>
-          <Td>4.500Dt</Td>
-          <Td>6</Td>
-        </Tr>
+        {drugList.map((drugItem) => (
+          <Tr>
+            <Th>drugItem.Reference</Th>
+            <Th>drugItem.name</Th>
+            <Th>drugItem.price</Th>
+            <Th>drugItem.quantity</Th>
+          </Tr>
+        ))}
       </Table>
     </Content>
   );
-}
+};
 
 export default DrugList;

@@ -1,11 +1,11 @@
-import { Button } from "@mui/material";
+import { Button, Collapse } from "@mui/material";
 import React, { useState } from "react";
 import Doctor from "../Entities/Doctor";
 import DataDoctor from "../Entities/Doctor/Data/Index";
 import DataDrug from "../Entities/Drug";
 import Drug from "../Entities/Drug/DrugData";
 import PharmacyResult from "../Entities/Pharmacy/Profile";
-import { searchDoctor, searchDrug } from "../Info/Data";
+import { doctorData, searchDoctor, searchDrug } from "../Info/Data";
 import { ServicesH2 } from "../Services/ServiceElements";
 import { InfoContainer, InfoWrapper, ButtonsWrapper } from "./DiscoverElements";
 import SearchBarDoctor from "./SearchBarDoctor";
@@ -16,11 +16,17 @@ const Consulting = ({ lightBg, id }) => {
   const [searchType, setSearchType] = useState("doctor");
   const [search, setSearch] = useState(false);
   const [moreInfo, setMoreInfo] = useState(false);
-  const handleSearchClick = () => {
+  const handleSearchClick = (dataSearch) => {
+    navigator.geolocation.getCurrentPosition((data) => {
+      const positionUser = {
+        lat: data.coords.latitude,
+        lon: data.coords.longitude,
+      };
+      console.log({ ...dataSearch, positionUser, searchType: searchType });
+    });
     setSearch(true);
-    console.log("hello");
   };
-  const ClickTakeButton = () => {
+  const ClickMoreButton = () => {
     setMoreInfo(true);
     setSearch(false);
   };
@@ -67,25 +73,32 @@ const Consulting = ({ lightBg, id }) => {
           {searchType === "drug" && (
             <SearchBarDrug handleClick={handleSearchClick} />
           )}
-          {searchType === "pharmacy" && <SearchBarPharmacy />}
+          {searchType === "pharmacy" && (
+            <SearchBarPharmacy handleClick={handleSearchClick} />
+          )}
           <>
-            {!search && searchType == "doctor" && moreInfo && <Doctor />}
-            {!search && searchType == "drug" && moreInfo && <Drug />}
-
-            {search &&
-              searchType === "doctor" &&
-              searchDoctor.map((doctor) => (
-                <DataDoctor
-                  {...doctor}
-                  handleAppoitmentClick={ClickTakeButton}
-                />
-              ))}
-            {search && searchType === "pharmacy" && <PharmacyResult />}
-            {search &&
-              searchType === "drug" &&
-              searchDrug.map((drug) => (
-                <DataDrug {...drug} handleAppoitmentClick={ClickTakeButton} />
-              ))}
+            <Collapse timeout={2000} in={moreInfo}>
+              {!search && searchType == "doctor" && moreInfo && (
+                <Doctor doctorInfo={doctorData} />
+              )}
+              {!search && searchType == "drug" && moreInfo && <Drug />}
+            </Collapse>
+            <Collapse timeout={2000} in={search}>
+              {search &&
+                searchType === "doctor" &&
+                searchDoctor.map((doctor) => (
+                  <DataDoctor
+                    {...doctor}
+                    handleAppoitmentClick={ClickMoreButton}
+                  />
+                ))}
+              {search && searchType === "pharmacy" && <PharmacyResult />}
+              {search &&
+                searchType === "drug" &&
+                searchDrug.map((drug) => (
+                  <DataDrug {...drug} handleAppoitmentClick={ClickMoreButton} />
+                ))}
+            </Collapse>
           </>
         </InfoWrapper>
       </InfoContainer>

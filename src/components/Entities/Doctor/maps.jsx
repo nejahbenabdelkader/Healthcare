@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import { Marker } from '@react-google-maps/api';
 
+
+
 export const Main = styled.div`
   overflow: hidden;
   height: 400px;
@@ -14,14 +16,11 @@ const containerStyle = {
   width: '800px',
   height: '400px'
 };
-const center = {
-  lat: 36.871232,
-  lng: 10.202698
-};
-function Maps() {
+
+function Maps({position}) {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyD0FtXfSjXyEhfc0K2s5Fw5trtBqFtIa9w"
+    googleMapsApiKey: process.env.REACT_APP__GOOGLE_API_KEY
   })
 
   const [map, setMap] = React.useState(null)
@@ -40,12 +39,12 @@ function Maps() {
       <Main>
          <GoogleMap
         mapContainerStyle={containerStyle}
-        center={center}
+        center={position}
         zoom={14.5}
       >
          <Marker
 
-        position={center}
+        position={position}
       />
       </GoogleMap>
       </Main>
