@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Content = styled.form`
+export const Content = styled.div`
   background-color: #fff;
   max-width: 100%;
   min-height: 400px;
@@ -10,7 +10,6 @@ export const Content = styled.form`
   margin:  auto;
   padding: 100px 2px;
   border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
 
   @media screen and (max-width: 480px) {
     padding: 32px 32px;
@@ -48,11 +47,11 @@ export const TrHead = styled.tr`
 export const Tr = styled.tr`
   background-color: ${({ status }) => {
     switch (status) {
-      case "Done":
-        return "#f9ece5";
+      case "Scheduled":
+        return "#F5F5F5";
       case "Canceled":
         return "rgb(255,0,0,0.4)";
-      default:
+      case "Done":
         return "rgb(34, 139, 34,0.4)";
     }
   }};

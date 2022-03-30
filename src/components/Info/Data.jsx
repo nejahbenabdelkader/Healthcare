@@ -450,13 +450,13 @@ export const AppoitmentsData = [
     date: "24-03-2022",
     doctorName: "Hedi Jouini",
     speciality: "Dentiste",
-    status: "Done",
+    status: "Scheduled",
   },
   {
     date: "24-03-2022",
     doctorName: "Hedi Jouini",
     speciality: "Dentiste",
-    status: "Done",
+    status: "Canceled",
   },
   {
     date: "24-03-2022",

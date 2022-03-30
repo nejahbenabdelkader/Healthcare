@@ -1,6 +1,6 @@
 const { createSlice } = require("@reduxjs/toolkit");
 const initialState = {
- type:'',
+ type:'patient',
 };
 const userSlice = createSlice({
   name: "user",

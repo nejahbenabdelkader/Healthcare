@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components"
 const Image = styled.img`
-  width: 85%;
-  height:50%;
+  height:70%;
   float:left;
   border-radius: 10px;
-  margin:30px auto;
+  margin:auto;
+  object-fit: cover;
 
 `;
 const Publicity = ({srcImage}) => {

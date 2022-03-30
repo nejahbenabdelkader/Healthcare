@@ -8,6 +8,7 @@ export const Person = styled.div`
   width: 375px;
   border-radius: 10px;
   height:auto;
+  border:1px solid grey;
 `;
 
 export const FlexWrapperOne = styled.div`
