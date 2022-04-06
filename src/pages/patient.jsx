@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Chat from "../components/Chat";
 import Consulting from "../components/Consulting";
+import AccountPatient from "../components/Entities/Patient/Account";
 import Appointments from "../components/Entities/Patient/Appoitment/Appointments";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
@@ -30,6 +31,7 @@ const PatientHome = () => {
       <Appointments /> <Chat />
       <Consulting {...homeObjTwo} />
       <Services />
+      <AccountPatient />
       <Footer />
     </>
   );

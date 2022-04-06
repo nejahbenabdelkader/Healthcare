@@ -4,7 +4,7 @@ import { Content, Td, Table, Th, TrHead, Tr } from "./AppointmantsElements";
 
 function Appointments() {
   return (
-    <Content>
+    <Content id="appoitment">
       <Table>
         <TrHead>
           <Th>Date</Th>

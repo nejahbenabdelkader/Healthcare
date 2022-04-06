@@ -1,22 +1,21 @@
 import React from "react";
+import { ChatItem } from "react-chat-elements";
+
 import {
   Person,
-  Image,
-  FlexWrapperOne,
-  Date,
-  Message,
-  SenderName,
 } from "./ChatElements";
 
 const PersonChat = ({ senderName, message, time }) => {
+  const date = new Date();
   return (
-    <Person>
-      <FlexWrapperOne>
-        <SenderName>Maciej Kowalski</SenderName>
-        <Message>maciefffffffffffffj.kowalski&#64;email.com...</Message>
-      </FlexWrapperOne>
-      <Date>08:43</Date>
-    </Person>
+      <ChatItem
+        avatar={"../../images/logo.jpg"}
+        alt={"Photo"}
+        title={senderName}
+        subtitle={message}
+        date={date}
+        unread={0}
+      />
   );
 };
 

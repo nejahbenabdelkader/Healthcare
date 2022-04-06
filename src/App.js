@@ -1,4 +1,5 @@
 import './App.css';
+import 'react-chat-elements/dist/main.css';
 
 import {BrowserRouter as Router, Switch, Route} from  'react-router-dom';
 

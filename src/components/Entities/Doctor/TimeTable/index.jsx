@@ -28,15 +28,17 @@ const TimeTable = () => {
       );
       console.log(IndexOfColumn);
       let modifiedColumn = prevState[IndexOfColumn];
-      modifiedColumn.status[session[0]].statusDay = "Comfort";
-      let newAppoitment=prevState.slice();
-      newAppoitment[IndexOfColumn]=modifiedColumn;
+      modifiedColumn.status[session[0]].statusDay === "Comfort"
+        ? modifiedColumn.status[session[0]].statusDay = "UnAvailable"
+        : (modifiedColumn.status[session[0]].statusDay = "Comfort");
+      let newAppoitment = prevState.slice();
+      newAppoitment[IndexOfColumn] = modifiedColumn;
       console.log(prevState);
       return newAppoitment;
     });
   };
   return (
-    <Main>
+    <Main id="appoitment">
       <FlexWrapperOne>
         <Header>
           <HeaderText>Appoitment</HeaderText>

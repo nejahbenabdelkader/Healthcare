@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Content = styled.form`
+export const Content = styled.div`
   background-color: #fff;
   max-width: 100%;
   min-height: 200px;
@@ -10,7 +10,6 @@ export const Content = styled.form`
   margin: 0 auto;
   padding: 60px 2px;
   border-radius:4px;
-  box-shadow: 0 1px 3px rgba( 0, 0, 0, 0.9);
   
   @media screen and (max-width: 480px) {
     padding: 32px 32px;
@@ -78,6 +77,14 @@ font-size:15px;
 border-radius:5px;
 padding:8px;
 border-color:#1E90FF;
+&:hover {
+  transition: all 0.2s ease-in-out;
+  background: #fff;
+ color: #010606;
+ cursor :pointer;
+ border: 1px solid #000;
+}
+
 `
 export const Position = styled.div`
 display:flex;
@@ -95,6 +102,12 @@ border-radius:5px;
 padding:5px;
 margin-right:10px;
 border-color:#04AA6D;
+&:hover {
+  transition: all 0.2s ease-in-out;
+  background: #fff;
+  color: #010606;
+  cursor: pointer;
+}
 `
 export const BtnDelete = styled.button`
 background:#DC143C;
@@ -104,4 +117,10 @@ font-size:15px;
 border-radius:5px;
 padding:5px;
 border-color:#DC143C;
+&:hover {
+  transition: all 0.2s ease-in-out;
+  background: #fff;
+ color: #010606;
+ cursor: pointer;
+}
 `

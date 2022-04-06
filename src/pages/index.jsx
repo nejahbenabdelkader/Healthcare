@@ -37,10 +37,10 @@ const Home = () => {
           <Sidebar isOpen={isOpen} toggle={toggle} {...navLinks} />
           <Navbar toggle={toggle} {...navLinks} />
           <Hero />
-          <Info {...homeObjOne} />
+          <Info {...homeObjOne} id="about" />
           <Consulting {...homeObjTwo} />
           <Services />
-          <Info {...homeObjThree} />
+          <Info {...homeObjThree}  id="signup"/>
           <Footer />
         </>
       );

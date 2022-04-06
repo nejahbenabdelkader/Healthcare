@@ -50,7 +50,7 @@ const Navbar = ({ rightButtonName, rightButtonPath, toggle, navBarLink }) => {
               {navBarLink.map((link) => (
                 <NavItem>
                   <NavLinks
-                    to={link}
+                    to={link.toLowerCase()}
                     smooth={true}
                     duration={500}
                     spy={true}

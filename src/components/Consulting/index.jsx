@@ -36,7 +36,7 @@ const Consulting = ({ lightBg, id }) => {
   };
   return (
     <>
-      <InfoContainer lightBg={lightBg} id={id}>
+      <InfoContainer lightBg={lightBg} id={id} name='Consulting'>
         <InfoWrapper>
           <ButtonsWrapper>
             <Button

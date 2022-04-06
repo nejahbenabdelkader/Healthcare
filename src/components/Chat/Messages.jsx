@@ -1,16 +1,8 @@
 import React from "react";
-import { Date, FlexWrapperOne, Frame1, Message } from "./MessagesElements";
-
-const Messages = ({date,message}) => {
+import { MessageBox } from "react-chat-elements";
+const Messages = ({ date, message }) => {
   return (
-    <Frame1>
-      <Date>{date}</Date>
-      <FlexWrapperOne sender> 
-        <Message>
-         {message}
-        </Message>
-      </FlexWrapperOne>
-    </Frame1>
+    <MessageBox position={"right"} type={"text"} text={message} date={new Date()} />
   );
 };
 

@@ -6,10 +6,9 @@ import { homeObjOne, homeObjTwo, homeObjThree } from "../components/Info/Data";
 import Navbar from "../components/Navbar";
 import Services from "../components/Services";
 import Sidebar from "../components/SideBar";
-import TimeTable from "../components/Entities/Doctor/TimeTable";
-import { FlexWrapperOne } from "../components/Entities/Doctor/Data/DataElemnts";
-import Loading from "./Loading";
 import Info from "../components/Info";
+import TableMedication from "../components/Entities/Drug/DrugList/TableMedication";
+import ListMedications from "../components/Entities/Drug/DrugList/ListMedications";
 const navLinks = {
     rightButtonName:"LogOut" ,
     rightButtonPath:"/",
@@ -28,7 +27,7 @@ const PharmacyHome = () => {
     <Navbar toggle={toggle} {...navLinks} />
     <Hero />
     <Info {...homeObjOne} />
-    <Consulting {...homeObjTwo} />
+    <ListMedications />
     <Services />
     <Info {...homeObjThree} />
     <Footer />

@@ -25,7 +25,7 @@ const AccountPatient = (props) => {
   };
   return (
     
-      <FormWrap>
+      <FormWrap id="account">
         <FormContent>
           <FormPatient action="#">
           <FormH1>Manage Account</FormH1>
@@ -52,7 +52,15 @@ const AccountPatient = (props) => {
                     <IconStyle>
                       <FaLock />
                     </IconStyle>
-                    Password
+                   New Password
+                  </FormLabel>
+                </td>
+                <td>
+                  <FormLabel htmlFor="for">
+                    <IconStyle>
+                      <FaLock />
+                    </IconStyle>
+                    Retype New Password
                   </FormLabel>
                 </td>
               </tr>
@@ -75,6 +83,15 @@ const AccountPatient = (props) => {
                   <FormInput
                     htmlFor="password"
                     placeholder=""
+                    type="password"
+                    required
+                  ></FormInput>
+                </td>
+                <td>
+                  <FormInput
+                    htmlFor="password"
+                    placeholder=""
+                    type="password"
                     required
                   ></FormInput>
                 </td>
