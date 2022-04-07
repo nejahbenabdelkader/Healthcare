@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 `;
 const MessagesWrapper = styled.div`
   background-color: #292f3f;
-  width: 400px;
+  width: 100%;
   padding: 0px 15px;
 `;
 const PersonWrapper = styled.div`
@@ -118,6 +118,7 @@ const Chat = () => {
             ]}
           />
           <Input
+            
             placeholder="Type here..."
             multiline={true}
             rightButtons={

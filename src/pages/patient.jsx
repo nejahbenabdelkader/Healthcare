@@ -27,9 +27,9 @@ const PatientHome = () => {
       <Sidebar isOpen={isOpen} toggle={toggle} {...navLinks} />
       <Navbar toggle={toggle} {...navLinks} />
       <Hero />
-     
-      <Appointments /> <Chat />
+      <Appointments /> 
       <Consulting {...homeObjTwo} />
+      <Chat name="Messages"/>
       <Services />
       <AccountPatient />
       <Footer />
