@@ -7,7 +7,6 @@ import Navbar from "../components/Navbar";
 import Services from "../components/Services";
 import Sidebar from "../components/SideBar";
 import Info from "../components/Info";
-import TableMedication from "../components/Entities/Drug/DrugList/TableMedication";
 import ListMedications from "../components/Entities/Drug/DrugList/ListMedications";
 const navLinks = {
     rightButtonName:"LogOut" ,
