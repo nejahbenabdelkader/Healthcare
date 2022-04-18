@@ -1,0 +1,188 @@
+﻿id,full_name,speciality,town,address,cordinate,phone_number,role,password,description,email,firm_name,gender
+0,Dr. Kaouther El Jeri,GASTRO-HEPATHOLOGIE,Tunis Le Bardo,Avenue 20 Mars Le Bardo Médical 1er étage Bureau 1-1,"36.8079199,10.1393102",71586971,doctor,,,,,m
+1,Dr. Hend Lahmidi,GYNECOLOGIE-OBSTETRIQUE,Tunis Le Bardo,Avenue 20 Mars Le Bardo Médical 2éme étage Bureau 2-1,"36.8079199,10.1393102",71581804,doctor,,,,,m
+2,Dr. Noureddine Zenkri,UROLOGIE,Tunis Le Bardo,Avenue 20 Mars Le Bardo Médical 1er étage Bureau 2,"36.8079199,10.1393102",71586588,doctor,,,,,m
+3,Dr. Asma Hamdi Achouri,PEDIATRIE,Tunis Le Bardo,Avenue 20 Mars Le Bardo Médical 3éme étage Bureau 4,"36.8079199,10.1393102",71517704,doctor,,,,,m
+5,Dr. Ben Tanfous Jamel,MEDECINE GENERALE,Tunis El Menzah,25 rue Omar El mokhtar mutuelleville,"36.83418045508609,10.170632991935825",98303782,doctor,,,,,m
+6,Dr. Chelfouh Belhadj Aissa Aicha,MEDECINE GENERALE,Nabeul Soliman,Route de la Plage Hôpital de Circonscription 8020 Soliman,"36.7098636,10.4466164",72331511,doctor,,,,,m
+7,Dr. Neji Sonia,RADIOLOGIE,Tunis Séjoumi,Rue de la Faculté de Médecine Institut National de Neurologie 1007 Tunis Jebbari ,"36.8013653,10.1553913",71572230,doctor,,,,,m
+8,Dr. Helioui Mohamed Rached,PNEUMOLOGIE,Tunis Centre ville,28 rue Charles de Gaulle 1000 Tunis R.P,"36.797127,10.1757934",71326644,doctor,,,,,m
+9,Dr. Fatma Baccar,MEDECINE GENERALE,Ben Arous Hammam Lif,36 avenue de l'Environnement 2050 Hammam Lif,"36.7295354,10.3328053",71752209,doctor,,,,,m
+10,Dr. Ghazal Fethi ,MEDECINE GENERALE,Ben Arous El Mourouj,Avenue de la Méditerranée 1074 Mourouj II ,"36.7433477,10.2039793",71379077,doctor,,,,,m
+11,Dr. Karim Mani,CARDIOLOGIE,Mahdia Mahdia, Rue Zouila 5100 Mahdia,"35.5011634,11.0563323",55222695,doctor,,,,,m
+12,Dr. Ben Ayed Amine,Orthodontiste,Tunis La Marsa,75 avenue de carthage. Tunis Centre Medical les jardins de Carthage,"36.7915614,10.1803283",98760728,doctor,,,,,m
+13,Dr. Ghanem Mtibaa,ANESTHESIE-REANIMATION,Sfax Sfax Ville,"Rue Hedi Nouira, Immeuble Emna City Bloc A N.303","34.739822,10.7600196",74490390,doctor,,,,,m
+14,Dr. Hana Briki,NUTRITION-DIETETIQUE,Ariana Ariana Ville,"El ghazala centre,avenue Ammar dakhleoui, cité la gazelle Ariana 2083","36.8665367,10.164723299999991",20714141,doctor,,,,,m
+15,Dr. Zayen Khalil,PNEUMOLOGIE,Ariana Ariana Ville,"Centre Tunisie Médicale (en face clinique Amilcar). Fin Avenue Hédi Nouira, Ennasr, Ariana. Tunisie","36.86815037089009,10.171643399258397",23019777,doctor,,,,,m
+16,Dr. Ben Aissa Soumaya,ANESTHESIE-REANIMATION,Ariana Ariana Ville,Cabinet Dr Soumaya Ben Aissa Centre Medical el Shifa 2 étage cite Rafeha Mnihla,"36.8665367,10.164723299999991",29019605,doctor,,,,,m
+17,Dr. Dahmane,ANESTHESIE-REANIMATION,Ariana Ariana Ville,Houmt Souk,"34.23915612085462,11.153492831249974",29064465,doctor,,,,,m
+18,Dr. Mbarek Ikbel,ANESTHESIE-REANIMATION,Gafsa Redeyef,Cité awled bouyahi redayef,"34.3856827,8.1611703",22996524,doctor,,,,,m
+19,Dr. Wafa Badr,ENDOCRINOLOGIE,Sousse Sousse Jawhara,"rue mohamed Karoui, Immeuble la médicale Ibn Jazzar, en face de l'hôpital Farhat Hached,","35.8324392,10.6224706",55334639,doctor,,,,,m
+21,Dr. Abida Sofien,CHIRURGIE MAXILLO-FACIALE,Ariana Ariana Ville,Imm. Medical City . Rte Ain km0.5. Devant l'hopital universitaire Hedi Chaker et à côté de la banque du sang,"34.645355577636835,10.794606224258683",98370788,doctor,,,,,m
+22,Dr. Mohamed Mlik,ANESTHESIE-REANIMATION,Ariana Ariana Ville,palmarium sfax 3027 tunisia,"36.8665367,10.164723299999991",98417546,doctor,,,,,m
+23,Dr. Mili Ilhem,OPHTALMOLOGIE,Ariana Ariana Ville,"hôpital Charles Nicolle, Tunis","36.8665367,10.164723299999991",24796000,doctor,,,,,m
+24,Dr. Stephanie Meyers,CHIRURGIE PLASTIQUE,Tunis La Marsa,"Rue Imeme Abou Hanifa, 19-B2 2078 La Marsa / Tunisie","36.8891165,10.3222671",22154547,doctor,,,,,m
+25,Dr. Khelif Mohamed,OPHTALMOLOGIE,Nabeul Grombalia,Hermes Médical en face carrefour market,"36.6024831,10.5014909",55559605,doctor,,,,,m
+26,Dr. Ines Alouini Ep Abbes,MEDECINE GENERALE,Sousse Sousse Medina,"Immeuble Ibn El Jazzar, Boulevard Tahar sfar, sousse 4000","35.8277663,10.5620565",20363894,doctor,,,,,m
+27,Dr. Mohamed Rafaa,RADIOLOGIE,Gabès Gabès Medina,Place de La Gare 6000 GABES,"33.884802129638906,10.099361416265888",50161666,doctor,,,,,m
+28,Dr. Mejda Gharbi,OPHTALMOLOGIE,Nabeul Korba,"52 avenue de la liberté, 52 avenue de la liberté","36.5806067,10.8620804",21698226,doctor,,,,,m
+29,Dr. Mohamed Naceur Chaabouni,UROLOGIE,Sfax Sfax Ville,Polyclinique ennour Route gabes km 1.5 Sfax,"34.739822,10.7600196",98420977,doctor,,,,,m
+30,Dr. Turki Wafa,OPHTALMOLOGIE,Tunis Bab El Bhar,"Hôpital La Rabta, Place Bab Saadoun, Rue Jabbari 1007 Tunis","36.80166051965281,10.156718484403239",71279621,doctor,,,,,m
+31,Dr. Jemel Ahmed,OPHTALMOLOGIE,Ariana Ariana Ville,rue Ahmed Ibn Abi Dhief 6100 siliana,"36.8665367,10.164723299999991",78872490,doctor,,,,,m
+32,Dr. Lahmar Malek,NEUROLOGIE,Ariana Mnihla,Centre médical Kamoun Ennasr2,"36.861382290746434,10.15927142308961",71827729,doctor,,,,,m
+33,Dr. Adala Mourad,CHIRURGIE GENERALE,Tunis Cité El Khadra,Centre Ibn Zoher Voie X2,"36.825695466916315,10.194086332296747",58300007,doctor,,,,,m
+34,Dr. Abdedaiem Nizar,ANESTHESIE-REANIMATION,Tunis La Goulette,"Erable medical cabinet 313 à côté de la clinique hannibal cité les pins, Erable Medical","36.84503071139666,10.284623119313054",98309047,doctor,,,,,m
+35,Dr. Lahiani Fourati Rim,ANESTHESIE-REANIMATION,Tunis Bab El Bhar,Service ORL Hopital Charles Nicolle / Clinique Avicenne El Manar 2,"36.8064948,10.1815316",95748768,doctor,,,,,m
+36,Dr. Sahar Turki,NEUROLOGIE,Sfax Sfax Ville,Route Gremda km 2 Imm Syphax Médical 1er étage Appartement n°14,"34.739822,10.7600196",74261940,doctor,,,,,m
+37,Dr. Ayari Mahmoud,ANESTHESIE-REANIMATION,Bizerte Bizerte Nord,"82 Ave Hassen Nouri, Bizerte, Tunisie","37.2767579,9.8641609",98202205,doctor,,,,,m
+38,Dr. Ali Ghorbel,CHIRURGIE GENERALE,Gabès Gabès Medina,Rue mongi Slim immeuble oumayma bloc A,"33.883944164172014,10.104146484351654",22359000,doctor,,,,,m
+39,Dr. Amira Dgham,ANESTHESIE-REANIMATION,Ariana Ariana Ville,rue farhat hashed,"36.8665367,10.164723299999991",77855966,doctor,,,,,m
+40,Dr. Anane Lamia Ben Hassine,ANESTHESIE-REANIMATION,Médenine Djerba - Houmt Souk,Dar el hakim  à coté de clinique echifa houmt souk.,"33.8759693,10.8572832",75620230,doctor,,,,,m
+42,Dr. Dorsaf Mohsen,MEDECINE INTERNE,Ariana Ariana Ville,36 RUE MALLORCARIADH AL ANDALOUS,"36.8665367,10.164723299999991",70697171,doctor,,,,,m
+43,Dr. Ben Salah Achraf,NEUROCHIRURGIE,Sfax Sfax Ville,"Complexe Elhakim route gremda km 3 , bloc B , 4eme étage","34.76121222839401,10.74029999932252",26222933,doctor,,,,,m
+44,Dr. Elloumi Faycal,PNEUMOLOGIE,Sfax Sfax Ville,Avenue de Carthage Complexe Jebli Centre 3027 Sfax Jadida,"34.7407263,10.7584768",74400544,doctor,,,,,m
+45,Dr. Henia Smida,ANESTHESIE-REANIMATION,Ariana Ariana Ville,Rue Basatin Résidence Aloulou,"36.8665367,10.164723299999991",98337556,doctor,,,,,m
+46,Dr. Frikha Riadh,CHIRURGIE ORTHOPEDIQUE,Sousse M'saken,Place du Grand Maghreb Arabe immeuble Nabli 4000,"35.7905929,10.627272",73217260,doctor,,,,,m
+47,Dr. Matri Leila,OPHTALMOLOGIE,Tunis Bab Souika, Boulvard du 9 Avril Institut Hédi Raïs d'Ophtalmologie 1029 Bab Saâdoun,"36.8062132,10.1596464",71573604,doctor,,,,,m
+48,Dr. Matri Ben Salama Leila,MEDECINE GENERALE,Sousse Kalâa Kebira,103 rue du 1er Juin 4060,"35.8572439,10.5966915",73350822,doctor,,,,,m
+49,Dr. Bouraoui Hichem,MEDECINE GENERALE,Ariana Ariana Ville, Route de Bizerte El Ghazela Medical 2080,"36.8796485,10.1793078",70935018,doctor,,,,,m
+50,Dr. Bouraoui El Abed Hela,CHIRURGIE PLASTIQUE,Sousse Sousse Medina,Avenue Ibn Al Jazzar immeuble Avicenne 4000,"35.8306209,10.6260033",73224420,doctor,,,,,m
+51,Dr. Bouraoui Daoued Hedia,OPHTALMOLOGIE,Bizerte Bizerte Nord,Avenue Habib Bourguiba Centre Ibn Nafis 7000,"37.2613,9.8788326",72424106,doctor,,,,,m
+52,Dr. Bouraoui Ben Youssef Lilia,GYNECOLOGIE-OBSTETRIQUE,Tunis Bab El Bhar,Avenue Aziza Othmana Mutuelleville 1082 Cité Mahrajène,"36.8376779,10.1666045",71780615,doctor,,,,,m
+53,Dr. Bouraoui Amor,MEDECINE GENERALE,Béja Nefza,Avenue Habib Bourguiba 9010,"36.8520046,8.9897722",78471400,doctor,,,,,m
+54,Dr. Bouraoui Abdelmajid,GASTRO-HEPATHOLOGIE,Sousse Sousse Medina,Rue du Dr Moreau immeuble Ibn Rochd 4000,"35.8315308,10.6275068",73215592,doctor,,,,,m
+55,Dr. Bnouni Bouraouia,DERMATOLOGIE,Sousse Sousse Medina,47 avenue de la République 4000,"35.8306146,10.6336176",73222494,doctor,,,,,m
+56,Dr. Badday Bouraoui,DERMATOLOGIE,Sousse Sousse Medina,Avenue Habib Bourguiba 4000,"35.8293206,10.638322",73200551,doctor,,,,,m
+57,Dr. Aouni Bouraoui,OPHTALMOLOGIE,Sidi Bouzid Sidi Bouzid Ouest,Avenue Mohamed Bouazizi 9100,"35.0396246,9.4917836",76627501,doctor,,,,,m
+58,Dr. Ayed Mohsen,UROLOGIE,Tunis Le Kram,"Centre Médical Hannibal, Les Jardins du Lac II 1053 Les Berges du Lac","36.8455404,10.2824279",71267290,doctor,,,,,m
+59,Dr. Bellaaj Kais,MEDECINE GENERALE,Sfax Sfax Ville,"Route de Menzel Chaker Km 1 immeuble siwar, 3072 Merkez Chaker","34.7389529,10.7384854",74464202,doctor,,,,,m
+60,Dr. Bouraoui Bahloul Dorra,MEDECINE GENERALE,Sfax Sakiet Eddaïer,Route de Mahdia Km 17,"34.8561882,10.8306554",97235255,doctor,,,,,m
+61,Dr. Neifar Ben Salem Ibtissem,MEDECINE GENERALE,Sfax Sfax Ville," Route de Gremda Km 1, immeuble Guermazi 3027 Sfax Jadida","34.747188,10.7518455",74238886,doctor,,,,,m
+63,Dr. Njah Mohamed,MEDECINE GENERALE,Sfax Sakiet Ezzit,"Route de Tunis Km 8,5 Sakiet Ezzit 3021","34.814211,10.761954",74861401,doctor,,,,,m
+64,Dr. Limam Ridha,MEDECINE INTERNE,Bizerte Ghar El Melh, Avenue Habib Bourguiba 7033,"37.2229786,10.033389",94236119,doctor,,,,,m
+66,Dr. Khayati Lajmi Lamia,OPHTALMOLOGIE,Nabeul Nabeul,Avenue Habib Bourguiba immeuble la Jarre 8000 ,"36.4503256,10.7337311",72220359,doctor,,,,,m
+67,Dr. Khayati Hichem,CARDIOLOGIE,Nabeul Kélibia,Avenue Ali Belahouane immeuble Tanit,"36.4521965,10.7362743",72208200,doctor,,,,,m
+68,Dr. Bouzid Issam,CHIRURGIE ORTHOPEDIQUE,Gafsa Gafsa Nord,Rue Mohamed Ali El Hammi ,"34.4193146,8.7877349",76223000,doctor,,,,,m
+69,Dr. Hamrouni Nabil,CARDIOLOGIE,Médenine Djerba - Houmt Souk,67 avenue Mohamed Badra,"33.8085347,10.9904791",75656980,doctor,,,,,m
+70,Dr. Alaya Cheikh Zaouali Asma,ENDOCRINOLOGIE,Mahdia Mahdia,Avenue Taieb M'hiri Centre Médical Ghada 5100,"35.499629,11.058424",73693175,doctor,,,,,m
+71,Dr. Hejer Ben Mleh Latrous,GYNECOLOGIE-OBSTETRIQUE,Ariana Ariana Ville,centre Avicenne 38 avenue de l'environnement hammam lif,"36.8665367,10.164723299999991",71292929,doctor,,,,,m
+72,Dr. Gharbi Mostari,CARDIOLOGIE,Bizerte Bizerte Nord,153 avenue Habib Bourguiba 7000 Bizerte,"37.269895,9.8662237",72424111,doctor,,,,,m
+73,Dr. Slim Moslem,OPHTALMOLOGIE,Monastir Ksar Hellal," Avenue Habib Bourguiba, 5070  Ksar Hellal","35.6673927,10.8893992",73452780,doctor,,,,,m
+74,Dr. Azzouzi Foued,CARDIOLOGIE,Tunis Bab El Bhar,"40 avenue Mohieddine Klibi Pôle Médical 2092, Manar II ","36.8429441,10.1567982",71883957,doctor,,,,,m
+76,Dr. Hentati Faycal,NEUROLOGIE,Tunis La Marsa," Rue de L'Euro Immeuble Premium Lac II, Les Berges du Lac","36.8461865,10.2709386",58129294,doctor,,,,,m
+77,Dr. Garali Aymen,OPHTALMOLOGIE,Ben Arous Mégrine, 27 avenue Farhat Hached Bloc B,"36.763899,10.2434092",71425497,doctor,,,,,m
+78,Dr. Hadj Salah Mehdi,CHIRURGIE ORTHOPEDIQUE,Ben Arous Ben Arous,Centre de traumatologie de Ben arous,"36.7435003,10.2319757",98337661,doctor,,,,,m
+79,Dr. Zouch Mohamed,PEDIATRIE,Ariana Ariana Ville,Immeuble Jebli center,"36.8665367,10.164723299999991",24509049,doctor,,,,,m
+80,Dr. Affes Walha Najeh,DERMATOLOGIE,Sfax Sfax Ville,av 7 nov imm aida,"34.739822,10.7600196",98414022,doctor,,,,,m
+81,Dr. Chourou Ilhem,NUTRITION-DIETETIQUE,Médenine Djerba - Houmt Souk,Rue du 20 Mars Cité Taourit,"33.8753724,10.86536",75623900,doctor,,,,,m
+82,Dr. Ferchichi Mariem,NUTRITION-DIETETIQUE,Ben Arous Hammam Lif,"Place du 9 Avril, Centre Hela","36.7313086,10.3384416",71292152,doctor,,,,,m
+84,Dr. Beji Majed,PNEUMOLOGIE,Tunis Le Bardo," 15 rue Abou Hanifa Centre Médical St-Augustin, Cité Mahrajène ","36.8306909,10.1734622",71840032,doctor,,,,,m
+85,Dr. Chokri Mazlout,CHIRURGIE GENERALE,Nabeul Nabeul,Avenue Habib Bourguiba immeuble la Jarre II,"36.4503256,10.7337311",72232777,doctor,,,,,m
+86,Dr. Messedi Nedra,RHUMATOLOGIE,Tunis El Menzah,"25 rue Aziza Othmana Atlas Médical, Mutuelleville, Cité Mahrajène","36.838570,10.169858",71844782,doctor,,,,,m
+87,Dr. Drira Mohamed Mokhtar,ORL ET STOMATOLOGIE,Sfax Sfax Ville, Rue Sidi Mohamed Ali Karray immeuble Le Palmarium,"34.7355852,10.755619",74404100,doctor,,,,,m
+88,Dr. Rahal Mohamed Khaled,CARCINOLOGIE MEDICALE,Tunis Le Bardo," Place Bab Saâdoun Institut Salah Azaiez, Bab Saâdoun","36.8069998,10.158246",71577863,doctor,,,,,m
+89,Dr. Narjes Ben Rayana,OPHTALMOLOGIE,Sousse Hammam Sousse,Avenue du Maghreb Arabe,"35.8439191,10.6187024",73202929,doctor,,,,,m
+90,Dr. Atallah Riadh,RADIOLOGIE,Sousse Hammam Sousse,"Boulvard du 14 Janvier Clinique les Oliviers, Khézama","35.8389893,10.6166076",73242723,doctor,,,,,m
+91,Dr. Noureddine Ayadi,PSYCHIATRIE,Sfax Sfax Ville,"Bab Jebli, immeuble Ibn Zohr","34.7402912,10.7581737",74418138,doctor,,,,,m
+92,Dr. Masmoudi Laasaad,CHIRURGIE ORTHOPEDIQUE,Sfax Sfax Ville,"Avenue de Carthage, immeuble Ribat El Médina, Sfax Jadida","34.7405461,10.759026",74490508,doctor,,,,,m
+93,Dr. Triki Fakherddine Elyes,CHIRURGIE ORTHOPEDIQUE,Sfax Sfax Ville,"Avenue de la Liberté, Sfax El Jadida, immeuble Ibn Khaldoun","34.7372444,10.7531809",74400859,doctor,,,,,m
+94,Dr. Achraf Walha,CHIRURGIE ORTHOPEDIQUE,Sfax Sfax Nord,"Route de Tunis Km 2,5, Dar Attabib","34.7644959,10.7623966",74233080,doctor,,,,,m
+95,Dr. Slim Moalla,CHIRURGIE ORTHOPEDIQUE,Sfax Sfax Sud,"Route lafrane km4 Sidi Abbes, Immeuble Mahsouna Bloc C, 4éme étage","34.7629246,10.726577",74618360,doctor,,,,,m
+100,Dr. Boukhobza Abdelhanin,MEDECINE GENERALE,Nabeul Béni Khiar,"54, rue Hedi Chaker. Beni Khiar","36.4596214,10.7830826",72229038,doctor,,,,,m
+105,Dr. Najeh Affes Walha,DERMATOLOGIE,Ariana Ariana Ville,avenue la lberté immeuble AIDA n 102,"36.8665367,10.164723299999991",98414022,doctor,,,,,m
+106,Dr. Mohamed Hassène Bessaidi,NUTRITION-DIETETIQUE,Tunis Le Kram,"Centre Médical HANNIBAL,3ème étage,Cabinet N3.6, Les Berges du Lac 2","36.845238072624326,10.284685261657724",29343335,doctor,,,,,m
+107,Dr. Mona Moalla Jallouli,MEDECINE GENERALE,Sfax Sfax Nord,Route Mazel chaker Km 3.5 Merkez Dammak,"34.749025,10.713945", 964 400,doctor,,,,,m
+108,Dr. Khemakhem Foued,MEDECINE GENERALE,Sfax Sfax Nord,Route El Ain Km 2 Markez Kriaa Imm. khemakhem,"34.7455285,10.7432211", 630 960,doctor,,,,,m
+109,Dr. Samira Abbes,DERMATOLOGIE,Sfax Sfax Nord,"Route de Tunis Km 2,5  Dar Attabib","34.7644959,10.7623966",74435399,doctor,,,,,m
+111,Dr. Hanen Mrabet,DERMATOLOGIE,Sfax Sfax Ville,"Medical City Imm. (IRM) 2éme étage N° 24, Route El Ain km 0.5","34.7417619,10.7517356",74491154,doctor,,,,,m
+112,Dr. Madiha Frikha Mseddi,DERMATOLOGIE,Sfax Sfax Ville,"51 Avenue Ali Belhouane, centre ville bab bhar","34.7341228,10.7617199", 212 375,doctor,,,,,m
+113,Dr. Hela Cheikh Rouhou,DERMATOLOGIE,Sfax Sfax Ville,"Imm. Ribat Al Medina, Avenue de Carthage, Sfax 3027","34.7405461,10.759026", 400 209,doctor,,,,,m
+114,Dr. Tawfik Nouri,OPHTALMOLOGIE,Sfax Sfax Nord,"Route de Tunis Km 2,5  Dar Attabib","34.7644959,10.7623966",7 400 / ,doctor,,,,,m
+115,Dr. Abdeltif Walha,OPHTALMOLOGIE,Sfax Sfax Ville,Imm. Ribat Al Medina 2éme étage Num. 212,"34.7404902,10.759153", 401 440,doctor,,,,,m
+116,Dr. Manel Maazoun,OPHTALMOLOGIE,Sfax Sfax Nord,Route gremda Avenue Carthage imm médina centre bloc C 2ème n°29 3000,"34.7412622,10.7572732", 162 999,doctor,,,,,m
+117,Dr. Imen Ismail,PNEUMOLOGIE,Nabeul Nabeul,"39, AV. Habib Bourguiba - Imm City Centre ( En face de la Jarre au dessus de cuisina) 5ème étage - Bureau N° 6 - 8000 Nabeul","36.450581647359726,10.73560439140171",.649.592,doctor,,,,,m
+118,Dr. Madani Sadreddine,CHI. CARDIOVASCULAIRE T,Tunis El Menzah,BadrMedical 53 avenue Mohieddine klibi Manar2,"36.8452347,10.164723299999991",23350208,doctor,,,,,m
+119,Dr. Dr Mouna Chebbi,DERMATOLOGIE,Kef Kef Est,"Avenue Taieb Mhiri, Immeuble Eya, Ain Mnekh","36.17747287088332,8.702086595817491",96916920,doctor,,,,,m
+120,Dr. Dr Mayssa Sakka Derbel,OPHTALMOLOGIE,Sfax Sfax Ville,Avenue Majida Boulila City centre Bloc C 1er étage,"34.742077865935144,10.754614948834956",36231123,doctor,,,,,m
+121,Dr. Harrabi Selma,ANESTHESIE-REANIMATION,Tunis El Menzah,Résidence les jasmins bloc i 2éme étage devant clinique Elmanar tunis,"36.8452347,10.164723299999991",98306714,doctor,,,,,m
+122,Dr. Kaddour Sami,OPHTALMOLOGIE,Tunis Bab El Bhar,2 rue Charles de Gaulle,"36.8064948,10.181531599999971",71328468,doctor,,,,,m
+123,Dr. Tunisia Health & Beauty,CHIRURGIE PLASTIQUE,Tunis El Menzah,Avenue Jsmins résidence Cortoba étage M Jardin d'El menzah 2 Tunis,"36.8452347,10.164723299999991",30 11 60,doctor,,,,,m
+124,Dr. Mansour Esmehen,MEDECINE GENERALE,Ariana Mnihla,Route de bizerte km4.3  pré magasin Aziza,"36.8761883,10.11431760000005",29004907,doctor,,,,,m
+126,Dr. Saida Jendoubi,RHUMATOLOGIE,Jendouba Jendouba Nord,"49, Avenue Ali Balhaouane ( Complexe Médical Nourane ), 2ème Etage, Près du Centre de Radiologie (Laboratoire Hassen Khadhraoui), et du Attijari Banque et du ATB (Arab Tunisian Bank), et du Jardin Mémorial des Martys, 8100","36.500842,8.7778883",50444236,doctor,,,,,m
+127,Dr. Mohamed Osman Kilani,ENDOCRINOLOGIE,Bizerte Bizerte Nord,"Hyppo Center, Bloc B, 5ème étage, Appt B18, Av. Habib Bourguiba, 7000 - Bizerte","37.269731504876496,9.866534654978182",21922008,doctor,,,,,m
+128,Dr. Oueslati Aymen,CHIRURGIE ORTHOPEDIQUE,Kairouan Kairouan Nord,Rue Mouaouia Ibn Houdayj-Hajjam-Kairouan,"35.67798957337529,10.089147869486851",52397609,doctor,,,,,m
+129,Dr. Imen Zghal,OPHTALMOLOGIE,Tunis Le Bardo,Institut hedi raies d'ophtalmologie de tunis,"36.8132516,10.133916399999976",98583233,doctor,,,,,m
+130,Dr. Ferchichi Semia,PNEUMOLOGIE,Ben Arous Hammam Lif,24 avenue Habib Bourguiba centre médical Ibn Rochd 2ème étage cabinet n 1,"36.7230724,10.344175800000016",52567600,doctor,,,,,m
+131,Dr. Rekik Saleh Eddine,NEUROLOGIE,Sfax Sfax Ville,"Complexe Medical city, route elaïn km 0,5","34.74188501219323,10.75162965020138",74491141,doctor,,,,,m
+132,Dr. Khammassi Naziha,MEDECINE INTERNE,Manouba La Manouba,Service de Médecine Interne- Hopital Razi - Manouba,"36.8665367,10.164723299999991", 560 068,doctor,,,,,m
+133,Dr. Houman Mohamed Habib,MEDECINE INTERNE,Tunis Bab El Bhar,Hôpital la Rabta,"36.80195904691571,10.15786911088378",98673997,doctor,,,,,m
+134,Dr. Kamel Bendhiaf,MEDECINE GENERALE,Kef Kef Ouest,Cite Taieb Mhiri . Place Barnoussa.,"36.1570132,8.6969378",98587135,doctor,,,,,m
+135,Dr. Melki Chennoufi Amel,ENDOCRINOLOGIE,Ben Arous Radès,"Centre Médical Maxula - 1er Etage Cabinet B 1-1 G.P.1, km 8-Chouchet Rades-Ben Arous (en face giratoire Nouvelle Medina)","36.77159839999999,10.27683879999995",79297121,doctor,,,,,m
+136,Dr. Nadia Khaldi Essid,OPHTALMOLOGIE,Ben Arous Medina Jedida,Résidence Sarra. Médina medical 1er étage. La nouvelle médina. A côté du supermarché Carrefour,"36.7449529,10.245992999999999",98635976,doctor,,,,,m
+137,Dr. Dhahak Slim,CHIRURGIE PLASTIQUE,Tunis Le Kram,"209, Av. Habib Bourguiba - 1er Étage Le Kram - 2015 Tunis","36.83332,10.317515500000013", 734 164,doctor,,,,,m
+138,Dr. Ala Ben Saïd,ORL ET STOMATOLOGIE,Sfax Sfax Sud,Route Mharza Km 3 Complexe Médical Mharza Centre 3ème étage Cabinet 302,"34.72115547616109,10.72216383613545",6 536600,doctor,,,,,m
+139,Dr. Kais Malouche,ANESTHESIE-REANIMATION,Ariana Ariana Ville,"immeuble Morsi, 5 Avenue Taieb Mhiri, Ariana 2080","36.8665367,10.164723299999991",71711323,doctor,,,,,m
+140,Dr. Manel Limeme,RADIOLOGIE,Monastir Jemmal,immeuble el bourouz el mahatta jemmel,"35.62745505797663,10.761861227562463",54545945,doctor,,,,,m
+141,Dr. Ennouri Mohamed,OPHTALMOLOGIE,Sfax Sfax Ville,51.AVENUE ALI BELHOUANE,"34.7478469,10.766163000000006",74298331,doctor,,,,,m
+142,Dr. Dr Slim Mahmoudi,ORL ET STOMATOLOGIE,Kébili Souk Lahad,Avenue 14 Janvier Souk Lahad,"33.77847357815507,8.849724216714776", 481 122,doctor,,,,,m
+143,Dr. Ali Anis,RADIOLOGIE,Ben Arous Fouchana,FOUCHANA BEN AROUS AVENUE DE LA LIBERTÉ IMMEUBLE EL BAHI,"36.6959499,10.164723299999991",79322375,doctor,,,,,m
+144,Dr. Mouna Khemekhem Khoufi,DERMATOLOGIE,Sfax Sfax Sud,Route l'afrane km 4 Imm. MAHSOUNA Bloc C (à coté Pharmacie) 6ème étage cabinet N°2,"34.7630467,10.7289509", 415 403,doctor,,,,,m
+145,Dr. Besrour Ahmed,ANESTHESIE-REANIMATION,Ariana Ariana Ville,"Rue Mahmoud Sehili, Immeuble International City Center (En Face de Carrefour Market) Bureau 03 -4ème étage- Centre Urbain Nord - Tunis","36.8665367,10.164723299999991",28 28 58,doctor,,,,,m
+147,Dr. Chiha Haythem,PEDIATRIE,Bizerte Menzel Bourguiba,"CENTRE HABIBA, 23 rue Mongi Slim","37.153576313016266,9.792625106373976",97136444,doctor,,,,,m
+148,Dr. Labratoire Dr. Aymen Ben Hassen,PARASITOLOGIE,Tunis Bab Souika,102 avenue Hedi Saidi Bab Saadoun Tunis,"36.80910789459371,10.16130452911375",31404930,doctor,,,,,m
+149,Dr. Mersni Cherni Aicha,MEDECINE INTERNE,Jendouba Jendouba Sud,Rue taib mhiri immeuble HAMMAMI (BATAM),"36.50041432935774,8.778526940111533",98598011,doctor,,,,,m
+150,Dr. Mhedhbi Med Haythem,GYNECOLOGIE-OBSTETRIQUE,Nabeul Hammamet,"Immeuble Abidi-Bureau N°3 2éme étage,Route natinale n°1 (en face de station TOTAL) Mnaret Hammamet Tunisie  8056","36.40732431941619,10.561192852845807",97102643,doctor,,,,,m
+151,Dr. Rached Saida,MEDECINE GENERALE,Bizerte Bizerte Nord,BIZERTE CENTRE VILLE - RUE HASSEN ENNOURI - BIZERTE BUSINESS CENTER (BOUTIQUE CELIO) - BLOC C - APP408 - 4EME ETAGE,"37.27356494146692,9.869804267767336",94931619,doctor,,,,,m
+152,Dr. Ali Sayari,MEDECINE GENERALE,Ariana La Soukra,72 Avenue de la cité sportive (route de chotrana) Borj Louzir 2073 Ariana,"36.88286659043327,10.207329599529885",54546024,doctor,,,,,m
+153,Dr. Ouamara Nadia,MEDECINE GENERALE,Ariana Ariana Ville,206 avenue Habib Bourguiba le kram,"36.8665367,10.164723299999991",58832124,doctor,,,,,m
+154,Dr. Olfa Moussa Landolsi,PSYCHOLOGUE,Tunis Le Bardo,"lachheb center, 26bis Av Habib Bourguiba le Bardo, Br1.1, 1er étage","36.810775,10.1395378",27548330,doctor,,,,,m
+155,Dr. Jaber Chaker,CHI. CARDIOVASCULAIRE T,Ariana Ariana Ville,Service de chirurgie thoracique et cardio-vasculaire de l'hôpital Abderrahmene mami de l'ariana,"36.86585058281609,10.171983576179287",55660100,doctor,,,,,m
+156,Dr. Dr Sma Faouzi,MEDECINE GENERALE,Médenine Djerba - Midoun,"Cabinet b4, 2eme étage , shopping centre Noor ( carrefour Market)","33.7754716,10.958094699999947",96958124,doctor,,,,,m
+157,Dr. Sourour Trabelsi,PSYCHIATRIE,Sfax Sfax Sud,Route gremda km 3 complexe médical attabib à côté de la polyclinique ibn khaldoun,"34.7604064,10.7389073",20726204,doctor,,,,,m
+158,Dr. Ines Ben Slimen Lachiheb,OPHTALMOLOGIE,Ben Arous Medina Jedida,"Medina Medical, Résidence Ines, 1er Etage, Cabinet N° 7 (près de Carrefour Market)","36.742315343430974,10.251492788712767", 570 064,doctor,,,,,m
+159,Dr. Rihab Ennaoui,PSYCHIATRIE,Médenine Djerba - Houmt Souk,Houmt souk Djerba,"33.8759693,10.857283199999983", 194 502,doctor,,,,,m
+160,Dr. Jlidi Said,CHIRURGIE INFANTILE,Tunis Bab Souika,"Hopital d'Enfants Béchir Hamza de Tunis, Tunisie ; Clinique Ettawfik, Tunis","36.8091534,10.166123900000002",98343243,doctor,,,,,m
+161,Dr. Rim Sahnoun,GYNECOLOGIE-OBSTETRIQUE,Ariana Ariana Ville,centre médical SYPHAX MEDICAl route de Gremda Km 2,"36.8665367,10.164723299999991",23003703,doctor,,,,,m
+162,Dr. Sahnoun Rim,GYNECOLOGIE-OBSTETRIQUE,Sfax Sfax Ville,centre médical SYPHAX MEDICAl route de Gremda Km 2,"34.739822,10.760019599999964",36393963,doctor,,,,,m
+163,Dr. Lylia Khammassi,ANESTHESIE-REANIMATION,Tunis Le Bardo,47 rue du lac leman immeuble Meninx bureau B0-2. les berges du lac 1 .1053 Tunis,"36.8132516,10.133916399999976", 294 677,doctor,,,,,m
+164,Dr. Mon Guide Medical,MEDECINE GENERALE,Ariana Ariana Ville,"7 Rue Ibrahim Ibn Alaghlab Menzah 4, 1004 Ariana","36.8665367,10.164723299999991",71753760,doctor,,,,,m
+165,Dr. Bouzaiene Ep Bacha Imen,MEDECINE GENERALE,Tunis La Marsa,"3,rue Naceur Bey (en face restaurant Oueld El Bey). 1er étage. 2076 Marsa Ville","36.89349947704052,10.320048946344855",26377442,doctor,,,,,m
+166,Dr. Ben Fradj Rim,MEDECINE GENERALE,Gabès Gabès Sud,en face du dispensaire cité el Amal et magasin Rahma 6072 Gabès,"33.85824009653736,10.09480770447692",54799234,doctor,,,,,m
+168,Dr. Jomaa Rihab,NEUROLOGIE,Mahdia Mahdia,Zone touristique immeuble errahma 2ème etage blocA n’27,"35.5024461,11.045720999999958",52626555,doctor,,,,,m
+169,Dr. Souissi Souad,PEDIATRIE,Ben Arous Ben Arous,res ibn jazar av habib thameur mourouj 1,"36.7435003,10.23197570000002",98585919,doctor,,,,,m
+170,Dr. Mrad Ep Bellar Amel,ANESTHESIE-REANIMATION,Monastir Monastir,av du combattant suprême immeuble errachid 1ére étage bureau 2,"35.7642515,10.811288500000046",98916878,doctor,,,,,m
+171,Dr. Mrad Ep Bellar Amel,PSYCHIATRIE,Monastir Monastir,av du combattant suprême immeuble errachid 1ére étage bureau 2,"35.7642515,10.811288500000046",98916878,doctor,,,,,m
+172,Dr. Haddar Leila,ENDOCRINOLOGIE,Sfax Sfax Ville,"Palmarium 4, Avenue des Martyrs, 3027 Sfax","34.736632605204356,10.754856347646296", 370 000,doctor,,,,,m
+173,Dr. Ben Jemaa Moncef,PEDIATRIE,Ben Arous El Mourouj,Avenue des Marthyrs,"36.713434,10.209552499999972",98330890,doctor,,,,,m
+174,Dr. Docteur Gharbi Nedra,ANESTHESIE-REANIMATION,Ariana Ariana Ville,"Lac médical center, diamant du lac, cité des pins Lac 2 TUNIS/TN","36.83411873246263,10.225148104687491", 267 036,doctor,,,,,m
+175,Dr. Docteur Gharbi Nedra,CHIRURGIE PLASTIQUE,Tunis La Marsa,"Lac médical center, diamant du lac, cité des pins Lac 2 TUNIS/TN","36.83857539101163,10.213090464257789", 267 036,doctor,,,,,m
+176,Dr. Docteur Gharbi Nedra,ANESTHESIE-REANIMATION,Ariana Ariana Ville,"Lac médical center, diamant du lac, cité des pins Lac 2 TUNIS/TN","36.848955779538315,10.164723299999991", 267 036,doctor,,,,,m
+177,Dr. Imed Ghrairi,PSYCHOLOGUE,Nabeul Nabeul,19 Av Hedi Nouira Nabeul,"36.462334748174,10.738409982031271",97562167,doctor,,,,,m
+178,Dr. Khalifa Essouei,GYNECOLOGIE-OBSTETRIQUE,Zaghouan El Fahs,Rue Salaheddine Bouchoucha - Fahs - Zaghouan 1140,"36.37489012615387,9.903630816749569",98511911,doctor,,,,,m
+179,Dr. Anane Sonia,PARASITOLOGIE,Ariana Ariana Ville,"Centre médical SAPHIR, 1er étage, Cabinet A1-2, Avenue Mustapha Mohsen, Ariana, Tunisie","36.86671266044948,10.20583351757125", 697 575,doctor,,,,,m
+180,Dr. Skander Ben Alaya,GYNECOLOGIE-OBSTETRIQUE,Tunis El Menzah,"Résidence les jasmins, El Manar1, Tunis","36.83418899185078,10.151076041434521",71874755,doctor,,,,,m
+181,Dr. Yessine Trabelsi,CARDIOLOGIE,Sfax Sfax Ville,Avenue Majida Boulila immeuble City Center bloc C deuxième étage appartement 6 Sfax,"34.739822,10.760019599999964",74401032,doctor,,,,,m
+182,Dr. Makni Wissem,CHIRURGIE INFANTILE,Tunis El Menzah,"avicenne médical, rue tahar sfar, 1er étage, cabinet 7","36.84213793998772,10.160803788162962",1 550414,doctor,,,,,m
+183,Dr. Mrabet Bouraoui Hana,MEDECINE GENERALE,Sousse Sousse Medina,Immeuble les arcades bureauM16 au dessus du Monoprix beb elgharbi,"35.8245029,10.634584000000018",55232018,doctor,,,,,m
+184,Dr. Zaghdoud Mustapha,MEDECINE GENERALE,Ariana Ariana Ville,ariana,"36.80515759522906,10.109868102331916",22265255,doctor,,,,,m
+185,Dr. Souhaib Lamine,MEDECINE GENERALE,Ariana Ariana Ville,21 Avenue Habib Bourguiba Immeuble Hajji Ariana,"36.85829078184894,10.189437173863212",31 19 60,doctor,,,,,m
+186,Dr. Faouzi Nouira,CHIRURGIE PEDIATRIQUE,Tunis El Menzah,clinique CARTHAGENE,"36.8452347,10.164723299999991",20323704,doctor,,,,,m
+187,Dr. Riadh Mhalla,MEDECINE GENERALE,Mahdia Mahdia,Route de l hôpital Tahar Sfar (a coté du Jardin d enfants SEMSEM ) Hiboun Mahdia,"35.511110004617194,11.035099452300983",55392841,doctor,,,,,m
+189,Dr. Ouni Akrem,UROLOGIE,Tunis Bab El Bhar,Carrefour médical mourouj1,"36.71811386034564,10.20808189646118",98285381,doctor,,,,,m
+190,Dr. Chemli Monia Ep Lajmi,DERMATOLOGIE,Monastir Ksar Hellal,Av habib bourguiba ksar hellal,"35.6452612,10.873371200000065", 587 100,doctor,,,,,m
+191,Dr. Lajmi Khaled,PEDIATRIE,Monastir Ksar Hellal,Av habib bourguiba ksar hellal,"35.6452612,10.873371200000065", 451 501,doctor,,,,,m
+192,Dr. Houda Achour Ep Ben Salem,MEDECINE GENERALE,Sousse Sousse Medina,Immeuble Slim Medical - Rue Dr Moreau 4000 SOUSSE,"35.83205198293819,10.630672818979633",3 229225,doctor,,,,,m
+193,Dr. Hadiji Achraf,CHIRURGIE CARCINOLOGIE,Sfax Sfax Ville,"B31, Syphax médical, route de Gremda km 2","34.75617480602702,10.745181619743335",98419646,doctor,,,,,m
+194,Dr. Boumaiza Wissal,PSYCHIATRIE,Nabeul Nabeul,"Immuble city center , 1 er stage , bureau n°6 ( à Côté de LA gare ) 8000 nabeul","36.4512893,10.735663400000021",72221922,doctor,,,,,m
+196,Dr. Denguezli Mondher,MEDECINE GENERALE,Tunis Cité El Khadra,"22 Rue du niger, mohamed 5","36.8239349,10.226369400000067", 673 001,doctor,,,,,m
+197,Dr. El Kebir Ahmed,ORL ET STOMATOLOGIE,Ariana Ariana Ville,sokra medicale a cote du clinique la sokra,"36.8665367,10.164723299999991",70690377,doctor,,,,,m
+198,Dr. Belhaj Omar,PSYCHIATRIE,Sousse Hammam Sousse,Sousse,"35.886399,10.591507200000024",53159380,doctor,,,,,m
+199,Dr. Abdennebi Slaheddine,MEDECINE GENERALE,Ariana Ariana Ville,6 rue Med Lahjaiej B2/1 Ariana 2080,"36.8665367,10.164723299999991",98452102,doctor,,,,,m
+200,Dr. Rojbi Merdassi Nesrine,MEDECINE GENERALE,Ben Arous El Mourouj,Avenue martyrs elmourouj 4,"36.71721387767674,10.216786417713138",79494691,doctor,,,,,m
+202,Dr. Faiza Ben Ali,GYNECOLOGIE-OBSTETRIQUE,Gabès El Hamma,84 av habib bourghuiba,"33.888077,10.097522099999992",75334096,doctor,,,,,m
+203,Dr. Ghada Regaieg,MEDECINE GENERALE,Ariana Ariana Ville,"Rue Lamine Echebbi, Résidence Ettaoufik rdc blocD appt D01 Ennasr2","36.858188842354956,10.161322258969221",25706622,doctor,,,,,m
+204,Dr. Chemli Nejmeddine,DERMATOLOGIE,Monastir Ksar Hellal,"Avenue des Nations Unies, Imm. La Pyramide Médicale, 3ème étage, App. 31","35.65117443154042,10.888700024520176",97745041,doctor,,,,,m
+205,Dr. Mohamed Amine Bahri,MEDECINE PHYSIQUE,Ariana Ariana Ville,"Centre le Miracle Médical ( a coté de Aziza et Attijari Bank), Cabinet M1 étage Mezzanine-24 Avenue Ibn Khaldoun, 2080","36.86928335348927,10.183584593792716", 137 400,doctor,,,,,m
+206,Dr. Ammar Adnene,CHIRURGIE GENERALE,Ariana Ariana Ville,Cxe Le Forum - Esc B - 1 Av de Carthage,"36.8665367,10.164723299999991",98305714,doctor,,,,,m
+207,Dr. Belha Ammar Leila,GASTRO-HEPATHOLOGIE,Manouba La Manouba,"centre médical Nour,rue iben abi dhie, denden manouba","36.8093284,10.086326900000017",52849682,doctor,,,,,m
+208,Dr. Zaoui Afif,MEDECINE PHYSIQUE,Sousse Sousse Medina,"PANORAMA MEDICAL, PLACE DU MAGHREB ARABE","35.8277035,10.63874809999993",73217444,doctor,,,,,m

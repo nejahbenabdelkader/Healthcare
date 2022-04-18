@@ -40,9 +40,9 @@ function ListMedications() {
   const [listMedications, setListMedications] = useState(
     initialListMedications
   );
-  const handleClickDelete=(e)=> {
-    console.log(e.target.id)
-  }
+  const handleClickDelete = (e) => {
+    console.log(e.target.id);
+  };
   const handleChangeSearch = (e) => {
     setListMedications(
       initialListMedications.filter((medication) => {
@@ -51,17 +51,15 @@ function ListMedications() {
       })
     );
   };
-  const handleClickAddMedication=()=> {
-       console.log("workinng")
-       setListMedications(false)
-  }
+  const handleClickAddMedication = () => {
+    console.log("workinng");
+    setListMedications(false);
+  };
   return (
     <Content>
       <H1>List Of Medications</H1>
       <Position>
-        <BtnAdd onClick={handleClickAddMedication}>
-          Add New Medication
-        </BtnAdd>
+        <BtnAdd onClick={handleClickAddMedication}>Add New Medication</BtnAdd>
         <InputSearch
           placeholder="Search Medication"
           onChange={handleChangeSearch}
@@ -69,10 +67,13 @@ function ListMedications() {
       </Position>
       {listMedication ? (
         <Collapse timeout={2000} in={listMedication}>
-           <TableMedication listMedications={listMedications} handleClickDelete={handleClickDelete}/>
+          <TableMedication
+            listMedications={listMedications}
+            handleClickDelete={handleClickDelete}
+          />
         </Collapse>
       ) : (
-          <div />
+        <div />
       )}
     </Content>
   );
