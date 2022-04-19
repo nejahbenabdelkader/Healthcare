@@ -1,5 +1,7 @@
 package com.PFA.main.Model;
 
+import org.hibernate.annotations.Fetch;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,12 +12,10 @@ public class MedicationQuantity {
 
     @ManyToOne
     @MapsId("medicationId")
-    @JoinColumn(name = "medication_id")
     Pharmacy pharmacy;
 
     @ManyToOne
     @MapsId("pharmacyId")
-    @JoinColumn(name = "pharmacy_id")
     Medication medication;
 
     int quantity;

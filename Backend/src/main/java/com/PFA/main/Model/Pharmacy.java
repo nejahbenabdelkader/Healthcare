@@ -4,6 +4,7 @@ package com.PFA.main.Model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -19,8 +20,8 @@ public class Pharmacy {
     private String cordinate;
     private String phoneNumber;
 
-    @ManyToMany
-    private Set<MedicationQuantity> medicationQuantitySet;
+    @OneToMany(mappedBy = "medication")
+    private List<MedicationQuantity> medications;
 
     @Transient
     public double DistanceFromUser(int cordinateX, int cordinateY) {

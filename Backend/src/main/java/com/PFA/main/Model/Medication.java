@@ -26,6 +26,6 @@ public class Medication {
 
     private String donnees;
 
-    @ManyToMany
-    private List<MedicationQuantity> pharmaciesMedicationQuantities;
+    @OneToMany(mappedBy = "pharmacy")
+    private List<MedicationQuantity> pharmacies;
 }

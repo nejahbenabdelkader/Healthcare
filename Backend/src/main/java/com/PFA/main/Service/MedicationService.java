@@ -15,10 +15,7 @@ public class MedicationService {
     @Autowired
     MedicationRepository medicationRepository;
 
-    public List<Medication> getMedications() {
-        medicationRepository.findById().get().getPharmacies().
-        return null;
-    }
+
 
     public Set<Medication> getMedicationFromPharmacy(Long id) {
 

@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.*;
 @Slf4j
+@Component
 public class LoadDoctor implements CommandLineRunner {
     @Autowired
     UserRepository userRepository;
