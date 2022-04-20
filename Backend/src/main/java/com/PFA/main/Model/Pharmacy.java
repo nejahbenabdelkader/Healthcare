@@ -1,14 +1,15 @@
 package com.PFA.main.Model;
 
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
 public class Pharmacy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,9 +20,22 @@ public class Pharmacy {
     private String address;
     private String cordinate;
     private String phoneNumber;
+    private String type;
 
     @OneToMany(mappedBy = "medication")
     private List<MedicationQuantity> medications;
+
+    public Pharmacy( String town, String firmName, String address, String cordinate, String phoneNumber, String type, List<MedicationQuantity> medications) {
+        this.town = town;
+        this.firmName = firmName;
+        this.address = address;
+        this.cordinate = cordinate;
+        this.phoneNumber = phoneNumber;
+        this.type = type;
+        this.medications = medications;
+    }
+
+
 
     @Transient
     public double DistanceFromUser(int cordinateX, int cordinateY) {
