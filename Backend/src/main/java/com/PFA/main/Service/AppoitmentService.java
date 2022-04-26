@@ -5,18 +5,18 @@ import com.PFA.main.Repository.AppoitmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AppoitmentService {
 
     @Autowired
     AppoitmentRepository appoitmentRepository;
 
-    public List<Appoitment> getAppoitmentPatient(Long patientId) {
-        //determiner les derniers rendez-vous du patient
-        return null;
+    public List<Appoitment> getAppoitmentWithId(Long patientId) {
+       return appoitmentRepository.findAll().stream().filter(appoitment -> appoitment.getPatient().getId().equals(patientId)).collect(Collectors.toList());
     }
 
     public void addAppoitment(Appoitment appoitment) {
-
+       appoitmentRepository.save(appoitment);
     }
 }

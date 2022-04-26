@@ -4,29 +4,27 @@ import com.PFA.main.Model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.PFA.main.Service.UserService;
 
-import java.util.List;
-import java.util.Optional;
 
 @RestController
+@RequestMapping("/user")
+@CrossOrigin(allowCredentials = "true", origins = "http://localhost:3000")
+
 public class UserController {
 	
 	
 	@Autowired
 	private UserService userService;
 
-	@GetMapping("/user/{id}")
-	public ResponseEntity<User> getUserWithId(@PathVariable String id) {
+	@GetMapping("/{id}")
+	public ResponseEntity<?> getUserWithId(@PathVariable String id) {
 		return new ResponseEntity<>(userService.getUserWithId(Long.valueOf(id)).get(),HttpStatus.OK);
 	}
 
-	@GetMapping("/users")
+	@GetMapping("/all")
 	public ResponseEntity<?> getAllUsers() {
 		try {
 			return new ResponseEntity<>(userService.getUsers(),HttpStatus.OK);
@@ -35,6 +33,11 @@ public class UserController {
 			return new ResponseEntity<>(e.toString(),HttpStatus.BAD_REQUEST);
 		}
 
+	}
+
+	@PostMapping("/add")
+	public void addUser(@RequestBody  User user) {
+		userService.addUser(user);
 	}
 
 }

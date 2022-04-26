@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 
 import java.io.*;
 
-@Component
 @Slf4j
 public class LoadNightPharmacy implements CommandLineRunner {
 

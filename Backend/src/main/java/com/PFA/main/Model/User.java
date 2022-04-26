@@ -19,11 +19,11 @@ public class User {
     @Column(name = "id")
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     private String password;
     private char gender;
     private String email;
-    private String role;
+    private Role role;
     private String fullName;
     private String speciality;
     private String description;
@@ -36,7 +36,7 @@ public class User {
     @OneToOne
     private Firm firm;
 
-    public User(String password, char gender, String email, String role, String fullName, String speciality, String description, Pharmacy pharmacy, Firm firm) {
+    public User(String password, char gender, String email, Role role, String fullName, String speciality, String description, Pharmacy pharmacy, Firm firm) {
         this.password = password;
         this.gender = gender;
         this.email = email;
