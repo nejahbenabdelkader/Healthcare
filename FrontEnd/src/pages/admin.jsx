@@ -28,6 +28,7 @@ const AdminPage = () => {
       <Navbar toggle={toggle} {...navLinks} />
       <Dashboard />
       <UsersTable />
+      
       <Footer />
     </Box>
   );

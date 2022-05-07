@@ -42,35 +42,35 @@ function PharmacyRow(props) {
           <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={12}>
             <Collapse in={open} timeout="auto" unmountOnExit>
               <Box sx={{ margin: 1 }}>
-                <Typography variant="h6" gutterBottom component="div">
+                <Typography variant="h6" gutterBottom component="div" sx={{color:"#1E90FF"}}>
                   Pharmacy
                 </Typography>
                 <Table size="small" aria-label="purchases">
                   <TableHead>
                     <TableRow>
-                      <TableCell >FirmName</TableCell>
-                      <TableCell>Address</TableCell>
-                      <TableCell>Town</TableCell>
-                      <TableCell >Cordinate</TableCell>
-                      <TableCell align="right">Type</TableCell>
+                      <TableCell align="center" sx={{color:"white",bgcolor:"black"}}>Name</TableCell>
+                      <TableCell align="center" sx={{color:"white",bgcolor:"black"}}>Address</TableCell>
+                      <TableCell align="center" sx={{color:"white",bgcolor:"black"}}>Town</TableCell>
+                      <TableCell align="center" sx={{color:"white",bgcolor:"black"}}>Cordinate</TableCell>
+                      <TableCell align="center" sx={{color:"white",bgcolor:"black"}}>Type</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
                     {row.firm.map((firmRow) => (
                       <TableRow key={firmRow.address}>
-                        <TableCell align="left">{firmRow.firmName}</TableCell>
-                        <TableCell component="th" scope="row">
+                        <TableCell align="center">{firmRow.firmName}</TableCell>
+                        <TableCell align="center" component="th" scope="row">
                           {firmRow.address}
                         </TableCell>
-                        <TableCell>{firmRow.town}</TableCell>
-                        <TableCell >
+                        <TableCell align="center" >{firmRow.town}</TableCell>
+                        <TableCell align="center">
                           <a
                             href={`https://www.google.com/maps/@${firmRow.cordinate}z`}
                           >
                             {firmRow.cordinate}
                           </a>
                         </TableCell>
-                        <TableCell>{firmRow.type}</TableCell>
+                        <TableCell align="center">{firmRow.type}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>

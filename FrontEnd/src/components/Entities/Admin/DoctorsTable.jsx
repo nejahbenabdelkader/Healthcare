@@ -170,8 +170,8 @@ export default function DoctorsTable() {
     setPage(0);
   };
   return (
-    <Paper sx={{ width: "100%", overflow: "hidden" }}>
-      <TableContainer component={Paper} sx={{ maxHeight: 440 }}> 
+    <Paper sx={{ width: "100%", overflow: "hidden"}}>
+      <TableContainer component={Paper} sx={{ maxHeight: 440}}> 
       <Table stickyHeader aria-label="sticky table">
         <TableHead sx={{bgcolor:"#01bf71"}}>
           <TableRow >
@@ -188,7 +188,7 @@ export default function DoctorsTable() {
           {rows
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map((row) => (
-              <DoctorRow key={row.name} row={row} />
+              <DoctorRow key={row.name} row={row}/>
             ))}
         </TableBody>
         </Table>

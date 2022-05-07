@@ -41,25 +41,25 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
           <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={12}>
             <Collapse in={open} timeout="auto" unmountOnExit>
               <Box sx={{ margin: 1 }}>
-                <Typography variant="h6" gutterBottom component="div">
+                <Typography variant="h6" gutterBottom component="div" sx={{color:"#1E90FF"}}>
                   Firm
                 </Typography>
                 <Table size="small" aria-label="purchases">
                   <TableHead>
                     <TableRow>
-                      <TableCell>Address</TableCell>
-                      <TableCell>Town</TableCell>
-                      <TableCell align="right">Cordinate</TableCell>
+                      <TableCell sx={{color:"white",bgcolor:"black"}} align="center">Address</TableCell>
+                      <TableCell sx={{color:"white",bgcolor:"black"}} align="center">Town</TableCell>
+                      <TableCell sx={{color:"white",bgcolor:"black"}} align="center">Cordinate</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
                     {row.firm.map((firmRow) => (
                       <TableRow key={firmRow.address}>
-                        <TableCell component="th" scope="row">
+                        <TableCell align="center" component="th" scope="row">
                           {firmRow.address}
                         </TableCell>
-                        <TableCell>{firmRow.town}</TableCell>
-                        <TableCell align="right">
+                        <TableCell align="center">{firmRow.town}</TableCell>
+                        <TableCell align="center">
                           <a
                             href={`https://www.google.com/maps/@${firmRow.cordinate}z`}
                           >
