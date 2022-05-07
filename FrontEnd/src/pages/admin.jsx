@@ -1,7 +1,8 @@
+import { Box } from "@mui/material";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import Consulting from "../components/Consulting";
-import DashboardApp from "../components/Dashboard/DashboardApp";
+import Dashboard from "../components/Dashboard";
 import UsersTable from "../components/Entities/Admin/usersTable";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
@@ -23,17 +24,12 @@ const AdminPage = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <>
-      <Sidebar isOpen={isOpen} toggle={toggle} {...navLinks} />
+    <Box sx={{bgcolor:"black"}}>
       <Navbar toggle={toggle} {...navLinks} />
-      <Hero />
-      <DashboardApp />
-      <Info {...homeObjOne} id="about" />
+      <Dashboard />
       <UsersTable />
-      <Services />
-      <Info {...homeObjThree} id="signup" />
       <Footer />
-    </>
+    </Box>
   );
 };
 

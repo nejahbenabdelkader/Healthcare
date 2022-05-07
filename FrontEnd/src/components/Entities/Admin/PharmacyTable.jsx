@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import PharmacyRow from "./PharmacyRow";
 
 function createData(
   fullName,
@@ -56,93 +57,7 @@ function createData(
   };
 }
 
-function Row(props) {
-  const { row } = props;
-  const [open, setOpen] = React.useState(false);
 
-  return (
-    <React.Fragment>
-      <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
-        <TableCell>
-          <IconButton
-            aria-label="expand row"
-            size="small"
-            onClick={() => setOpen(!open)}
-          >
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-          </IconButton>
-        </TableCell>
-        <TableCell component="th" scope="row">
-          {row.fullName}
-        </TableCell>
-        <TableCell align="right">{row.phoneNumber}</TableCell>
-        <TableCell align="right">{row.email}</TableCell>
-        <TableCell align="right">{row.gender}</TableCell>
-        <TableCell align="right">{row.speciality}</TableCell>
-        <TableCell align="right">{row.dateInscrit}</TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={12}>
-          <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box sx={{ margin: 1 }}>
-              <Typography variant="h6" gutterBottom component="div">
-                Pharmacy
-              </Typography>
-              <Table size="small" aria-label="purchases">
-                <TableHead>
-                  <TableRow>
-                    <TableCell >FirmName</TableCell>
-                    <TableCell>Address</TableCell>
-                    <TableCell>Town</TableCell>
-                    <TableCell >Cordinate</TableCell>
-                    <TableCell align="right">Type</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {row.firm.map((firmRow) => (
-                    <TableRow key={firmRow.address}>
-                      <TableCell align="left">{firmRow.firmName}</TableCell>
-                      <TableCell component="th" scope="row">
-                        {firmRow.address}
-                      </TableCell>
-                      <TableCell>{firmRow.town}</TableCell>
-                      <TableCell >
-                        <a
-                          href={`https://www.google.com/maps/@${firmRow.cordinate}z`}
-                        >
-                          {firmRow.cordinate}
-                        </a>
-                      </TableCell>
-                      <TableCell>{firmRow.type}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </Box>
-          </Collapse>
-        </TableCell>
-      </TableRow>
-    </React.Fragment>
-  );
-}
-
-Row.propTypes = {
-  row: PropTypes.shape({
-    calories: PropTypes.number.isRequired,
-    carbs: PropTypes.number.isRequired,
-    fat: PropTypes.number.isRequired,
-    firm: PropTypes.arrayOf(
-      PropTypes.shape({
-        cordinate: PropTypes.number.isRequired,
-        town: PropTypes.string.isRequired,
-        address: PropTypes.string.isRequired,
-      })
-    ).isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    protein: PropTypes.number.isRequired,
-  }).isRequired,
-};
 
 const rows = [
   createData(
@@ -209,19 +124,17 @@ export default function PharmacyTable() {
       <Table aria-label="collapsible table">
         <TableHead>
           <TableRow>
-            <TableCell />
-            <TableCell>Full Name</TableCell>
-            <TableCell align="right">Phone Number</TableCell>
-            <TableCell align="right">Email</TableCell>
-            <TableCell align="right">Gender</TableCell>
-
-            <TableCell align="right">Speciality</TableCell>
-            <TableCell align="right">Date d'inscription</TableCell>
+            <TableCell sx={{color:"white",bgcolor:"#01bf71"}}/>
+            <TableCell sx={{color:"white",bgcolor:"#01bf71"}}>Full Name</TableCell>
+            <TableCell sx={{color:"white",bgcolor:"#01bf71"}}>Phone Number</TableCell>
+            <TableCell sx={{color:"white",bgcolor:"#01bf71"}}>Email</TableCell>
+            <TableCell sx={{color:"white",bgcolor:"#01bf71"}}>Gender</TableCell>
+            <TableCell sx={{color:"white",bgcolor:"#01bf71"}}>Date d'inscription</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <Row key={row.name} row={row} />
+            <PharmacyRow key={row.name} row={row} />
           ))}
         </TableBody>
       </Table>
