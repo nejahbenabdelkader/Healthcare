@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Consulting from "../components/Consulting";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
@@ -8,6 +8,9 @@ import { homeObjOne, homeObjTwo, homeObjThree } from "../components/Info/Data";
 import Navbar from "../components/Navbar";
 import Services from "../components/Services";
 import Sidebar from "../components/SideBar";
+import { UserService } from "../service/UserService";
+import { userActions } from "../Store/User";
+import AdminPage from "./admin";
 import DoctorHome from "./doctor";
 import PatientHome from "./patient";
 import PharmacyHome from "./pharmacy";
@@ -18,19 +21,20 @@ const navLinks = {
 };
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const LoggedUser = useSelector((state) => state.user.type);
-  console.log(LoggedUser);
+  const LoggedUser = useSelector((state) => state.user.loggedUser);
   const toggle = () => {
     setIsOpen(!isOpen);
   };
-
-  switch (LoggedUser) {
-    case "patient":
+  
+  switch (LoggedUser.role) {
+    case "[PATIENT]":
       return <PatientHome />
-    case "doctor":
+    case "[DOCTOR]":
       return <DoctorHome />;
-    case "pharmacy":
+    case "[PHARMACY]":
       return <PharmacyHome />
+    case "[ADMIN]":
+      return <AdminPage />  
     default:
       return (
         <>

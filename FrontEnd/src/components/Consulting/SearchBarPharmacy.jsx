@@ -13,7 +13,7 @@ import { ServicesH2 } from "../Services/ServiceElements";
 import { SearchBarDoctorWrapper } from "./DiscoverElements";
 
 const SearchBarPharmacy = ({ handleClick }) => {
-  const [data, setData] = useState({ name: "", time: "", town: "" });
+  const [data, setData] = useState({ firmname: "", type: "", town: "" });
   const handleChangeData = (e) => {
     setData((prevState) => {
       return { ...prevState, [e.target.name]: e.target.value };
@@ -21,11 +21,11 @@ const SearchBarPharmacy = ({ handleClick }) => {
   };
   return (
     <SearchBarDoctorWrapper>
-      <TextField label="Name of the Pharmacy" name="name" value={data.name} onChange={handleChangeData} />
+      <TextField label="Name of the Pharmacy" name="firmName" value={data.name} onChange={handleChangeData} />
       <FormControl sx={{ mx: 3 }}>
         <RadioGroup
           value={data.time}
-          name="time"
+          name="type"
           onChange={handleChangeData}
           row
         >
@@ -50,7 +50,7 @@ const SearchBarPharmacy = ({ handleClick }) => {
           </MenuItem>
         ))}
       </TextField>
-      <Button variant="contained" fullWidth onClick={() => handleClick(data)}>
+      <Button variant="contained" fullWidth onClick={(e) => handleClick(e,data)}>
         <ServicesH2>Search Now</ServicesH2>
       </Button>
     </SearchBarDoctorWrapper>

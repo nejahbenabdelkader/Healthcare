@@ -22,30 +22,34 @@ import { workingHours } from "../../../Info/Data";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 const days = [
-  { text: "Mon", number: "7" },
-  { text: "Mon", number: "8" },
-  { text: "Mon", number: "9" },
-  { text: "Mon", number: "10" },
-  { text: "Mon", number: "11" },
-  { text: "Mon", number: "12" },
+  { text: "Mon", number: "7", id: "MONDAY" },
+  { text: "Tue", number: "8", id: "TUESDAY" },
+  { text: "Wed", number: "9", id: "WEDNESDAY" },
+  { text: "Thu", number: "10", id: "THURSDAY" },
+  { text: "Fri", number: "11", id: "FRIDAY" },
+  { text: "Sat", number: "12", id: "SATURDAY" },
 ];
 const DatePicker = () => {
-  const LoggedUser = useSelector((state) => state.user.type);
-  const navigate=useHistory();
+  const isLogged = useSelector((state) => state.user.isLogged);
+  const navigate = useHistory();
+  
   const [date, setDate] = useState({ day: "", hour: "" });
   const handleHourClick = (event) => {
     setDate((prevState) => {
       return { hour: event.target.innerText, day: prevState.day };
     });
   };
+  
   const handleDayClick = (event) => {
-    setDate(prevState=>{return {day:event.target.id,hour:prevState.hour}})
-    console.log(date)
+    setDate((prevState) => {
+      return { day: event.target.id, hour: prevState.hour };
+    });
+    console.log(date);
   };
 
-  const saveAppoitment=()=> {
-      if(LoggedUser=='') navigate.push('/signin')
-  }
+  const saveAppoitment = () => {
+    if (!isLogged) navigate.push("/signin");
+  };
   return (
     <Main>
       <Header>
@@ -61,18 +65,23 @@ const DatePicker = () => {
         </IconStyle>
       </MonthSelector>
       <DaysWrapper>
-        {days.map((day) => 
-          date.day === day.number ? 
-            <Day selected key={day.number} id={day.number} onClick={handleDayClick} >
+        {days.map((day) =>
+          date.day === day.number ? (
+            <Day
+              selected
+              key={day.number}
+              id={day.number}
+              onClick={handleDayClick}
+            >
               <DayText selected>{day.text}</DayText>
               <DayNumber selected>{day.number}</DayNumber>
             </Day>
-           : 
+          ) : (
             <Day key={day.number} id={day.number} onClick={handleDayClick}>
               <DayText>{day.text}</DayText>
               <DayNumber>{day.number}</DayNumber>
             </Day>
-          
+          )
         )}
       </DaysWrapper>
       <HoursWrapper>
@@ -89,7 +98,9 @@ const DatePicker = () => {
         )}
       </HoursWrapper>
 
-      <SaveButton type="submit" onClick={saveAppoitment} >Save</SaveButton>
+      <SaveButton type="submit" onClick={saveAppoitment}>
+        Save
+      </SaveButton>
     </Main>
   );
 };

@@ -1,5 +1,7 @@
 import React, { useReducer, useState } from "react";
 import Icon1 from "../../../images/logo.jpg";
+import { UserService } from "../../../service/UserService";
+
 import {
   Container,
   FormWrap,
@@ -29,17 +31,18 @@ import AlertComponent from "../../Elements/Alert";
 const SignUpPatient = (props) => {
   
   const initialState = {
-    name: "",
+    fullName: "",
     email: "",
     phoneNumber: "",
     password: "",
-    gender: "",
+    gender: "m",
+    role: "PATIENT"
   };
   
   const reducer = (state, action) => {
     switch (action.type) {
-      case "name":
-        return { ...state, name: action.value };
+      case "fullName":
+        return { ...state, fullName: action.value };
       case "email":
         return { ...state, email: action.value };
       case "phoneNumber":
@@ -54,7 +57,8 @@ const SignUpPatient = (props) => {
   const [patient, dispatchPatient] = useReducer(reducer, initialState);
   const [verifiedCredentials, setVerifiedCredentials] = useState(true);
 
-  const sendData = () => {
+  const sendData = (e) => {
+    new UserService().addUser(patient).then(response => console.log(response))
     console.log(patient);
   };
   
@@ -105,9 +109,9 @@ const SignUpPatient = (props) => {
                     placeholder="Enter your first name"
                     required
                     onChange={(e) => {
-                      dispatchPatient({ type: "name", value: e.target.value });
+                      dispatchPatient({ type: "fullName", value: e.target.value });
                     }}
-                    value={patient.name}
+                    value={patient.fullName}
                   ></FormInput>
                 </td>
                 <td>

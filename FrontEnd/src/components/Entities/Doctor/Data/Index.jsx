@@ -13,7 +13,7 @@ import {
   Description,
 } from "./DataElemnts";
 import { BiMap } from "react-icons/bi";
-const DataDoctor = ({doctorName,streetAdress,photo,description,handleAppoitmentClick}) => {
+const DataDoctor = ({id,fullName,firm,photo,description,handleAppoitmentClick}) => {
   return (
     
     <Main>
@@ -23,20 +23,20 @@ const DataDoctor = ({doctorName,streetAdress,photo,description,handleAppoitmentC
           src={photo}
         />
         <TextWrap>
-          <Title>{doctorName}</Title>
+          <Title>{fullName}</Title>
           <Description>
             {description}
           </Description>
         </TextWrap>
-        <Call backgroundColor="#01bf71;" width="400px" onClick={handleAppoitmentClick}>
-            <MakeACall>Take An Appoitment</MakeACall>
+        <Call backgroundColor="#01bf71;" width="400px" onClick={handleAppoitmentClick} >
+            <MakeACall id={id}>Take An Appoitment</MakeACall>
           </Call>
       </FlexWrapperOne>
       <FlexWrapperOne>
         <IconStyle color="#fff">
           <BiMap height={25} width={25} />
         </IconStyle>
-        <Location>{streetAdress}</Location>
+        <Location>{firm.address}</Location>
          
       </FlexWrapperOne>
     </Main>

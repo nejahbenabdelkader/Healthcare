@@ -16,7 +16,7 @@ const DataDrug = ({nameDrug,utilisation,photo,handleAppoitmentClick}) => {
             {utilisation}
           </Utilisation>
         </TextWrap>
-          <MoreButton backgroundColor="#01bf71;" onClick={handleAppoitmentClick}>
+          <MoreButton backgroundColor="#01bf71;" onClick={handleAppoitmentClick} id="INFODRUG">
             <MakeACall>More</MakeACall>
           </MoreButton>
       </FlexWrapper>

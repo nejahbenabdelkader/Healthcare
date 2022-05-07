@@ -1,5 +1,6 @@
 import { Button, Collapse } from "@mui/material";
 import React, { useState } from "react";
+import { SearchService } from "../../service/SearchService";
 import Doctor from "../Entities/Doctor";
 import DataDoctor from "../Entities/Doctor/Data/Index";
 import DataDrug from "../Entities/Drug";
@@ -13,20 +14,72 @@ import SearchBarDrug from "./SearchBarDrug";
 import SearchBarPharmacy from "./SearchBarPharmacy";
 
 const Consulting = ({ lightBg, id }) => {
-  const [searchType, setSearchType] = useState("doctor");
+  const searchBar = () => {
+    switch (searchType) {
+      case "DOCTOR":
+        return <SearchBarDoctor handleClick={handleSearchClick} />;
+      case "DRUG":
+        return <SearchBarDrug handleClick={handleSearchClick} />;
+      case "PHARMACY":
+        return <SearchBarPharmacy handleClick={handleSearchClick} />;
+    }
+  };
+  const [searchType, setSearchType] = useState("DOCTOR");
+  const [selectedSearch, setSelectedSearch] = useState();
   const [search, setSearch] = useState(false);
   const [moreInfo, setMoreInfo] = useState(false);
-  const handleSearchClick = (dataSearch) => {
+  const [searchResult, setSearchResult] = useState([]);
+  const handleSearchClick = (e, dataSearch) => {
+    console.log(dataSearch);
     navigator.geolocation.getCurrentPosition((data) => {
       const positionUser = {
         lat: data.coords.latitude,
         lon: data.coords.longitude,
       };
-      console.log({ ...dataSearch, positionUser, searchType: searchType });
+      const firm = {
+        //cordinate: `${positionUser.lat},${positionUser.lon}`,
+        cordinate: "36.871955, 10.247275",
+        town: dataSearch.town,
+      };
+      switch (searchType) {
+        case "DOCTOR":
+          new SearchService()
+        .SearchNearbyDoctors(firm, dataSearch.name, dataSearch.speciality)
+        .then((response) => {
+          if (response.status == 200) {
+            setSearchResult(response.data);
+          }
+        });
+          break;
+        case "PHARMACY":
+          const pharmacy={
+            firmName:dataSearch.firmName,
+            cordinate: "36.871955, 10.247275",
+            town:dataSearch.town,
+            type:dataSearch.type
+          }
+          new SearchService()
+          .SearchNearbyPharmacy(pharmacy)
+          .then((response) => {
+            if (response.status == 200) {
+              setSearchResult(response.data);
+            }
+          });
+          break;
+        case "DRUG":
+          break;
+        default:
+          break;
+      }
+      console.log(dataSearch);
+      
     });
     setSearch(true);
   };
-  const ClickMoreButton = () => {
+  const ClickMoreButton = (e) => {
+    const selectedItem = searchResult.find((item) => item.id == e.target.id);
+    console.log(selectedItem);
+    setSelectedSearch(selectedItem);
     setMoreInfo(true);
     setSearch(false);
   };
@@ -36,7 +89,7 @@ const Consulting = ({ lightBg, id }) => {
   };
   return (
     <>
-      <InfoContainer lightBg={lightBg} id={id} name='Consulting'>
+      <InfoContainer lightBg={lightBg} id={id} name="Consulting">
         <InfoWrapper>
           <ButtonsWrapper>
             <Button
@@ -44,7 +97,7 @@ const Consulting = ({ lightBg, id }) => {
               fullWidth
               color="success"
               onClick={changeSearchType}
-              id="doctor"
+              id="DOCTOR"
             >
               <ServicesH2>Doctor</ServicesH2>
             </Button>
@@ -53,7 +106,7 @@ const Consulting = ({ lightBg, id }) => {
               fullWidth
               color="success"
               onClick={changeSearchType}
-              id="drug"
+              id="DRUG"
             >
               <ServicesH2>Drug</ServicesH2>
             </Button>
@@ -62,31 +115,23 @@ const Consulting = ({ lightBg, id }) => {
               fullWidth
               color="success"
               onClick={changeSearchType}
-              id="pharmacy"
+              id="PHARMACY"
             >
               <ServicesH2>Pharmacy</ServicesH2>
             </Button>
           </ButtonsWrapper>
-          {searchType === "doctor" && (
-            <SearchBarDoctor handleClick={handleSearchClick} />
-          )}
-          {searchType === "drug" && (
-            <SearchBarDrug handleClick={handleSearchClick} />
-          )}
-          {searchType === "pharmacy" && (
-            <SearchBarPharmacy handleClick={handleSearchClick} />
-          )}
+          {searchBar()}
           <>
             <Collapse timeout={2000} in={moreInfo}>
-              {!search && searchType == "doctor" && moreInfo && (
-                <Doctor doctorInfo={doctorData} />
+              {!search && searchType == "DOCTOR" && moreInfo && (
+                <Doctor doctorInfo={selectedSearch} />
               )}
               {!search && searchType == "drug" && moreInfo && <Drug />}
             </Collapse>
             <Collapse timeout={2000} in={search}>
               {search &&
-                searchType === "doctor" &&
-                searchDoctor.map((doctor) => (
+                searchType === "DOCTOR" &&
+                searchResult.map((doctor) => (
                   <DataDoctor
                     {...doctor}
                     handleAppoitmentClick={ClickMoreButton}

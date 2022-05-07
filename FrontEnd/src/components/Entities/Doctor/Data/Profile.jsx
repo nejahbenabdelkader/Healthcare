@@ -19,7 +19,7 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-const ProfileDoctor = ({doctorName,streetAdress,imageURL,description,phoneNumber}) => {
+const ProfileDoctor = ({fullName,firm,imageURL,description,phoneNumber}) => {
   const LoggedUser = useSelector((state) => state.user.type);
   const navigate=useHistory();
   const handleClickSendMessage=()=> {
@@ -33,7 +33,7 @@ const ProfileDoctor = ({doctorName,streetAdress,imageURL,description,phoneNumber
           src={imageURL}
         />
         <TextWrap>
-          <Title>{doctorName}</Title>
+          <Title>{fullName}</Title>
           <Description>
             {description}
           </Description>
@@ -44,7 +44,7 @@ const ProfileDoctor = ({doctorName,streetAdress,imageURL,description,phoneNumber
         <IconStyle color="#fff">
           <BiMap height={25} width={25} />
         </IconStyle>
-        <Location>{streetAdress}</Location>
+        <Location>{firm.address}</Location>
         <ButtonsWrapper>
           <Call
             backgroundColor="#01bf71"
@@ -54,7 +54,7 @@ const ProfileDoctor = ({doctorName,streetAdress,imageURL,description,phoneNumber
             <IconStyle>
               <BsFillTelephoneFill height={25} width={25} />
             </IconStyle>
-            <MakeACall>{phoneNumber}</MakeACall>
+            <MakeACall>+216 {phoneNumber}</MakeACall>
           </Call>
           <Call backgroundColor="#01bf71" width="250px" onClick={handleClickSendMessage}>
             <IconStyle>

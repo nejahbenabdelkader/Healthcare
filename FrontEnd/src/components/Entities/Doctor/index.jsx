@@ -4,6 +4,10 @@ import DatePicker from "./DatePicker";
 import { FlexWrapper } from "./DoctorElements";
 import Maps from "./maps";
 const Doctor = ({ doctorInfo }) => {
+  const location= {
+    lat: parseFloat(doctorInfo.firm.cordinate.split(",")[0]),
+    lng: parseFloat(doctorInfo.firm.cordinate.split(",")[1])
+  }
   return (
     <>
       <FlexWrapper>
@@ -11,7 +15,7 @@ const Doctor = ({ doctorInfo }) => {
       </FlexWrapper>
       <FlexWrapper>
         <DatePicker />
-        <Maps position={doctorInfo.location}/>
+        <Maps position={location}/>
       </FlexWrapper>
     </>
   );

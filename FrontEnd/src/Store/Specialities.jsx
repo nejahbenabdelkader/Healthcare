@@ -1,30 +1,38 @@
 const { createSlice } = require("@reduxjs/toolkit");
 const initialState =[
-    {
-      value: "generaliste",
-      label: "Généraliste",
-    },
-    {
-      value: "EUR",
-      label: "Nutritioniste",
-    },
-    {
-      value: "BTC",
-      label: "Densite",
-    },
-    {
-      value: "JPY",
-      label: "Cardiologue",
-    },
-    {
-      value: "JPY",
-      label: "Dermatologue",
-    },
-    {
-      value: "JPY",
-      label: "Pédiatre",
-    },
-  ];
+  "GASTRO-HEPATHOLOGIE",
+  "GYNECOLOGIE-OBSTETRIQUE",
+  "UROLOGIE",
+  "PEDIATRIE",
+  "MEDECINE GENERALE",
+  "RADIOLOGIE",
+  "PNEUMOLOGIE",
+  "CARDIOLOGIE",
+  "Orthodontiste",
+  "ANESTHESIE-REANIMATION",
+  "NUTRITION-DIETETIQUE",
+  "ENDOCRINOLOGIE",
+  "CHIRURGIE MAXILLO-FACIALE",
+  "OPHTALMOLOGIE",
+  "CHIRURGIE PLASTIQUE",
+  "NEUROLOGIE",
+  "CHIRURGIE GENERALE",
+  "MEDECINE INTERNE",
+  "NEUROCHIRURGIE",
+  "CHIRURGIE ORTHOPEDIQUE",
+  "DERMATOLOGIE",
+  "RHUMATOLOGIE",
+  "ORL ET STOMATOLOGIE",
+  "CARCINOLOGIE MEDICALE",
+  "PSYCHIATRIE",
+  "CHI. CARDIOVASCULAIRE T",
+  "PARASITOLOGIE",
+  "PSYCHOLOGUE",
+  "CHIRURGIE INFANTILE",
+  "CHIRURGIE PEDIATRIQUE",
+  "CHIRURGIE CARCINOLOGIE",
+  "MEDECINE PHYSIQUE"
+];
 const specialitiesrSlice = createSlice({
   name: "specialities",
   initialState,

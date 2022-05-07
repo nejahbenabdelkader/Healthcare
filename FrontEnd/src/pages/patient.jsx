@@ -17,11 +17,9 @@ const navLinks = {
 };
 const PatientHome = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggle = () => {
     setIsOpen(!isOpen);
   };
-
   return (
     <>
       <Sidebar isOpen={isOpen} toggle={toggle} {...navLinks} />
@@ -29,7 +27,6 @@ const PatientHome = () => {
       <Hero />
       <Appointments /> 
       <Consulting {...homeObjTwo} />
-      <Chat name="Messages"/>
       <Services />
       <AccountPatient />
       <Footer />

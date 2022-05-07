@@ -18,7 +18,8 @@ import {
 import { FaEnvelope, FaLock, FaDirections } from "react-icons/fa";
 import { userActions } from "../../../Store/User";
 import Icon1 from "../../../images/logo.jpg";
-import AlertComponent from "../../Elements/Alert";
+import Swal from "sweetalert2";
+import { UserService } from "../../../service/UserService";
 
 const SignIn = () => {
   const dispatch = useDispatch();
@@ -36,26 +37,32 @@ const SignIn = () => {
         return { ...prevState, password: value };
       });
   };
+  
   const CheckCredentials = (e) => {
-    if (user.email === "patient" && user.password === "patient")
-      dispatch(userActions.setLoggedUser({ type: "patient" }));
-    else if (user.email === "doctor" && user.password === "doctor")
-      dispatch(userActions.setLoggedUser({ type: "doctor" }));
-    else if (user.email === "pharmacy" && user.password === "pharmacy")
-      dispatch(userActions.setLoggedUser({ type: "pharmacy" }));
-    else {
-      setVerifiedCredentials(false);
-      e.preventDefault();
-    }
+    
+    new UserService().authenticate(user.email, user.password).then((response) => {
+      if (response.status=="401") {
+        e.preventDefault();
+        Swal.fire({
+          title: "Error!",
+          text: "Please verify Your Credentials !",
+          icon: "error",
+          confirmButtonText: "Return",
+        });
+      } else {
+        dispatch(userActions.setLoggedUser(response.data));
+        dispatch(userActions.setIsLogged(true));
+        new UserService().getUserWithEmail(response.data.user).then(response=> {
+          dispatch(userActions.setUserData(response.data))
+        })
+  
+      }
+      
+    });
   };
   return (
     <>
       <Container>
-        <AlertComponent
-          verified={verifiedCredentials}
-          setVerified={setVerifiedCredentials}
-          message="SomeThing Went Wrong"
-        />
         <FormWrap>
           <NavbarContainer>
             <Icon to="/" src={Icon1}>

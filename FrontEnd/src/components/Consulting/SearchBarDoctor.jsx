@@ -17,8 +17,8 @@ const SearchBarDoctor = ({handleClick}) => {
       <TextField label="Name of the doctor" value={data.name} name='name' onChange={handleChangeData} />
       <TextField select label="Speciality"   value={data.speciality}  onChange={handleChangeData} name='speciality'>
         {specialities.map((option) => (
-          <MenuItem key={option.value} value={option.value} id='speciality'>
-            {option.label}
+          <MenuItem key={option} value={option} id='speciality'>
+            {option}
           </MenuItem>
         ))}
       </TextField>
@@ -30,7 +30,7 @@ const SearchBarDoctor = ({handleClick}) => {
           </MenuItem>
         ))}
       </TextField>
-      <Button variant="contained" fullWidth onClick={()=>handleClick(data)}>
+      <Button variant="contained" fullWidth onClick={(e)=>handleClick(e,data)} id="SEARCHDOCTOR">
         <ServicesH2>Search Now</ServicesH2>
       </Button>
     </SearchBarDoctorWrapper>

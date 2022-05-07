@@ -26,7 +26,7 @@ const Navbar = ({ rightButtonName, rightButtonPath, toggle, navBarLink }) => {
       setScrollNav(false);
     }
   };
-  const LoggedUser = useSelector((state) => state.user.type);
+  const isLogged = useSelector((state) => state.user.isLogged);
   useEffect(() => {
     window.addEventListener("scroll", changeNav);
   }, []);
@@ -35,7 +35,9 @@ const Navbar = ({ rightButtonName, rightButtonPath, toggle, navBarLink }) => {
     scroll.scrollToTop();
   };
   const handleRightButtonClick = (e) => {
-    dispatch(userActions.setLoggedUser({ type: "" }));
+    dispatch(userActions.setLoggedUser(""));
+    dispatch(userActions.setIsLogged(false));
+    dispatch(userActions.setUserData(""))
   };
   return (
     <>

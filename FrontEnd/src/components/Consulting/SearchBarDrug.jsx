@@ -11,7 +11,7 @@ const SearchBarDrug = ({handleClick}) => {
   return (
     <SearchBarDrugWrapper>
       <TextField label="Name of the Drug"  name="name" value={data.name} onChange={handleChangeData}/>
-      <Button variant="contained" fullWidth onClick={()=>handleClick(data)}>
+      <Button variant="contained" fullWidth onClick={(e)=>handleClick(e,data)} id="SEARCHDRUG">
         <ServicesH2>Search Now</ServicesH2>
       </Button>
     </SearchBarDrugWrapper>

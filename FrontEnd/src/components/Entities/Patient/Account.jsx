@@ -134,8 +134,6 @@ const AccountPatient = (props) => {
                     required
                   ></FormInput>
                 </td>
-              
-              
               <td>
                 <FormButtonSave type="submit">Save</FormButtonSave>
               </td>

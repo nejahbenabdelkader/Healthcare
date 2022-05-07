@@ -32,8 +32,11 @@ import {
   Box,
   FormControl,
   FormControlLabel,
+  IconButton,
+  Input,
   Radio,
   RadioGroup,
+  Stack,
   TextField,
 } from "@mui/material";
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
@@ -42,22 +45,25 @@ import AlertComponent from "../../Elements/Alert";
 import { NavbarContainer } from "../Signin/SigninElements";
 import { useSelector } from "react-redux";
 import { Towns } from "../../Info/Data";
+import { PhotoCamera } from "@mui/icons-material";
+import { UserService } from "../../../service/UserService";
+const initialState = {
+  fullName: "",
+  email: "",
+  phoneNumber: "",
+  password: "",
+  gender: "m",
+  speciality: "",
+  town: "TUNIS",
+  profilePicure: null,
+  firmName: "",
+  description: "",
+  address: "",
+  role: "DOCTOR",
+  firm: "",
+};
 
 const SignUpDoctor = (props) => {
-  const initialState = {
-    fullName: "",
-    email: "",
-    phoneNumber: "",
-    password: "",
-    gender: "Male",
-    speciality: "",
-    town: "",
-    profilePicure: "",
-    firmName: "",
-    coordoonees: "",
-    description: "",
-    address: "",
-  };
   const [verifiedCredentials, setVerifiedCredentials] = useState(true);
   const specialities = useSelector((state) => state.specialities);
   const reducer = (state, action) => {
@@ -67,8 +73,23 @@ const SignUpDoctor = (props) => {
     }
   };
   const [doctor, dispatchActionDoctor] = useReducer(reducer, initialState);
-  const sendData = () => {
-    console.log(doctor);
+  const sendData = (e) => {
+    e.preventDefault();
+    navigator.geolocation.getCurrentPosition((data) => {
+      const positionUser = {
+        lat: data.coords.latitude,
+        lon: data.coords.longitude,
+      };
+      const firm = {
+        firmName: doctor.firmName,
+        town: doctor.town,
+        cordinate: positionUser.lat + "," + positionUser.lon,
+        address: doctor.address,
+      };
+      doctor.firm=firm;
+      console.log(doctor)
+      new UserService().addUser(doctor).then((response) => console.log(response));
+    });
   };
   return (
     <Container>
@@ -272,8 +293,8 @@ const SignUpDoctor = (props) => {
                     required
                   >
                     {specialities.map((speciality) => (
-                      <FormOption value={speciality.value}>
-                        {speciality.label}
+                      <FormOption value={speciality} style={{ mt: "10px" }}>
+                        {speciality}
                       </FormOption>
                     ))}
                   </FormSelect>
@@ -311,7 +332,29 @@ const SignUpDoctor = (props) => {
                     ))}
                   </FormSelect>
                 </td>
-                <td>{/* upload image */}</td>
+                <td>
+                    <label htmlFor="icon-button-file">
+                      <Input
+                        onChange={(e) => {
+                          dispatchActionDoctor({
+                            type: "HANDLE INPUT",
+                            label: e.target.id,
+                            value: e.target.files[0],
+                          });
+                        }}
+                        accept="image/*"
+                        id="profilePicture"
+                        type="file"
+                      />
+                      <IconButton
+                        color="primary"
+                        aria-label="upload picture"
+                        component="span"
+                      >
+                        <PhotoCamera />
+                      </IconButton>
+                    </label>
+                </td>
               </tr>
               <tr>
                 <td>
@@ -324,12 +367,6 @@ const SignUpDoctor = (props) => {
                     </IconStyle>
                     Address
                   </FormLabel2>
-                </td>
-                <td>
-                  <FormLabel htmlFor="for">X Cordiante</FormLabel>
-                </td>
-                <td>
-                  <FormLabel htmlFor="for">Y Cordinate</FormLabel>
                 </td>
               </tr>
               <tr>
@@ -360,20 +397,6 @@ const SignUpDoctor = (props) => {
                         value: e.target.value,
                       });
                     }}
-                    required
-                  ></FormInput>
-                </td>
-                <td>
-                  <FormInput
-                    htmlFor="x_cordinate"
-                    placeholder="Enter your firm x cordinate"
-                    required
-                  ></FormInput>
-                </td>
-                <td>
-                  <FormInput
-                    htmlFor="y_cordinate"
-                    placeholder="Enter your firm y cordinate"
                     required
                   ></FormInput>
                 </td>
