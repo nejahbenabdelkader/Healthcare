@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @Slf4j
 @RequestMapping("pharmacy")
@@ -33,6 +35,11 @@ public class PharmacyController {
             return new ResponseEntity<>(e.toString(),HttpStatus.BAD_REQUEST);
         }
         return null;
+    }
+
+    @GetMapping("/town")
+    public  ResponseEntity<List<String>>getTowns() {
+        return new ResponseEntity<>(pharmacyService.getTownsOfPharmacy(),HttpStatus.ACCEPTED);
     }
 
 }

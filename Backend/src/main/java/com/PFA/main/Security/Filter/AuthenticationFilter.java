@@ -1,6 +1,7 @@
 package com.PFA.main.Security.Filter;
 
 
+import com.PFA.main.Repository.UserRepository;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -34,6 +35,8 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     @Autowired
     private  AuthenticationManager authenticationManager;
+    @Autowired
+    UserRepository userRepository;
 
     public AuthenticationFilter(AuthenticationManager authenticationManager){
         this.authenticationManager=authenticationManager;
@@ -41,19 +44,12 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     @SneakyThrows
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-
-
+        request.getHeaderNames().asIterator().forEachRemaining(s -> System.out.println(s+"    "+request.getHeader(s)));
+        log.info(request.getContentType());
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         Map<String, String[]> modelMap =  request.getParameterMap();
         log.info(String.valueOf(modelMap.keySet().size()));
-
-        for(String key: modelMap.keySet()){
-            System.out.print(key);
-            System.out.print(" : ");
-            System.out.print(modelMap.get(key));
-            System.out.print("<br />");
-        }
         log.info(email+"       "+password);
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(email,password);
         return authenticationManager.authenticate(authenticationToken);
@@ -77,7 +73,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         tokens.put("refresh_token",refresh_token);
         tokens.put("user",((User) authentication.getPrincipal()).getUsername());
         tokens.put("role",authentication.getAuthorities().toString());
-
+         response.setHeader("Access-Control-Allow-Origin","*");
         response.setContentType(APPLICATION_JSON_VALUE);
         new ObjectMapper().writeValue(response.getOutputStream(),tokens);
     }

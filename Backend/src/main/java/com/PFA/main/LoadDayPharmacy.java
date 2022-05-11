@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 import java.io.*;
 
 @Slf4j
+@Component
 public class LoadDayPharmacy implements CommandLineRunner {
 
     @Autowired
@@ -30,14 +31,15 @@ public class LoadDayPharmacy implements CommandLineRunner {
                              .withFirstRecordAsHeader());) {
 
             Iterable<CSVRecord> csvRecords = csvParser.getRecords();
-            for (CSVRecord csvRecord : csvRecords) {
-
-
-                Pharmacy pharmacy  = new Pharmacy(csvRecord.get(1),csvRecord.get(0),csvRecord.get(3),csvRecord.get(2),csvRecord.get(4),csvRecord.get(5),null);
-                log.info(pharmacy.toString());
-                pharmacyRepository.save(pharmacy);
+            if (!pharmacyRepository.existsById(1L)) {
+                for (CSVRecord csvRecord : csvRecords) {
+                    Pharmacy pharmacy = new Pharmacy(csvRecord.get(1), csvRecord.get(0), csvRecord.get(3), csvRecord.get(2), csvRecord.get(4), null);
+                    log.info(pharmacy.toString());
+                    pharmacyRepository.save(pharmacy);
+                }
+                log.info("Added pharmacy ");
             }
-            log.info("Added pharmacy ");
+
 
         } catch (IOException e) {
             throw new RuntimeException("fail to parse CSV file: " + e.getMessage());

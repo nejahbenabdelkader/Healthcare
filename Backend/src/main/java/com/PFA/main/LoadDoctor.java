@@ -16,8 +16,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
+import java.util.Date;
 
 @Slf4j
+@Component
 public class LoadDoctor implements CommandLineRunner {
     @Autowired
     UserRepository userRepository;
@@ -45,20 +47,24 @@ public class LoadDoctor implements CommandLineRunner {
                              .withFirstRecordAsHeader());) {
 
             Iterable<CSVRecord> csvRecords = csvParser.getRecords();
-            for (CSVRecord csvRecord : csvRecords) {
+            if( !userRepository.existsById(1L)) {
+                for (CSVRecord csvRecord : csvRecords) {
 
 
-                Firm firm = new Firm(csvRecord.get(3), "", csvRecord.get(4), csvRecord.get(5), csvRecord.get(6));
-                String description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book";
-                User user = new User("doctor", 'm', Reformulate(csvRecord.get(1)) + "@gmail.com", Role.DOCTOR, Reformulate(csvRecord.get(1)), csvRecord.get(2), description, null, firm);
+                    Firm firm = new Firm(csvRecord.get(3), "", csvRecord.get(4),  csvRecord.get(5));
+                    String description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book";
+                    User user = new User("doctor", 'm', Reformulate(csvRecord.get(1)) + "@gmail.com", Role.DOCTOR, Reformulate(csvRecord.get(1)), csvRecord.get(2), description,csvRecord.get(6), null, firm,null,Boolean.FALSE,new Date());
 
-                user.setPassword(passwordEncoder.encode(user.getPassword()));
-                log.info(firm.toString());
-                log.info(user.toString());
-                firmRepository.save(firm);
-                userRepository.save(user);
+                    user.setPassword(passwordEncoder.encode(user.getPassword()));
+                    log.info(firm.toString());
+                    log.info(user.toString());
+                    firmRepository.save(firm);
+                    userRepository.save(user);
+                }
+                log.info("Added doctors and their firms to ");
             }
-            log.info("Added doctors and their firms to ");
+
+
         } catch (IOException e) {
             throw new RuntimeException("fail to parse CSV file: " + e.getMessage());
         }

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import Consulting from "../components/Consulting";
 import Dashboard from "../components/Dashboard";
+import ValidationTable from "../components/Dashboard/ValidationTable";
 import UsersTable from "../components/Entities/Admin/usersTable";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
@@ -28,7 +29,7 @@ const AdminPage = () => {
       <Navbar toggle={toggle} {...navLinks} />
       <Dashboard />
       <UsersTable />
-      
+      <ValidationTable />
       <Footer />
     </Box>
   );

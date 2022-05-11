@@ -1,4 +1,4 @@
-/*import { filter } from 'lodash';
+import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
 import { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
@@ -31,45 +31,12 @@ import USERLIST from './_mock/user';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-  { id: 'name', label: 'Name', alignRight: false },
-  { id: 'company', label: 'Company', alignRight: false },
-  { id: 'role', label: 'Role', alignRight: false },
-  { id: 'isVerified', label: 'Verified', alignRight: false },
-  { id: 'status', label: 'Status', alignRight: false },
-  { id: '' },
+  { id: 'fullName', label: 'Full Name', alignRight: false },
+  { id: 'email', label: 'Email ', alignRight: false },
+  { id: 'gender', label: 'Gender', alignRight: false },
+  { id: 'phoneNumber', label: 'Phone Number', alignRight: false },
+  { id: 'status', label: 'Type', alignRight: false },
 ];
-function createDataDoctor(
-    fullName,
-    phoneNumber,
-    email,
-    gender,
-    role,
-    dateInscrit
-  ) {
-    return {
-      fullName,
-      phoneNumber,
-      email,
-      gender,
-      role,
-      dateInscrit,
-      firm: [
-        {
-          address: "Avenue 20 Mars Le Bardo Médical 1er étage Bureau 1-1",
-          town: "Tunis Le Bardo",
-          cordinate: "36.8079199,10.1393102",
-        },
-        {
-          address: "Avenue 20 Mars Le Bardo Médical 1er étage Bureau 1-1",
-          town: "Tunis Le Bardo",
-          cordinate: "36.8079199,10.1393102",
-        },
-      ],
-    };
-  }
-  
-// ----------------------------------------------------------------------
-
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -94,7 +61,7 @@ function applySortFilter(array, comparator, query) {
     return a[1] - b[1];
   });
   if (query) {
-    return filter(array, (_user) => _user.name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+    return filter(array, (_user) => _user.fullName.toLowerCase().indexOf(query.toLowerCase()) !== -1);
   }
   return stabilizedThis.map((el) => el[0]);
 }
@@ -105,9 +72,8 @@ export default function ValidationTable() {
   const [order, setOrder] = useState('asc');
 
   const [selected, setSelected] = useState([]);
-
   const [orderBy, setOrderBy] = useState('name');
-
+ console.log(selected)
   const [filterName, setFilterName] = useState('');
 
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -120,18 +86,18 @@ export default function ValidationTable() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = USERLIST.map((n) => n.name);
+      const newSelecteds = USERLIST.map((n) => n.id);
       setSelected(newSelecteds);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name);
+  const handleClick = (event, id) => {
+    const selectedIndex = selected.indexOf(id);
     let newSelected = [];
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
+      newSelected = newSelected.concat(selected, id );
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -155,7 +121,6 @@ export default function ValidationTable() {
     setFilterName(event.target.value);
   };
 
-  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - USERLIST.length) : 0;
 
   const filteredUsers = applySortFilter(USERLIST, getComparator(order, orderBy), filterName);
 
@@ -163,12 +128,9 @@ export default function ValidationTable() {
 
   return (
     <Page title="User">
-      <Container>
-       
-
+      <Container >
         <Card>
-          <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
-
+          <UserListToolbar selected={selected} filterName={filterName} onFilterName={handleFilterByName} />
           <Scrollbar>
             <TableContainer sx={{ minWidth: 800 }}>
               <Table>
@@ -183,8 +145,8 @@ export default function ValidationTable() {
                 />
                 <TableBody>
                   {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    const { id, name, role, status, company, avatarUrl, isVerified } = row;
-                    const isItemSelected = selected.indexOf(name) !== -1;
+                    const { id, fullName, email,phoneNumber ,gender,role} = row;
+                    const isItemSelected = selected.indexOf(id) !== -1;
 
                     return (
                       <TableRow
@@ -196,32 +158,17 @@ export default function ValidationTable() {
                         aria-checked={isItemSelected}
                       >
                         <TableCell padding="checkbox">
-                          <Checkbox checked={isItemSelected} onChange={(event) => handleClick(event, name)} />
+                          <Checkbox checked={isItemSelected} onChange={(event) => handleClick(event, id)} />
                         </TableCell>
-                        
                         <TableCell align="left">{fullName}</TableCell>
-                        <TableCell align="left">{company}</TableCell>
+                        <TableCell align="left">{email}</TableCell>
+                        <TableCell align="left">{gender}</TableCell>
+                        <TableCell align="left">{phoneNumber}</TableCell>
                         <TableCell align="left">{role}</TableCell>
-                        <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell>
-                        <TableCell align="left">
-                          <Label variant="ghost" color={(status === 'banned' && 'error') || 'success'}>
-                            {sentenceCase(status)}
-                          </Label>
-                        </TableCell>
-
-                        <TableCell align="right">
-                          <UserMoreMenu />
-                        </TableCell>
                       </TableRow>
                     );
                   })}
-                  {emptyRows > 0 && (
-                    <TableRow style={{ height: 53 * emptyRows }}>
-                      <TableCell colSpan={6} />
-                    </TableRow>
-                  )}
                 </TableBody>
-
                 {isUserNotFound && (
                   <TableBody>
                     <TableRow>
@@ -234,7 +181,6 @@ export default function ValidationTable() {
               </Table>
             </TableContainer>
           </Scrollbar>
-
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}
             component="div"
@@ -249,4 +195,3 @@ export default function ValidationTable() {
     </Page>
   );
 }
-*/

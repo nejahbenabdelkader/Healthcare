@@ -1,21 +1,27 @@
 package com.PFA.main.Model;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class Appoitment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Date dateAppoitment;
 
-
+    private Date appoitmentDate ;
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private User patient;
@@ -26,5 +32,14 @@ public class Appoitment {
 
 
     private String remarques;
+
+
+    public Appoitment( User patient, User doctor,Date appoitmentDate, String remarques) {
+        this.patient = patient;
+        this.doctor = doctor;
+        this.remarques = remarques;
+        this.appoitmentDate=appoitmentDate;
+    }
+
 
 }

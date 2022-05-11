@@ -23,27 +23,25 @@ public class Pharmacy {
     private String firmName;
     private String address;
     private String cordinate;
-    private String phoneNumber;
     private String type;
 
     @OneToMany(mappedBy = "medication",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<MedicationQuantity> medications;
 
-    public Pharmacy(String town, String firmName, String address, String cordinate, String phoneNumber, String type, List<MedicationQuantity> medications) {
+    public Pharmacy(String town, String firmName, String address, String cordinate,  String type, List<MedicationQuantity> medications) {
         this.town = town;
         this.firmName = firmName;
         this.address = address;
         this.cordinate = cordinate;
-        this.phoneNumber = phoneNumber;
         this.type = type;
         this.medications = medications;
     }
 
 
     @Transient
-    public double DistanceFromUser(int cordinateX, int cordinateY) {
-        int cordinateXUser = Integer.parseInt(cordinate.split(",")[0]);
-        int cordinateYUser = Integer.parseInt(cordinate.split(",")[1]);
+    public double DistanceFromUser(float cordinateX, float cordinateY) {
+        float cordinateXUser = Float.parseFloat(cordinate.split(",")[0]);
+        float cordinateYUser = Float.parseFloat(cordinate.split(",")[1]);
         return Math.pow(cordinateXUser - cordinateX, 2) + Math.pow(cordinateYUser - cordinateY, 2);
     }
 }

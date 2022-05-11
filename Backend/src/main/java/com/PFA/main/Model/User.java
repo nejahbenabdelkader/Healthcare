@@ -7,6 +7,8 @@ import lombok.ToString;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -27,8 +29,12 @@ public class User {
     private String fullName;
     private String speciality;
     private String description;
+    private String phoneNumber;
+    private Boolean activate;
+    private Date dateInscrit;
+
     @Transient
-    private MultipartFile photo;
+    private MultipartFile profilePicture;
 
     @OneToOne
     private Pharmacy pharmacy;
@@ -36,7 +42,10 @@ public class User {
     @OneToOne
     private Firm firm;
 
-    public User(String password, char gender, String email, Role role, String fullName, String speciality, String description, Pharmacy pharmacy, Firm firm) {
+    @ManyToMany
+   private List<Session> unavailabeSessions;
+
+    public User(String password, char gender, String email, Role role, String fullName, String speciality, String description,String phoneNumber, Pharmacy pharmacy, Firm firm,MultipartFile photo,Boolean activate , Date dateInscrit) {
         this.password = password;
         this.gender = gender;
         this.email = email;
@@ -44,8 +53,12 @@ public class User {
         this.fullName = fullName;
         this.speciality = speciality;
         this.description = description;
+        this.phoneNumber=phoneNumber;
         this.pharmacy = pharmacy;
         this.firm = firm;
+        this.profilePicture=photo;
+        this.activate=activate;
+        this.dateInscrit=dateInscrit;
     }
 
 

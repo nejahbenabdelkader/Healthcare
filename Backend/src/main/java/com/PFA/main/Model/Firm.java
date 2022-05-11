@@ -22,15 +22,14 @@ public class Firm {
     private String firmName;
     private String address;
     private String cordinate;
-    private String phoneNumber;
+
 
     @ConstructorProperties({"town", "firmName", "address", "cordinate", "phoneNumber"})
-    public Firm(String town, String firmName, String address, String cordinate, String phoneNumber) {
+    public Firm(String town, String firmName, String address, String cordinate) {
         this.town = town;
         this.firmName = firmName;
         this.address = address;
         this.cordinate = cordinate;
-        this.phoneNumber = phoneNumber;
     }
 
 

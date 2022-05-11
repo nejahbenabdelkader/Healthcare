@@ -82,8 +82,8 @@ export const homeObjThree = {
 };
 
 export const workingHours = [
-  {
-    hour: "09:00",
+  { 
+    date:{hour:"09",minute:"00"},
     status: [
       { day: 0, statusDay: "" },
       { day: 1, statusDay: "" },
@@ -94,7 +94,7 @@ export const workingHours = [
     ],
   },
   {
-    hour: "09:30",
+    date:{hour:"09",minute:"30"},
     status: [
       { day: 0, statusDay: "" },
       { day: 1, statusDay: "" },
@@ -105,7 +105,7 @@ export const workingHours = [
     ],
   },
   {
-    hour: "10:00",
+    date:{hour:"10",minute:"00"},
     status: [
       { day: 0, statusDay: "" },
       { day: 1, statusDay: "" },
@@ -116,7 +116,7 @@ export const workingHours = [
     ],
   },
   {
-    hour: "10:30",
+    date:{hour:"10",minute:"30"},
     status: [
       { day: 0, statusDay: "" },
       { day: 1, statusDay: "" },
@@ -127,7 +127,7 @@ export const workingHours = [
     ],
   },
   {
-    hour: "11:00",
+    date:{hour:"11",minute:"00"},
     status: [
       { day: 0, statusDay: "" },
       { day: 1, statusDay: "" },
@@ -138,7 +138,7 @@ export const workingHours = [
     ],
   },
   {
-    hour: "11:30",
+    date:{hour:"11",minute:"30"},
     status: [
       { day: 0, statusDay: "" },
       { day: 1, statusDay: "" },
@@ -149,7 +149,7 @@ export const workingHours = [
     ],
   },
   {
-    hour: "12:00",
+    date:{hour:"12",minute:"00"},
     status: [
       { day: 0, statusDay: "UnAvailable" },
       { day: 1, statusDay: "UnAvailable" },
@@ -160,7 +160,7 @@ export const workingHours = [
     ],
   },
   {
-    hour: "12:30",
+    date:{hour:"12",minute:"30"},
     status: [
       { day: 0, statusDay: "UnAvailable" },
       { day: 1, statusDay: "UnAvailable" },
@@ -171,7 +171,7 @@ export const workingHours = [
     ],
   },
   {
-    hour: "14:00",
+    date:{hour:"14",minute:"00"},
     status: [
       { day: 0, statusDay: "" },
       { day: 1, statusDay: "" },
@@ -182,7 +182,7 @@ export const workingHours = [
     ],
   },
   {
-    hour: "14:30",
+    date:{hour:"14",minute:"30"},
     status: [
       { day: 0, statusDay: "" },
       { day: 1, statusDay: "" },
@@ -193,7 +193,7 @@ export const workingHours = [
     ],
   },
   {
-    hour: "15:00",
+    date:{hour:"15",minute:"00"},
     status: [
       { day: 0, statusDay: "" },
       { day: 1, statusDay: "" },
@@ -204,7 +204,7 @@ export const workingHours = [
     ],
   },
   {
-    hour: "15:30",
+    date:{hour:"15",minute:"30"},
     status: [
       { day: 0, statusDay: "" },
       { day: 1, statusDay: "" },
@@ -215,7 +215,7 @@ export const workingHours = [
     ],
   },
   {
-    hour: "16:00",
+    date:{hour:"16",minute:"00"},
     status: [
       { day: 0, statusDay: "" },
       { day: 1, statusDay: "" },
@@ -226,7 +226,7 @@ export const workingHours = [
     ],
   },
   {
-    hour: "16:30",
+    date:{hour:"16",minute:"30"},
     status: [
       { day: 0, statusDay: "" },
       { day: 1, statusDay: "" },

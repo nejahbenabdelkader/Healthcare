@@ -14,7 +14,7 @@ const Doctor = ({ doctorInfo }) => {
         <ProfileDoctor {...doctorInfo} />
       </FlexWrapper>
       <FlexWrapper>
-        <DatePicker />
+        <DatePicker doctorData={doctorInfo}/>
         <Maps position={location}/>
       </FlexWrapper>
     </>

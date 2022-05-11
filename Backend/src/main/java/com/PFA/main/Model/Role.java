@@ -1,8 +1,8 @@
 package com.PFA.main.Model;
 
 public enum Role{
-    Administrateur,
+    ADMIN,
     DOCTOR,
     PHARACIEN,
-    PATIENT
+    PATIENT,
 }

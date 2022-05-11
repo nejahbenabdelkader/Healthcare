@@ -35,25 +35,32 @@ UserListToolbar.propTypes = {
   onFilterName: PropTypes.func,
 };
 
-export default function UserListToolbar({ numSelected, filterName, onFilterName }) {
+
+
+export default function UserListToolbar({ selected, filterName, onFilterName }) {
+  const handleClickAddUsers=(e)=>{
+    e.preventDefault()
+    console.log()
+  }
   return (
     <RootStyle
       sx={{
-        ...(numSelected > 0 && {
+        ...(selected.length > 0 && {
           color: 'primary.main',
           bgcolor: 'primary.lighter',
         }),
       }}
     >
-      {numSelected > 0 ? (
+      {selected.length > 0 ? (
         <Typography component="div" variant="subtitle1">
-          {numSelected} selected
+          {selected.length} selected
         </Typography>
       ) : (
         <SearchStyle
+          onClick={handleClickAddUsers}
           value={filterName}
           onChange={onFilterName}
-          placeholder="Search user..."
+          placeholder="Search Users"
           startAdornment={
             <InputAdornment position="start">
               <Iconify icon="eva:search-fill" sx={{ color: 'text.disabled', width: 20, height: 20 }} />
@@ -62,19 +69,14 @@ export default function UserListToolbar({ numSelected, filterName, onFilterName 
         />
       )}
 
-      {numSelected > 0 ? (
-        <Tooltip title="Delete">
+      
+       
+        <Tooltip title="Add Users">
           <IconButton>
-            <Iconify icon="eva:trash-2-fill" />
+            <Iconify icon="eva:plus-fill" />
           </IconButton>
         </Tooltip>
-      ) : (
-        <Tooltip title="Filter list">
-          <IconButton>
-            <Iconify icon="ic:round-filter-list" />
-          </IconButton>
-        </Tooltip>
-      )}
+      
     </RootStyle>
   );
 }
