@@ -35,7 +35,6 @@ const DatePicker = ({ doctorData }) => {
       dateAppoitment
     );
     setUnavailableDates(response.data);
-    console.log(response);
   }, [dateAppoitment]);
   const isLogged = useSelector((state) => state.user.isLogged);
   const patientData = useSelector((state) => state.user.userData);
@@ -49,12 +48,10 @@ const DatePicker = ({ doctorData }) => {
       hour: event.target.id.split(":")[0],
       minute: event.target.id.split(":")[1],
     };
-    console.log(session);
     setDateAppoitment(
       (prevState) =>
         new Date(prevState.setHours(session.hour, session.minute, 0, 0))
     );
-    console.log(dateAppoitment);
   };
 
   const saveAppoitment = async () => {
@@ -109,7 +106,6 @@ const DatePicker = ({ doctorData }) => {
                 moment(date).get('hour') == hour.date.hour &&
                 moment(date).get('minute') == hour.date.minute
             );
-            console.log(index)
             return index==-1
           })
           .map((hour) =>

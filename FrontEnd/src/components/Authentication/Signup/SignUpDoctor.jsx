@@ -55,7 +55,7 @@ const initialState = {
   gender: "m",
   speciality: "",
   town: "TUNIS",
-  profilePicure: null,
+  profilePicture: null,
   firmName: "",
   description: "",
   address: "",

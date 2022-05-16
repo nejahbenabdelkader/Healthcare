@@ -3,19 +3,23 @@ import { useSelector } from "react-redux";
 import { AppoitmentService } from "../../../../service/AppoitmentService";
 import { AppoitmentsData } from "../../../Info/Data";
 import { Content, Td, Table, Th, TrHead, Tr } from "./AppointmantsElements";
-
+import moment from "moment";
 function Appointments() {
   const [appoitment,setAppoitment]=useState([])
-  const userData = useSelector((state) => state.user.loggedUser);
+  console.log(appoitment)
+  const userData = useSelector((state) => state.user.userData);
+  console.log(userData)
   useEffect(
-     ()=> {
-       console.log(userData)
-       new AppoitmentService().getAppoitmentByPatientId(userData.user).then(response=> {
-         console.log(response)
-         setAppoitment(response.data)
-       })
+      ()=> {
+        const fetchData =async ()=>{
+          const response=await new AppoitmentService().getAppoitmentByPatientId(userData.id)
+          console.log(response)  
+           if (response.status==202) setAppoitment(response.data)
+        }
+        fetchData();
+       
      }
-    ,[]
+    ,[userData]
   )
   return (
     <Content id="appoitment">
@@ -28,7 +32,7 @@ function Appointments() {
         </TrHead>
         {appoitment.map((appoitment) => (
           <Tr status={appoitment.status}>
-            <Td>{`${appoitment.appoitmentDate.dayAppoitment}  ${appoitment.appoitmentDate.hourAppoitment}`}</Td>
+            <Td>{moment(appoitment.appoitmentDate).format('DD-MMM-yyyy hh:mm:ss')}</Td>
             <Td>{appoitment.doctor.fullName}</Td>
             <Td>{appoitment.doctor.speciality}</Td>
           </Tr>

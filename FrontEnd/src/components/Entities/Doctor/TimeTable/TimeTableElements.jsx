@@ -14,8 +14,8 @@ export const DateBox = styled.button`
   &:hover {
     cursor:pointer;
   }
-  ${({ statusBox }) => statusBox === "Comfort" && "background:#FF0000;"};
-  ${({ statusBox }) => statusBox === "UnAvailable" && "background:#C6C6C6;"};
+  ${({ statusBox }) => statusBox === "Comfort" && "background:#01bf71;"};
+  ${({ statusBox }) => statusBox === "UnAvailable" && "background:#ff4842;"};
 `;
 
 export const HourTitle = styled.p`

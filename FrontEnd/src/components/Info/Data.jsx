@@ -151,22 +151,22 @@ export const workingHours = [
   {
     date:{hour:"12",minute:"00"},
     status: [
-      { day: 0, statusDay: "UnAvailable" },
-      { day: 1, statusDay: "UnAvailable" },
-      { day: 2, statusDay: "UnAvailable" },
-      { day: 3, statusDay: "UnAvailable" },
-      { day: 4, statusDay: "UnAvailable" },
+      { day: 0, statusDay: "" },
+      { day: 1, statusDay: "" },
+      { day: 2, statusDay: "" },
+      { day: 3, statusDay: "" },
+      { day: 4, statusDay: "" },
       { day: 5, statusDay: "" },
     ],
   },
   {
     date:{hour:"12",minute:"30"},
     status: [
-      { day: 0, statusDay: "UnAvailable" },
-      { day: 1, statusDay: "UnAvailable" },
-      { day: 2, statusDay: "UnAvailable" },
-      { day: 3, statusDay: "UnAvailable" },
-      { day: 4, statusDay: "UnAvailable" },
+      { day: 0, statusDay: "" },
+      { day: 1, statusDay: "" },
+      { day: 2, statusDay: "" },
+      { day: 3, statusDay: "" },
+      { day: 4, statusDay: "" },
       { day: 5, statusDay: "" },
     ],
   },
@@ -178,7 +178,7 @@ export const workingHours = [
       { day: 2, statusDay: "" },
       { day: 3, statusDay: "" },
       { day: 4, statusDay: "" },
-      { day: 5, statusDay: "UnAvailable" },
+      { day: 5, statusDay: "" },
     ],
   },
   {
@@ -189,7 +189,7 @@ export const workingHours = [
       { day: 2, statusDay: "" },
       { day: 3, statusDay: "" },
       { day: 4, statusDay: "" },
-      { day: 5, statusDay: "UnAvailable" },
+      { day: 5, statusDay: "" },
     ],
   },
   {
@@ -200,7 +200,7 @@ export const workingHours = [
       { day: 2, statusDay: "" },
       { day: 3, statusDay: "" },
       { day: 4, statusDay: "" },
-      { day: 5, statusDay: "UnAvailable" },
+      { day: 5, statusDay: "" },
     ],
   },
   {
@@ -211,7 +211,7 @@ export const workingHours = [
       { day: 2, statusDay: "" },
       { day: 3, statusDay: "" },
       { day: 4, statusDay: "" },
-      { day: 5, statusDay: "UnAvailable" },
+      { day: 5, statusDay: "" },
     ],
   },
   {
@@ -222,7 +222,7 @@ export const workingHours = [
       { day: 2, statusDay: "" },
       { day: 3, statusDay: "" },
       { day: 4, statusDay: "" },
-      { day: 5, statusDay: "UnAvailable" },
+      { day: 5, statusDay: "" },
     ],
   },
   {
@@ -233,7 +233,7 @@ export const workingHours = [
       { day: 2, statusDay: "" },
       { day: 3, statusDay: "" },
       { day: 4, statusDay: "" },
-      { day: 5, statusDay: "UnAvailable" },
+      { day: 5, statusDay: "" },
     ],
   },
 ];

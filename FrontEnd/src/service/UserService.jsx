@@ -22,7 +22,7 @@ export class UserService {
         method: "POST",
         headers: {
           "Access-Control-Allow-Origin": "*",
-          "Content-Type": "multipart/form-data",
+          
         },
         body :JSON.stringify(data)
       }

@@ -11,6 +11,7 @@ import Sidebar from "../components/SideBar";
 import TimeTable from "../components/Entities/Doctor/TimeTable";
 import { FlexWrapperOne } from "../components/Entities/Doctor/Data/DataElemnts";
 import Loading from "./Loading";
+import PatientCard from "../components/Entities/Patient/PatientCard";
 const navLinks = {
     rightButtonName:"LogOut" ,
     rightButtonPath:"/",
@@ -29,7 +30,7 @@ const DoctorHome = () => {
       <Navbar toggle={toggle} {...navLinks} />
       <Hero />
       <FlexWrapperOne>
-        <TimeTable /> <Loading />
+        <TimeTable /> <PatientCard />
       </FlexWrapperOne>
       
       <Consulting {...homeObjTwo} />

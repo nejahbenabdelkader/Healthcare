@@ -23,7 +23,6 @@ import { UserService } from "../../../service/UserService";
 
 const SignIn = () => {
   const dispatch = useDispatch();
-  const [verifiedCredentials, setVerifiedCredentials] = useState(true);
   const [user, setUser] = useState({ email: "", password: "" });
   const handleUserChange = (e) => {
     const id = e.target.id;
@@ -37,11 +36,14 @@ const SignIn = () => {
         return { ...prevState, password: value };
       });
   };
-  
+
   const CheckCredentials = (e) => {
-    
-    new UserService().authenticate(user.email, user.password).then((response) => {
-      if (response.status=="401") {
+    const authenticate = async () => {
+      const response = await new UserService().authenticate(
+        user.email,
+        user.password
+      );
+      if (response.status == "401") {
         e.preventDefault();
         Swal.fire({
           title: "Error!",
@@ -50,15 +52,15 @@ const SignIn = () => {
           confirmButtonText: "Return",
         });
       } else {
-        dispatch(userActions.setLoggedUser(response.data));
         dispatch(userActions.setIsLogged(true));
-        new UserService().getUserWithEmail(response.data.user).then(response=> {
-          dispatch(userActions.setUserData(response.data))
-        })
-  
+        dispatch(userActions.setLoggedUser(response.data));
+        const userData = await new UserService().getUserWithEmail(
+          response.data.user
+        );
+        dispatch(userActions.setUserData(userData.data));
       }
-      
-    });
+    };
+    authenticate();
   };
   return (
     <>
