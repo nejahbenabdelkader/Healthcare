@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import AdminService from '../../../service/AdminService';
 
 const columns = [
   { id: 'fullName', label: 'Full Name', minWidth: 170 },
@@ -18,6 +19,8 @@ const columns = [
   },
   { id: 'gender', label: 'Gender', minWidth: 100 },
 ];
+
+
 
 function createData(fullName, email, phoneNumber, gender) {
   return { fullName, email, phoneNumber, gender, };
@@ -34,9 +37,16 @@ const rows = [
 ];
 
 export default function PatientTable() {
+  const [patientsData,setPatientsData]=React.useState([])
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
+  React.useEffect(()=>{
+        const fetchData=async()=> {
+          const response=await new AdminService().getAllPatients();
+          setPatientsData(response.data)
+        }
+        fetchData()
+  },[])
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -65,7 +75,7 @@ export default function PatientTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows
+            {patientsData
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
@@ -89,7 +99,7 @@ export default function PatientTable() {
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
-        count={rows.length}
+        count={patientsData.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

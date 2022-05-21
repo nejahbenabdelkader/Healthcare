@@ -1,33 +1,23 @@
 import { filter } from 'lodash';
-import { sentenceCase } from 'change-case';
-import { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-// material
+import { useEffect, useState } from 'react';
 import {
   Card,
   Table,
-  Stack,
-  Avatar,
-  Button,
   Checkbox,
   TableRow,
   TableBody,
   TableCell,
   Container,
-  Typography,
   TableContainer,
   TablePagination,
 } from '@mui/material';
 // components
 import Page from './components/Page';
-import Label from './components/Label';
 import Scrollbar from './components/Scrollbar';
-import Iconify from './components/Iconify';
 import SearchNotFound from './components/SearchNotFound';
-import { UserListHead, UserListToolbar, UserMoreMenu } from './sections/@dashboard/user';
-// mock
-import USERLIST from './_mock/user';
-
+import { UserListHead, UserListToolbar } from './sections/@dashboard/user';
+import AdminService from '../../service/AdminService';
+import lodash from 'lodash'
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
@@ -73,20 +63,34 @@ export default function ValidationTable() {
 
   const [selected, setSelected] = useState([]);
   const [orderBy, setOrderBy] = useState('name');
- console.log(selected)
   const [filterName, setFilterName] = useState('');
-
+  const [unactivatedUsers,setUnactivatedUsers]=useState([])
   const [rowsPerPage, setRowsPerPage] = useState(5);
-
+ useEffect(
+    ()=>{
+      const fetchData=async ()=> {
+         const response=await new AdminService().getUnactivatedUsers();
+         setUnactivatedUsers(response.data)
+      }
+      fetchData()
+    }
+ ,[])
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
   };
-
+  const onClickActivateUsers=()=>  {
+    console.log(selected)
+    const sendData=async ()=> {
+       const response= await new AdminService().activateUsers(selected);
+       setSelected([])
+    }
+    sendData()
+  }
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = USERLIST.map((n) => n.id);
+      const newSelecteds = unactivatedUsers.map((n) => n.id);
       setSelected(newSelecteds);
       return;
     }
@@ -122,7 +126,7 @@ export default function ValidationTable() {
   };
 
 
-  const filteredUsers = applySortFilter(USERLIST, getComparator(order, orderBy), filterName);
+  const filteredUsers = applySortFilter(unactivatedUsers, getComparator(order, orderBy), filterName);
 
   const isUserNotFound = filteredUsers.length === 0;
 
@@ -130,7 +134,7 @@ export default function ValidationTable() {
     <Page title="User">
       <Container >
         <Card>
-          <UserListToolbar selected={selected} filterName={filterName} onFilterName={handleFilterByName} />
+          <UserListToolbar selected={selected} filterName={filterName} onFilterName={handleFilterByName} onAddUsers={onClickActivateUsers} />
           <Scrollbar>
             <TableContainer sx={{ minWidth: 800 }}>
               <Table>
@@ -138,7 +142,7 @@ export default function ValidationTable() {
                   order={order}
                   orderBy={orderBy}
                   headLabel={TABLE_HEAD}
-                  rowCount={USERLIST.length}
+                  rowCount={unactivatedUsers.length}
                   numSelected={selected.length}
                   onRequestSort={handleRequestSort}
                   onSelectAllClick={handleSelectAllClick}
@@ -160,7 +164,7 @@ export default function ValidationTable() {
                         <TableCell padding="checkbox">
                           <Checkbox checked={isItemSelected} onChange={(event) => handleClick(event, id)} />
                         </TableCell>
-                        <TableCell align="left">{fullName}</TableCell>
+                        <TableCell align="left">{lodash.startCase(fullName)}</TableCell>
                         <TableCell align="left">{email}</TableCell>
                         <TableCell align="left">{gender}</TableCell>
                         <TableCell align="left">{phoneNumber}</TableCell>
@@ -184,7 +188,7 @@ export default function ValidationTable() {
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}
             component="div"
-            count={USERLIST.length}
+            count={unactivatedUsers.length}
             rowsPerPage={rowsPerPage}
             page={page}
             onPageChange={handleChangePage}

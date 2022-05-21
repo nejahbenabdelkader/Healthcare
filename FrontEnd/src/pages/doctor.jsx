@@ -32,8 +32,6 @@ const DoctorHome = () => {
       <FlexWrapperOne>
         <TimeTable /> <PatientCard />
       </FlexWrapperOne>
-      
-      <Consulting {...homeObjTwo} />
       <Services />
       <Footer />
     </>

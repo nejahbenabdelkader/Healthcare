@@ -37,7 +37,7 @@ UserListToolbar.propTypes = {
 
 
 
-export default function UserListToolbar({ selected, filterName, onFilterName }) {
+export default function UserListToolbar({ selected, filterName, onFilterName, onAddUsers }) {
   const handleClickAddUsers=(e)=>{
     e.preventDefault()
     console.log()
@@ -62,8 +62,8 @@ export default function UserListToolbar({ selected, filterName, onFilterName }) 
           onChange={onFilterName}
           placeholder="Search Users"
           startAdornment={
-            <InputAdornment position="start">
-              <Iconify icon="eva:search-fill" sx={{ color: 'text.disabled', width: 20, height: 20 }} />
+            <InputAdornment position="start" >
+              <Iconify  icon="eva:search-fill" sx={{ color: 'text.disabled', width: 20, height: 20 }}  />
             </InputAdornment>
           }
         />
@@ -71,7 +71,7 @@ export default function UserListToolbar({ selected, filterName, onFilterName }) 
 
       
        
-        <Tooltip title="Add Users">
+        <Tooltip title="Activate Users" onClick={onAddUsers}>
           <IconButton>
             <Iconify icon="eva:plus-fill" />
           </IconButton>

@@ -11,7 +11,8 @@ import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-
+import moment from 'moment'
+import lodash from 'lodash'
  function DoctorRow(props) {
     const { row } = props;
     const [open, setOpen] = React.useState(false);
@@ -29,13 +30,13 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
             </IconButton>
           </TableCell>
           <TableCell component="th" scope="row">
-            {row.fullName}
+            {lodash.startCase(row.fullName)}
           </TableCell>
           <TableCell >{row.phoneNumber}</TableCell>
           <TableCell >{row.email}</TableCell>
           <TableCell >{row.gender}</TableCell>
           <TableCell >{row.speciality}</TableCell>
-          <TableCell >{row.dateInscrit}</TableCell>
+          <TableCell >{moment(row.dateInscrit).format('DD-MMM-yyyy')}</TableCell>
         </TableRow>
         <TableRow>
           <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={12}>
@@ -53,21 +54,19 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {row.firm.map((firmRow) => (
-                      <TableRow key={firmRow.address}>
+                      <TableRow key={row.firm.address}>
                         <TableCell align="center" component="th" scope="row">
-                          {firmRow.address}
+                          {row.firm.address}
                         </TableCell>
-                        <TableCell align="center">{firmRow.town}</TableCell>
+                        <TableCell align="center">{row.firm.town}</TableCell>
                         <TableCell align="center">
                           <a
-                            href={`https://www.google.com/maps/@${firmRow.cordinate}z`}
+                            href={`https://www.google.com/maps/@${row.firm.cordinate}z`}
                           >
-                            {firmRow.cordinate}
+                            {row.firm.cordinate}
                           </a>
                         </TableCell>
                       </TableRow>
-                    ))}
                   </TableBody>
                 </Table>
               </Box>

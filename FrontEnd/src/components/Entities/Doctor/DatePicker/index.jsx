@@ -25,16 +25,25 @@ import { UserService } from "../../../../service/UserService";
 import { AppoitmentService } from "../../../../service/AppoitmentService";
 import { useQueries } from "react-query";
 import moment from 'moment';
-import { ConnectedTv } from "@mui/icons-material";
 import Swal from "sweetalert2";
 const DatePicker = ({ doctorData }) => {
   const [dateAppoitment, setDateAppoitment] = useState(new Date());
   const [unavailableDates, setUnavailableDates] = useState([]);
-  useEffect(async () => {
-    const response = await new AppoitmentService().getAppoitmentByDate(
-      dateAppoitment
-    );
-    setUnavailableDates(response.data);
+  useEffect( () => {
+    const fetchData=async ()=>{
+      const response = await new AppoitmentService().getAppoitmentByDate(
+        dateAppoitment
+      );
+      let sessions=[] 
+      sessions=response.data;
+      
+      doctorData.unavailabeSessions.forEach(date=> {
+        const session=moment(date.unavailableDate,"yyyy-mm-ddThh:mm:ss").add("hours",1).clone()
+        console.log(session)
+        sessions.push(session)})
+      setUnavailableDates(sessions);
+    }
+    fetchData()
   }, [dateAppoitment]);
   const isLogged = useSelector((state) => state.user.isLogged);
   const patientData = useSelector((state) => state.user.userData);
@@ -99,8 +108,6 @@ const DatePicker = ({ doctorData }) => {
       <HoursWrapper>
         {workingHours
           .filter((hour) => {
-            console.log(moment(unavailableDates[0]).hour+ "== "+hour.date.hour)
-            console.log(moment(unavailableDates[0]).get('hour')+" == "+hour.date.minute)
             const index= unavailableDates.findIndex(
               (date) =>
                 moment(date).get('hour') == hour.date.hour &&

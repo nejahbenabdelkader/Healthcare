@@ -65,11 +65,6 @@ const SignUpPatient = (props) => {
   return (
     <Container>
       <FormWrap>
-      <AlertComponent
-        verified={verifiedCredentials}
-        setVerified={setVerifiedCredentials}
-        message="SomeThing Went Wrong"
-      />
       <Box sx={{ width: "100%", backgroundColor: "black" }}>
         <NavbarContainer>
         <Icon to="/" src={Icon1}>

@@ -20,28 +20,54 @@ import {
   TimeTableWrapper,
   Triangle,
 } from "./TimeTableElements";
+import SessionService from "../../../../service/SessionService";
 const TimeTable = () => {
   const [appoitment, setAppoitment] = useState(workingHours);
   const doctorData = useSelector((state) => state.user.userData);
+  const unAvailableSession = doctorData.unavailabeSessions;
   useEffect(async () => {
+    const localDate = moment(new Date(), "yyyy-MM-DD-Thh:mm:ss");
+    unAvailableSession.forEach((date) => {
+      const unAvailableDate = moment(
+        date.unavailableDate,
+        "yyyy-MM-DD-Thh:mm:ss"
+      ).add(1, "hours");
+      console.log(unAvailableDate.format("yyyy-MM-DDThh:mm:ss"));
+      if (localDate.get("week") == unAvailableDate.get("week")) {
+        const date = {
+          hour: unAvailableDate.get("hour"),
+          minute: unAvailableDate.get("minute"),
+          indexOfDay: unAvailableDate.get("weekday") - 1,
+        };
+        console.log(date);
+        setAppoitment((prevState) => {
+          const IndexOfColumn = prevState.findIndex((column) => {
+            return (
+              column.date.hour == date.hour && column.date.minute == date.minute
+            );
+          });
+          if (IndexOfColumn != -1) {
+            let modifiedColumn = prevState[IndexOfColumn];
+            modifiedColumn.status[date.indexOfDay].statusDay = "UnAvailable";
+            let newAppoitment = prevState.slice();
+            newAppoitment[IndexOfColumn] = modifiedColumn;
+            console.log(newAppoitment);
+            return newAppoitment;
+          }
+        });
+      }
+    });
     const response = await new AppoitmentService().getAppoitmentByDoctorId(
       doctorData.id
     );
     if (response.status == 202) {
       console.log(response.data);
-      const localDate = moment(new Date(),"yyyy-MM-DD-Thh:mm:ss");
       response.data.map((appoitment) => {
         const dateAppoitment = moment(
           appoitment.appoitmentDate,
           "yyyy-MM-DD-Thh:mm:ss"
         );
-        console.log(`${dateAppoitment}`)
-        console.log(`week ${localDate.get('weekYear')}  ${dateAppoitment.get('weekYear')}`)
-        console.log(`day ${localDate.get('days')}  ${dateAppoitment.get('day')}`)
-        if (
-          localDate.get("week") == dateAppoitment.get("week")
-          
-        ) {
+        if (localDate.get("week") == dateAppoitment.get("week")) {
           const date = {
             hour: dateAppoitment.add(1, "hour").get("hour"),
             minute: dateAppoitment.get("minute"),
@@ -68,6 +94,26 @@ const TimeTable = () => {
       });
     }
   }, [doctorData]);
+  const handleClickUnAvailable = async () => {
+    const unAvailableSession = [];
+    appoitment.map((date) => {
+      date.status.map((day) => {
+        if (day.statusDay == "UnAvailable") {
+          const time = moment();
+          time.set("weekdays", day.day + 1);
+          time.set("hours", date.date.hour);
+          time.set("minute", date.date.minute);
+          time.set("milliseconds", 0);
+          time.set("seconds", 0);
+          unAvailableSession.push(time);
+        }
+      });
+    });
+    const response = await new SessionService().addSessions(
+      doctorData.id,
+      unAvailableSession
+    );
+  };
   const handleChangeAppoitment = (e) => {
     console.log(e.target.id.split(" "));
     const session = e.target.id.split(" ");
@@ -78,12 +124,12 @@ const TimeTable = () => {
       );
       console.log(IndexOfColumn);
       let modifiedColumn = prevState[IndexOfColumn];
-      modifiedColumn.status[session[0]].statusDay === "Comfort"
-        ? (modifiedColumn.status[session[0]].statusDay = "UnAvailable")
-        : (modifiedColumn.status[session[0]].statusDay = "Comfort");
+      const statusSession = modifiedColumn.status[session[0]].statusDay;
+      if (statusSession === "") modifiedColumn.status[session[0]].statusDay = "UnAvailable";
       let newAppoitment = prevState.slice();
+      console.log(modifiedColumn.status[session[0]].statusDay);
       newAppoitment[IndexOfColumn] = modifiedColumn;
-      console.log(prevState);
+
       return newAppoitment;
     });
   };
@@ -126,7 +172,11 @@ const TimeTable = () => {
         </HoursWrapper>
       </TimeTableWrapper>
       <ButtonsWrapper>
-        <Button variant="contained" color="error">
+        <Button
+          variant="contained"
+          color="error"
+          onClick={handleClickUnAvailable}
+        >
           UnAvailable
         </Button>
         <Button variant="contained" color="success">

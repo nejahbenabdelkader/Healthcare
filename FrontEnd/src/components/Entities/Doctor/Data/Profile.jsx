@@ -18,7 +18,8 @@ import { FiMail } from "react-icons/fi";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-
+import profilePicture from "../../../../images/profilePicture.jpg"
+import { Avatar } from "@mui/material";
 const ProfileDoctor = ({fullName,firm,imageURL,description,phoneNumber}) => {
   const LoggedUser = useSelector((state) => state.user.type);
   const navigate=useHistory();
@@ -28,10 +29,7 @@ const ProfileDoctor = ({fullName,firm,imageURL,description,phoneNumber}) => {
   return (
     <Main>
       <FlexWrapperOne>
-        <ImgWrap
-          img
-          src={imageURL}
-        />
+      <Avatar sx={{width:75,height:75,borderRadius:1,margin:1}}  src={profilePicture} />
         <TextWrap>
           <Title>{fullName}</Title>
           <Description>

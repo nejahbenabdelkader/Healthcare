@@ -38,13 +38,14 @@ const SignIn = () => {
   };
 
   const CheckCredentials = (e) => {
+    
     const authenticate = async () => {
       const response = await new UserService().authenticate(
         user.email,
         user.password
       );
       if (response.status == "401") {
-        e.preventDefault();
+        e.preventDefault()
         Swal.fire({
           title: "Error!",
           text: "Please verify Your Credentials !",
@@ -52,12 +53,22 @@ const SignIn = () => {
           confirmButtonText: "Return",
         });
       } else {
-        dispatch(userActions.setIsLogged(true));
-        dispatch(userActions.setLoggedUser(response.data));
         const userData = await new UserService().getUserWithEmail(
           response.data.user
         );
-        dispatch(userActions.setUserData(userData.data));
+        if (userData.data.activate) {
+          dispatch(userActions.setIsLogged(true));
+          dispatch(userActions.setLoggedUser(response.data));
+          dispatch(userActions.setUserData(userData.data));
+        } else {
+          e.preventDefault()
+          Swal.fire({
+            title: "Your Account is not activated yet !",
+            text: "Please contact our support team",
+            icon: "error",
+            confirmButtonText: "Return",
+          });
+        }
       }
     };
     authenticate();

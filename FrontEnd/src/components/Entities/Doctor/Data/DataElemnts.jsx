@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
-export const ImgWrap = styled.img`
+export const ImgWrap = styled.div`
   width: 75px;
   height: 75px;
-  border: 1px solid #c4c4c4;
   border-radius: 10px;
   margin: 10px;
 `;

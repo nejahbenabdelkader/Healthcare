@@ -13,27 +13,45 @@ import {
     AppCurrentSubject,
     AppConversionRates,
   } from './sections/@dashboard/app';
+import { useEffect, useState } from "react";
+import AdminService from "../../service/AdminService";
 const Dashboard = () => {
+  const [numbers,setNumbers]=useState({
+    "numberOfAllUsers": 0,
+    "numberOfUsersLastMonth": 0,
+    "numberOfDoctors": 0,
+    "numberOfPatient": 0,
+    "numberOfPharmacy": 0
+})
     const theme = useTheme();
-
+    useEffect( ()=> {
+      const fetchData = async ()=> {
+         const response= await new AdminService().getNumbersOfUsers();
+         console.log(response.data)
+         setNumbers(response.data)
+      }  
+      fetchData() 
+     
+    }
+    ,[])
   return (
     <Page title="chart" >
       <Container maxWidth="xl" sx={{mt:15,mr:13}}>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="All Users" color="info" total={714000} icon={'ant-design:user'} />
+            <AppWidgetSummary title="All Users" color="info" total={numbers.numberOfAllUsers} icon={'ant-design:user'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Users Last Month" total={1352831} color="warning" icon={'ant-design:user'} />
+            <AppWidgetSummary title="Users Last Month" total={numbers.numberOfUsersLastMonth} color="warning" icon={'ant-design:user'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Doctors" total={1723315} color="success" icon={'ant-design:user'} />
+            <AppWidgetSummary title="Doctors" total={numbers.numberOfDoctors} color="success" icon={'ant-design:user'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Pharmacies" total={234} color="error" icon={'ant-design:user'} />
+            <AppWidgetSummary title="Pharmacies" total={numbers.numberOfPharmacy} color="error" icon={'ant-design:user'} />
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
@@ -76,9 +94,9 @@ const Dashboard = () => {
             <AppCurrentVisits
               title="Current Users"
               chartData={[
-                { label: 'Doctors', value: 4344 },
-                { label: 'Pharmacy', value: 5435 },
-                { label: 'Patient', value: 1443 },
+                { label: 'Doctors', value: numbers.numberOfDoctors },
+                { label: 'Pharmacy', value: numbers.numberOfPharmacy },
+                { label: 'Patient', value: numbers.numberOfPatient },
               ]}
               chartColors={[
                 theme.palette.primary.main,

@@ -13,8 +13,8 @@ import Navbar from "../components/Navbar";
 import Services from "../components/Services";
 import Sidebar from "../components/SideBar";
 const navLinks = {
-  rightButtonName: "SignIn",
-  rightButtonPath: "/signin",
+  rightButtonName: "Log Out",
+  rightButtonPath: "/",
   navBarLink: ["About", "Consulting", "Services", "SignUp"],
 };
 
