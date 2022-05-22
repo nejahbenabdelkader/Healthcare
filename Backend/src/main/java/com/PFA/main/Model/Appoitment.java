@@ -33,6 +33,8 @@ public class Appoitment {
 
     private String remarques;
 
+    private AppoitmentStatus appoitmentStatus;
+
 
     public Appoitment( User patient, User doctor,Date appoitmentDate, String remarques) {
         this.patient = patient;

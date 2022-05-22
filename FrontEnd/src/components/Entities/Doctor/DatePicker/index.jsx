@@ -36,10 +36,9 @@ const DatePicker = ({ doctorData }) => {
       );
       let sessions=[] 
       sessions=response.data;
-      
       doctorData.unavailabeSessions.forEach(date=> {
-        const session=moment(date.unavailableDate,"yyyy-mm-ddThh:mm:ss").add("hours",1).clone()
-        console.log(session)
+        const session=moment(date.unavailableDate);
+        console.log(session.get("hour"))
         sessions.push(session)})
       setUnavailableDates(sessions);
     }
@@ -48,7 +47,9 @@ const DatePicker = ({ doctorData }) => {
   const isLogged = useSelector((state) => state.user.isLogged);
   const patientData = useSelector((state) => state.user.userData);
   const navigate = useHistory();
-
+  function disableWeekends(date) {
+    return date.getDay() === 0 
+  }
   const handleChangeDateAppoitment = (newValue) => {
     setDateAppoitment(newValue);
   };
@@ -77,6 +78,7 @@ const DatePicker = ({ doctorData }) => {
             patient: patientData,
             doctor: doctorData,
             remarques: "",
+            appoitmentStatus:"SCHEDULED"
           };
           const response = await new AppoitmentService().addAppoitment(appoitment);
           if (response.status == 200) {
@@ -102,6 +104,8 @@ const DatePicker = ({ doctorData }) => {
             value={dateAppoitment}
             onChange={handleChangeDateAppoitment}
             renderInput={(params) => <TextField {...params} />}
+            disablePast
+            shouldDisableDate={disableWeekends}
           />
         </LocalizationProvider>
       </MonthSelector>

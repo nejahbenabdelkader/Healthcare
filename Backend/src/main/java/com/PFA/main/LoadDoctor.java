@@ -53,7 +53,7 @@ public class LoadDoctor implements CommandLineRunner {
 
                     Firm firm = new Firm(csvRecord.get(3), "", csvRecord.get(4),  csvRecord.get(5));
                     String description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book";
-                    User user = new User("doctor", 'm', Reformulate(csvRecord.get(1)) + "@gmail.com", Role.DOCTOR, Reformulate(csvRecord.get(1)), csvRecord.get(2), description,csvRecord.get(6), null, firm,null,Boolean.FALSE,new Date());
+                    User user = new User("doctor", 'm', Reformulate(csvRecord.get(1)) + "@gmail.com", Role.DOCTOR, Reformulate(csvRecord.get(1)), csvRecord.get(2), description,csvRecord.get(6), null, firm,Boolean.TRUE,new Date());
 
                     user.setPassword(passwordEncoder.encode(user.getPassword()));
                     log.info(firm.toString());
@@ -63,7 +63,9 @@ public class LoadDoctor implements CommandLineRunner {
                 }
                 log.info("Added doctors and their firms to ");
             }
-
+            User admin = new User("arige1999", 'f', "arige.sakka1999@gmail.com" , Role.ADMIN, "arigeSakka", "", "","", null, null,Boolean.TRUE,new Date());
+            admin.setPassword(passwordEncoder.encode(admin.getPassword()));
+            userRepository.save(admin);
 
         } catch (IOException e) {
             throw new RuntimeException("fail to parse CSV file: " + e.getMessage());

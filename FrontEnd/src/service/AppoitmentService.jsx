@@ -65,5 +65,20 @@ export class AppoitmentService {
         );
         return { data: await rawResponse.json(), status: rawResponse.status };
       }
+
+      async activateAppoitment(appoitment) {
+        const rawResponse = await fetch(
+          this.URl+"/activate",
+          {
+            method: "Put",
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Content-Type": "application/json",
+            },
+            body:JSON.stringify(appoitment)
+          }
+        );
+        return { data: await rawResponse.json(), status: rawResponse.status };
+      }
     
 }

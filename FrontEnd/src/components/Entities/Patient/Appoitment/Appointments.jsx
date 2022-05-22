@@ -31,10 +31,11 @@ function Appointments() {
           <Th>Status</Th>
         </TrHead>
         {appoitment.map((appoitment) => (
-          <Tr status={appoitment.status}>
+          <Tr status={appoitment.appoitmentStatus}>
             <Td>{moment(appoitment.appoitmentDate).format('DD-MMM-yyyy hh:mm:ss')}</Td>
             <Td>{appoitment.doctor.fullName}</Td>
             <Td>{appoitment.doctor.speciality}</Td>
+            <Td>{appoitment.appoitmentStatus}</Td>
           </Tr>
         ))}
       </Table>

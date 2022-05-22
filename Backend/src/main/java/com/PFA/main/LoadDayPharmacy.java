@@ -24,18 +24,25 @@ public class LoadDayPharmacy implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         log.info("EXECUTING : command line runner");
-        File resource = new ClassPathResource("/dayPharmacy.csv").getFile();
+        File resource = new ClassPathResource("/Pharmacy.csv").getFile();
         try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(new FileInputStream(resource), "UTF-8"));
              CSVParser csvParser = new CSVParser(fileReader,
                      CSVFormat.DEFAULT
                              .withFirstRecordAsHeader());) {
-
+            int i=0;
+            String type;
             Iterable<CSVRecord> csvRecords = csvParser.getRecords();
             if (!pharmacyRepository.existsById(1L)) {
                 for (CSVRecord csvRecord : csvRecords) {
-                    Pharmacy pharmacy = new Pharmacy(csvRecord.get(1), csvRecord.get(0), csvRecord.get(3), csvRecord.get(2), csvRecord.get(4), null);
+                    Pharmacy pharmacy = new Pharmacy(csvRecord.get(1), csvRecord.get(0), csvRecord.get(3), csvRecord.get(2), csvRecord.get(5), null);
                     log.info(pharmacy.toString());
-                    pharmacyRepository.save(pharmacy);
+                    try {
+                        pharmacyRepository.save(pharmacy);
+                    }
+                    catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    i++;
                 }
                 log.info("Added pharmacy ");
             }

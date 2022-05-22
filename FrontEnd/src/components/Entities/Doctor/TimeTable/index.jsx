@@ -22,6 +22,7 @@ import {
 } from "./TimeTableElements";
 import SessionService from "../../../../service/SessionService";
 const TimeTable = () => {
+  const [selectedAppoitment, setSelectedAppoitment] = useState();
   const [appoitment, setAppoitment] = useState(workingHours);
   const doctorData = useSelector((state) => state.user.userData);
   const unAvailableSession = doctorData.unavailabeSessions;
@@ -83,7 +84,7 @@ const TimeTable = () => {
             });
             if (IndexOfColumn != -1) {
               let modifiedColumn = prevState[IndexOfColumn];
-              modifiedColumn.status[date.indexOfDay].statusDay = "Comfort";
+              modifiedColumn.status[date.indexOfDay].statusDay = appoitment.appoitmentStatus;
               let newAppoitment = prevState.slice();
               newAppoitment[IndexOfColumn] = modifiedColumn;
               console.log(newAppoitment);
@@ -115,19 +116,33 @@ const TimeTable = () => {
     );
   };
   const handleChangeAppoitment = (e) => {
-    console.log(e.target.id.split(" "));
     const session = e.target.id.split(" ");
+    console.log(session);
     setAppoitment((prevState) => {
       const IndexOfColumn = prevState.findIndex(
         (column) =>
           column.date.hour === session[1] && column.date.minute === session[2]
       );
-      console.log(IndexOfColumn);
       let modifiedColumn = prevState[IndexOfColumn];
-      const statusSession = modifiedColumn.status[session[0]].statusDay;
-      if (statusSession === "") modifiedColumn.status[session[0]].statusDay = "UnAvailable";
+      if (modifiedColumn.status[session[0]].statusDay === "SCHEDULED") {
+        const dateAppoitment = moment();
+        dateAppoitment.set(
+          "weekday",
+          modifiedColumn.status[session[0]].day + 1
+        );
+        dateAppoitment.set("minute", session[2]);
+        dateAppoitment.set("hour", session[1]);
+        dateAppoitment.set("second", 0);
+        const appoitment = {
+          doctor: doctorData,
+          appoitmentDate: dateAppoitment,
+        };
+        modifiedColumn.status[session[0]].statusDay = "CONFIRMED";
+        new AppoitmentService().activateAppoitment(appoitment);
+      } else if (modifiedColumn.status[session[0]].statusDay === "") {
+        modifiedColumn.status[session[0]].statusDay = "UnAvailable";
+      }
       let newAppoitment = prevState.slice();
-      console.log(modifiedColumn.status[session[0]].statusDay);
       newAppoitment[IndexOfColumn] = modifiedColumn;
 
       return newAppoitment;

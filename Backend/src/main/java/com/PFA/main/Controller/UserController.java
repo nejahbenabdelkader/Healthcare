@@ -74,8 +74,8 @@ public class UserController {
 
 
 
-	@PostMapping(value = "/add" , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public void addUser(@ModelAttribute  User user) throws IOException {
+	@PostMapping(value = "/add")
+	public void addUser(@RequestBody  User user) throws IOException {
 		log.info(user.toString());
 		System.out.println(user.toString());
 		userService.addUser(user);

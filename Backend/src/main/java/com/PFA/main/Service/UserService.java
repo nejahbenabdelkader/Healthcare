@@ -37,9 +37,6 @@ public class UserService implements UserDetailsService {
     @Autowired
     PasswordEncoder passwordEncoder;
     public User loadProfilePicture(User user ) throws IOException {
-        ClassPathResource profilePicture = new ClassPathResource("src/main/resources/photos/" +user.getFullName() + ".jpg");
-        user.setProfilePicture((MultipartFile) profilePicture.getFile());
-        log.info(user.toString());
         return user;
     }
     public User getUserWithId(Long id) throws IOException {
@@ -70,17 +67,14 @@ public class UserService implements UserDetailsService {
     public void addUser(User user) throws IOException {
         if (user.getRole() == Role.DOCTOR) {
             firmRepository.save(user.getFirm());
+            user.setActivate(Boolean.FALSE);
         } else if (user.getRole() == Role.PHARACIEN) {
             pharmacyRepository.save(user.getPharmacy());
+            user.setActivate(Boolean.FALSE);
         }
-        user.setActivate(Boolean.FALSE);
+        else user.setActivate(Boolean.TRUE);
         user.setDateInscrit(new Date());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        Path path = Path.of("src/main/resources/photos/" +user.getFullName() + ".jpg");
-        log.debug(String.valueOf(Files.isDirectory(path)));
-        log.debug(path.toFile().getPath());
-        Files.createDirectories(path.getParent());
-        Files.copy(user.getProfilePicture().getInputStream(), path);
         userRepository.save(user);
     }
     public User getUserByEmail(String email) {
@@ -123,8 +117,8 @@ public class UserService implements UserDetailsService {
     public List<Pharmacy> FindNearbyPharmacy(Pharmacy ph) {
         Float CordinateX = Float.parseFloat(ph.getCordinate().split(",")[0]);
         Float CordinateY = Float.parseFloat(ph.getCordinate().split(",")[1]);
-        List<Pharmacy> PharmacyList = pharmacyRepository.findByType(ph.getType());
-        log.info("Number Of Users : "+ PharmacyList.toArray().length);
+        List<Pharmacy> PharmacyList = pharmacyRepository.findAll();
+        log.info("Number Of Pharmacy : "+ PharmacyList.toArray().length);
         if (ph.getTown().trim().length()!=0) {
             PharmacyList = PharmacyList.stream().filter(pharmacy -> pharmacy.getTown().matches(".*"+ph.getTown()+".*")).collect(Collectors.toList());
             log.info("Number Of Users After Town: " + PharmacyList.toArray().length);

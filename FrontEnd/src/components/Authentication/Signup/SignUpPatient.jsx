@@ -27,16 +27,19 @@ import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { Box } from "@mui/material";
 import { NavbarContainer } from "../Signin/SigninElements";
 import AlertComponent from "../../Elements/Alert";
+import Swal from "sweetalert2";
+import { useHistory } from "react-router-dom";
 
 const SignUpPatient = (props) => {
-  
+  const navigate = useHistory();
   const initialState = {
     fullName: "",
     email: "",
     phoneNumber: "",
     password: "",
     gender: "m",
-    role: "PATIENT"
+    role: "PATIENT",
+    activate:true
   };
   
   const reducer = (state, action) => {
@@ -59,7 +62,12 @@ const SignUpPatient = (props) => {
 
   const sendData = (e) => {
     new UserService().addUser(patient).then(response => console.log(response))
-    console.log(patient);
+    Swal.fire({  
+      title: 'Welcome to My Doctor',   
+      confirmButtonText: `Back to Home`,  
+    }).then(() => {  
+      navigate.push("/");
+    });
   };
   
   return (

@@ -33,8 +33,6 @@ public class User {
     private Boolean activate;
     private Date dateInscrit;
 
-    @Transient
-    private MultipartFile profilePicture;
 
     @OneToOne
     private Pharmacy pharmacy;
@@ -45,7 +43,7 @@ public class User {
     @ManyToMany
    private List<Session> unavailabeSessions;
 
-    public User(String password, char gender, String email, Role role, String fullName, String speciality, String description,String phoneNumber, Pharmacy pharmacy, Firm firm,MultipartFile photo,Boolean activate , Date dateInscrit) {
+    public User(String password, char gender, String email, Role role, String fullName, String speciality, String description,String phoneNumber, Pharmacy pharmacy, Firm firm,Boolean activate , Date dateInscrit) {
         this.password = password;
         this.gender = gender;
         this.email = email;
@@ -56,7 +54,6 @@ public class User {
         this.phoneNumber=phoneNumber;
         this.pharmacy = pharmacy;
         this.firm = firm;
-        this.profilePicture=photo;
         this.activate=activate;
         this.dateInscrit=dateInscrit;
     }

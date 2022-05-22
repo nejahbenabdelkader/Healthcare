@@ -31,13 +31,14 @@ export const Table = styled.table`
   border-collapse: collapse;
   width: 70%;
   margin: auto;
+
   border: 1px solid #FFEEFD;;
-  border-radius: 25px;
+  border-radius: 10px;
 `;
 export const Td = styled.td`
   border: 1px solid #ddd;
   padding: 8px;
-  font-size: 20px;
+  font-size: 25px;
 `;
 export const TrHead = styled.tr`
   text-align: center;
@@ -47,15 +48,16 @@ export const TrHead = styled.tr`
 export const Tr = styled.tr`
   background-color: ${({ status }) => {
     switch (status) {
-      case "Scheduled":
-        return "#F5F5F5";
+      case "SCHEDULED":
+        return "#f4c300";
       case "Canceled":
         return "rgb(255,0,0,0.4)";
-      case "Done":
-        return "rgb(34, 139, 34,0.4)";
+      case "CONFIRMED":
+        return "#01bf71";
     }
   }};
   text-align: center;
+  color:white;
 height:70px;
 `;
 
@@ -64,6 +66,4 @@ export const Th = styled.th`
   padding: 10px;
   text-align: center;
   font-size: 26px;
-  font-family: Serrif;
-  color: #c8c8c8;
 `;

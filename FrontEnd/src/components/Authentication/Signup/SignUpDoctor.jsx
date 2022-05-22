@@ -61,6 +61,7 @@ const initialState = {
   address: "",
   role: "DOCTOR",
   firm: "",
+  activate:false
 };
 
 const SignUpDoctor = (props) => {

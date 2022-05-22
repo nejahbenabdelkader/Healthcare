@@ -26,8 +26,15 @@ public class AppoitmentController {
     AppoitmentService appoitmentService;
 
     @GetMapping("/get/patient")
-    public ResponseEntity<List<Appoitment>> getAppoitmentOfPatientId(@RequestParam String patientEmail) {
-         return new ResponseEntity<List<Appoitment>>(appoitmentService.getAppoitmentWithId(patientEmail), HttpStatus.ACCEPTED);
+    public ResponseEntity<List<Appoitment>> getAppoitmentOfPatientId(@RequestParam Long patientId) {
+
+        return new ResponseEntity<List<Appoitment>>(appoitmentService.getAppoitmentWithId(patientId), HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping("/get/doctor")
+    public ResponseEntity<List<Appoitment>> getAppoitmentOfDoctorId(@RequestParam Long doctorId) {
+
+        return new ResponseEntity<List<Appoitment>>(appoitmentService.getAppoitmentWithDoctorId(doctorId), HttpStatus.ACCEPTED);
     }
 
     @GetMapping("/get/date")
@@ -45,5 +52,9 @@ public class AppoitmentController {
         appoitmentService.addAppoitment(appoitment);
     }
 
+    @PutMapping("/activate")
+    public void activateAppoitment(@RequestBody Appoitment appoitment) {
+        appoitmentService.activateAppoitment(appoitment);
+    }
 
 }

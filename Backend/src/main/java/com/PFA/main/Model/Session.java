@@ -15,6 +15,7 @@ public class Session {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private Date unavailableDate;
 
     @ManyToMany

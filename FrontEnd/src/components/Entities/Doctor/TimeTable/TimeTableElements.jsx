@@ -14,7 +14,8 @@ export const DateBox = styled.button`
   &:hover {
     cursor:pointer;
   }
-  ${({ statusBox }) => statusBox === "Comfort" && "background:#01bf71;"};
+  ${({ statusBox }) => statusBox === "CONFIRMED" && "background:#01bf71;"};
+  ${({ statusBox }) => statusBox === "SCHEDULED" && "background:#f4c300;"};
   ${({ statusBox }) => statusBox === "UnAvailable" && "background:#ff4842;"};
 `;
 
